@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rlt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>كتالوج المنتجات - Viasun</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;700&family=Cairo:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Cairo", sans-serif;
+        background-color: #f9f5f2;
+        font-weight: 300;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+        font-weight: 300;
+      }
+
+      :root {
+        --primary: #ba5e08;
+        --accent: #d4af37;
+        --text-dark: #4a2c0b;
+      }
+    </style>
+  </head>
+
+  <body class="">
+    <!-- Navbar -->
+    <header class="bg-white shadow-md fixed top-0 w-full z-50">
+      <div
+        class="max-w-7xl mx-auto px-6 md:px-12 py-6 flex justify-between items-center"
+      >
+        <h1 class="text-4xl font-light" style="color: var(--primary)">
+          VIASUN
+        </h1>
+        <nav
+          class="hidden md:flex space-x-8 space-x-reverse text-lg font-light"
+        >
+          <a
+            href="index.html"
+            class="hover:text-[var(--accent)] transition"
+            style="color: var(--primary)"
+            >الرئيسية</a
+          >
+          <a
+            href="#"
+            class="hover:text-[var(--accent)] transition font-medium"
+            style="color: var(--primary)"
+            >المنتجات</a
+          >
+          <a
+            href="#"
+            class="hover:text-[var(--accent)] transition"
+            style="color: var(--primary)"
+            >المجموعات</a
+          >
+          <a
+            href="#"
+            class="hover:text-[var(--accent)] transition"
+            style="color: var(--primary)"
+            >عننا</a
+          >
+          <a
+            href="#contact"
+            class="hover:text-[var(--accent)] transition"
+            style="color: var(--primary)"
+            >تواصل</a
+          >
+        </nav>
+        <div class="md:hidden text-3xl cursor-pointer">☰</div>
+      </div>
+    </header>
+
+    <!-- عنوان الصفحة -->
+    <section
+      class="text-center py-24 bg-gradient-to-b from-[#f9f5f2] to-white mt-20"
+    >
+      <h2
+        class="text-5xl md:text-6xl font-extralight mb-6"
+        style="color: var(--primary)"
+      >
+        منتجاتنا الفاخرة
+      </h2>
+      <p class="text-xl font-light" style="color: var(--text-dark)">
+        اختاري ما يناسب ذوقكِ وتواصلي معنا للطلب مباشرة عبر واتساب
+      </p>
+    </section>
+
+    <!-- عرض المنتجات -->
+    <section class="max-w-7xl mx-auto px-6 py-16">
+      <div
+        id="products-grid"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12"
+      >
+        <div class="text-center text-gray-500 py-20 font-light">
+          جاري تحميل المنتجات...
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="bg-[#b58930] from-indigo-900 to-purple-900 text-[#000000] py-16"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 text-[#000000]"
+      >
+        <!-- About -->
+        <div>
+          <h3
+            class="footer-title text-2xl font-light mb-6 flex items-center gap-3"
+          >
+            <div class="icon-circle text-[#000000]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            About the store
+          </h3>
+          <p class="text-[#000000] leading-relaxed mb-4">
+            غزة , خانيونس<br />
+            فلسطين
+          </p>
+          <p class="text-[#000000] mb-2">+970 59 123 4567</p>
+          <p class="text-[#000000]">info@viasun.com</p>
+        </div>
+
+        <!-- Latest News -->
+        <div>
+          <h3
+            class="footer-title text-2xl font-light mb-6 flex items-center gap-3"
+          >
+            <div class="icon-circle text-[#000000]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
+                />
+              </svg>
+            </div>
+            latest news
+          </h3>
+          <div class="space-y-6">
+            <div class="flex gap-4">
+              <img
+                src="../assets/hero-section.jpg"
+                alt="news"
+                class="w-16 h-16 object-cover rounded-lg"
+              />
+              <div>
+                <p class="text-[#000000] text-sm leading-relaxed">
+                  وصلنا تشكيلة جديدة من العطور الفرنسية الفاخرة
+                </p>
+                <p class="text-[#000000] text-xs mt-1">28 ديسمبر 2025</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <img
+                src="../assets/hero-section2.jpg"
+                alt="news"
+                class="w-16 h-16 object-cover rounded-lg"
+              />
+              <div>
+                <p class="text-[#000000] text-sm leading-relaxed">
+                  عروض خاصة على مجموعة المكياج الشتوية
+                </p>
+                <p class="text-[#000000] text-xs mt-1">25 ديسمبر 2025</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Information -->
+        <div>
+          <h3
+            class="footer-title text-2xl font-light mb-6 flex items-center gap-3"
+          >
+            <div class="icon-circle text-[#000000]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            information
+          </h3>
+          <ul class="space-y-3 text-[#000000]">
+            <li>
+              <a href="#" class="hover:text-pink-300 transition"
+                >About the store</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-pink-300 transition">Products</a>
+            </li>
+            <li><a href="#" class="hover:text-pink-300 transition">Blog</a></li>
+            <li>
+              <a href="#" class="hover:text-pink-300 transition">Contact us</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-pink-300 transition"
+                >Support and assistance</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Instagram -->
+        <div>
+          <h3
+            class="footer-title text-2xl font-light mb-6 flex items-center gap-3"
+          >
+            <div class="icon-circle text-[#000000]">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                class="w-5 h-5"
+              >
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.059 1.69.073 4.948.073 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44 0 .795.645 1.44 1.441 1.44.795 0 1.44-.645 1.44-1.44 0-.794-.645-1.44-1.44-1.44z"
+                />
+              </svg>
+            </div>
+            Instagram
+          </h3>
+          <div class="grid grid-cols-3 gap-3">
+            <a
+              href="https://www.instagram.com/rana.store97/"
+              target="_blank"
+              class="block"
+            >
+              <img
+                src="../assets/makeup/makeup-1.jpg"
+                alt="Instagram 1"
+                class="rounded-lg object-cover w-full h-24 hover:opacity-80 transition"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/rana.store97/"
+              target="_blank"
+              class="block"
+            >
+              <img
+                src="../assets/makeup/makeup-1.jpg"
+                alt="Instagram 2"
+                class="rounded-lg object-cover w-full h-24 hover:opacity-80 transition"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/rana.store97/"
+              target="_blank"
+              class="block"
+            >
+              <img
+                src="../assets/makeup/makeup-1.jpg"
+                alt="Instagram 3"
+                class="rounded-lg object-cover w-full h-24 hover:opacity-80 transition"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/rana.store97/"
+              target="_blank"
+              class="block"
+            >
+              <img
+                src="../assets/makeup/makeup-4.jpg"
+                alt="Instagram 4"
+                class="rounded-lg object-cover w-full h-24 hover:opacity-80 transition"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/rana.store97/"
+              target="_blank"
+              class="block"
+            >
+              <img
+                src="../assets/makeup/makeup-4.jpg"
+                alt="Instagram 5"
+                class="rounded-lg object-cover w-full h-24 hover:opacity-80 transition"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/rana.store97/"
+              target="_blank"
+              class="block"
+            >
+              <img
+                src="../assets/makeup/makeup-6.jpg"
+                alt="Instagram 6"
+                class="rounded-lg object-cover w-full h-24 hover:opacity-80 transition"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div
+        class="mt-16 pt-8 border-t border-black/20 text-center text-[#000000] text-md"
+      >
+        Copyright © 2025 Viasun Cosmetics. جميع الحقوق محفوظة.
+      </div>
+    </footer>
+
+    <script>
+      fetch("data/makeup.json")
+        .then((response) => {
+          if (!response.ok) throw new Error("مشكلة في تحميل المنتجات");
+          return response.json();
+        })
+        .then((products) => {
+          const grid = document.getElementById("products-grid");
+          grid.innerHTML = "";
+
+          products.forEach((product) => {
+            const card = document.createElement("div");
+            card.className =
+              "bg-white rounded-3xl shadow-xl overflow-hidden transform hover:scale-105 transition duration-500";
+
+            card.innerHTML = `
+            <div class="relative overflow-hidden group">
+              <img src="${product.image}" alt="${
+              product.name
+            }" class="w-full h-96 object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end justify-center pb-10">
+                <p class="text-white text-xl font-light">اضغطي للتواصل عبر واتساب</p>
+              </div>
+            </div>
+            <div class="p-10 text-center">
+              <h3 class="text-3xl font-light mb-4" style="color: var(--primary);">${
+                product.name
+              }</h3>
+              <p class="text-gray-700 mb-8 leading-relaxed text-lg font-light">${
+                product.description
+              }</p>
+              <p class="text-4xl font-light mb-10" style="color: var(--primary);">${
+                product.price
+              }</p>
+              <a href="https://wa.me/972566911223?text=مرحبا%20VIASUN,%0Aأنا%20مهتمة%20بـ:%20${encodeURIComponent(
+                product.name
+              )}%0Aالسعر:%20${encodeURIComponent(product.price)}%0Aشكراً!"
+                 target="_blank"
+                 class="inline-block bg-[var(--primary)] text-white px-12 py-5 rounded-full font-medium hover:bg-[var(--accent)] transition shadow-lg text-xl">
+                تواصلي معنا الآن
+              </a>
+        </div>
+        `;
+            grid.appendChild(card);
+          });
+        })
+        .catch((error) => {
+          document.getElementById("products-grid").innerHTML = `
+        <p class="text-center text-red-600 text-3xl col-span-full py-20">حدث خطأ في تحميل المنتجات: ${error.message}</p>`;
+        });
+    </script>
+  </body>
+</html>
