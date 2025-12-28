@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Viasun Cosmetics</title>
+    <link rel="icon" href="assets/favicon.jpg" type="image/png" />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="bg-white">
+    <!-- ================= NAVBAR ================= -->
+    <header class="absolute top-0 left-0 w-full z-20">
+      <div
+        class="max-w-7xl mx-auto px-6 md:px-12 py-6 flex justify-between items-center text-white"
+      >
+        <h1 class="text-3xl font-semibold">VIASUN</h1>
+        <nav class="hidden md:flex space-x-6 uppercase text-sm tracking-wider">
+          <a href="#" class="hover:opacity-70 text-[#fabda3]">Home</a>
+          <a href="#" class="hover:opacity-70 text-[#fabda3]">Shop</a>
+          <a href="#" class="hover:opacity-70 text-[#fabda3]">Collections</a>
+          <a href="#" class="hover:opacity-70 text-[#fabda3]">About</a>
+          <a href="#" class="hover:opacity-70 text-[#fabda3]">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ================= HERO ================= -->
+    <section
+      class="relative h-[90vh] w-full bg-cover bg-center flex items-center"
+      style="
+        background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9');
+      "
+    >
+      <!-- overlay -->
+      <div class="absolute inset-0 bg-black/30"></div>
+
+      <!-- content -->
+      <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 text-white">
+        <h2 class="text-5xl md:text-6xl font-light mb-4">
+          Look & Feel <span class="font-semibold">Modern</span>
+        </h2>
+
+        <p
+          class="uppercase tracking-[16px] text-sm md:text-base mt-6 opacity-80 font-light"
+        >
+          Cosmetics By Viasun
+        </p>
+
+        <a
+          href="../Catalog-Page/catalog.html"
+          class="mt-8 inline-block bg-white text-[#a34d1f] px-8 py-3 text-sm font-semibold hover:bg-black hover:text-white transition"
+        >
+          Shop Now
+        </a>
+      </div>
+    </section>
+
+    <!-- ================= COLLAGE IMAGES ================= -->
+    <div class="relative z-10 -mt-32">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 items-end">
+          <!-- Image 1 -->
+          <div class="overflow-hidden h-72 md:h-80 group shadow-2xl rounded-xl">
+            <div class="relative overflow-hidden h-full rounded-xl">
+              <img
+                src="../assets/makeup/makeup-1.jpg"
+                alt="Rainbow eyeshadow"
+                class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:-translate-y-6 rounded-xl"
+              />
+            </div>
+          </div>
+
+          <!-- Image 2 -->
+          <div class="overflow-hidden h-72 md:h-80 group shadow-2xl rounded-xl">
+            <div class="relative overflow-hidden h-full rounded-xl">
+              <img
+                src="../assets/makeup/makeup-6.jpg"
+                alt="Makeup brushes"
+                class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:-translate-y-6 rounded-xl"
+              />
+            </div>
+          </div>
+
+          <!-- Image 3 (taller & lifted) -->
+          <div
+            class="overflow-hidden h-80 md:h-96 md:-mt-8 lg:-mt-12 group shadow-2xl rounded-xl"
+          >
+            <div class="relative overflow-hidden h-full rounded-xl">
+              <img
+                src="../assets/makeup/makeup-3.jpg"
+                alt="Woman in red hat"
+                class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:-translate-y-6 rounded-xl"
+              />
+            </div>
+          </div>
+
+          <!-- Image 4 -->
+          <div class="overflow-hidden h-72 md:h-80 group shadow-2xl rounded-xl">
+            <div class="relative overflow-hidden h-full rounded-xl">
+              <img
+                src="../assets/makeup/makeup-4.jpg"
+                alt="Pink cosmetics"
+                class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:-translate-y-6 rounded-xl"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= SPACER ================= -->
+    <div class="h-32"></div>
+  </body>
+</html>
