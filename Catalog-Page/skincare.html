@@ -22,20 +22,22 @@
         font-family: "Playfair Display", serif;
         font-weight: 300;
       }
-
       /* الهيدر يختفي عند السكرول لتحت ويظهر عند الرجوع فوق */
+
       header {
         transition: transform 0.4s ease;
       }
+
       header.hide {
         transform: translateY(-100%);
       }
-
       /* تحسين الموبايل مينيو */
+
       #mobile-menu {
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(10px);
       }
+
       #mobile-menu a {
         font-size: 1.25rem;
         padding: 1rem 2rem;
@@ -57,9 +59,9 @@
             class="md:w-[50px] rounded-full w-[30px]"
           />
           <h1
-            class="text-xl md:text-4xl font-extrabold text-[#6b0f1a] mb-4 fade-scale-bounce fade-scale-bounce-delay tracking-wide"
+            class="text-md md:text-3xl font-extrabold text-[#6b0f1a] mb-4 fade-scale-bounce fade-scale-bounce-delay tracking-wide"
           >
-            ـــRanaــStore
+            Rana Store
           </h1>
         </div>
 
@@ -106,7 +108,9 @@
             class="text-[#e5989b] hover:text-[#8b1d2c] transition"
             >قسم الحقائب</a
           >
-          <a href="#" class="text-[#e5989b] hover:text-[#8b1d2c] transition"
+          <a
+            href="#about-us"
+            class="text-[#e5989b] hover:text-[#8b1d2c] transition"
             >من نحن</a
           >
           <a
@@ -152,7 +156,7 @@
           >قسم المكياج</a
         >
         <a
-          href="#"
+          href="clothes.html"
           class="block px-8 py-5 border-b border-gray-100 hover:bg-[#f9f5f2] transition text-lg"
           >قسم الملابس</a
         >
@@ -162,12 +166,12 @@
           >قسم العناية بالشعر والجسم</a
         >
         <a
-          href=""
+          href="magat.html"
           class="block px-8 py-5 border-b border-gray-100 hover:bg-[#f9f5f2] transition text-lg"
           >قسم مجات</a
         >
         <a
-          href="#"
+          href="#about-us"
           class="block px-8 py-5 border-b border-gray-100 hover:bg-[#f9f5f2] transition text-lg"
           >من نحن</a
         >
@@ -271,7 +275,7 @@
 
         <div class="relative max-w-7xl mx-auto px-4 md:px-8 py-12">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-[#fff0f5]">
-            <div class="flex flex-col items-start p-4 rounded-lg">
+            <div class="flex flex-col items-start p-4 rounded-lg" id="about-us">
               <!-- عنوان المتجر -->
               <div class="flex items-center gap-3 mb-4">
                 <div class="bg-pink-400/20 p-3 rounded-full">

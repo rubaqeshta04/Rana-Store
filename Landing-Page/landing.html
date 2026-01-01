@@ -12,7 +12,6 @@
       href="https://fonts.google.com/specimen/Cairo?referrer=grok.com"
       rel="stylesheet"
     />
-
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap"
       rel="stylesheet"
@@ -29,15 +28,17 @@
         margin: 0;
         padding: 0;
       }
+
       h1,
       h2,
       h3 {
         font-family: "Playfair Display", serif;
       }
 
-      /* ==================== NAVBAR ==================== */
       header#header {
         transition: transform 0.4s ease, background 0.3s ease;
+        z-index: 50;
+        background: white;
       }
 
       header#header.hide {
@@ -48,8 +49,8 @@
         font-size: 2rem;
         font-weight: 600;
       }
+      /* Mobile menu */
 
-      /* ==================== MOBILE MENU ==================== */
       #mobile-menu {
         position: fixed;
         top: 0;
@@ -98,11 +99,10 @@
         font-size: 1.3rem;
       }
 
-      /* روابط المنيو مع هوفر بينك وترانزيشن */
       #mobile-menu a {
         color: white;
-        font-size: 1.5rem;
-        margin: 1rem 0;
+        font-size: 1.4rem;
+        margin: 0.9rem 0;
         text-transform: uppercase;
         font-weight: 600;
         letter-spacing: 1px;
@@ -111,42 +111,10 @@
       }
 
       #mobile-menu a:hover {
-        color: #ff69b4; /* بينك قوي */
-        transform: translateX(-15px); /* حركة خفيفة لليسار */
+        color: #ff69b4;
+        transform: translateX(-15px);
       }
 
-      /* ==================== HERO ==================== */
-      section.hero {
-        position: relative;
-        height: 85vh;
-        width: 100%;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-      }
-
-      section.hero .overlay {
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.1);
-      }
-
-      /* ==================== COLLAGE IMAGES ==================== */
-      .collage img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 1s ease;
-      }
-
-      .collage .group:hover img {
-        transform: scale(1.1);
-      }
-
-      /* ==================== PRODUCTS ==================== */
       .product-card {
         background: white;
         border-radius: 1rem;
@@ -169,26 +137,25 @@
       .product-card:hover img {
         transform: scale(1.1);
       }
-
-      /* ==================== FOOTER ==================== */
     </style>
   </head>
+
   <body class="bg-white">
-    <!-- ================= NAVBAR ================= -->
-    <header id="header">
+    <!-- NAVBAR -->
+    <header id="header" class="fixed w-full top-0 shadow-md">
       <div
         class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-5 lg:py-6 flex items-center justify-between"
       >
-        <div class="flex items-start justify-start gap-2">
+        <div class="flex items-center justify-start gap-2">
           <img
             src="../assets/logo-rana.png"
             alt=""
             class="md:w-[50px] rounded-full w-[30px]"
           />
           <h1
-            class="text-xl md:text-4xl font-extrabold text-[#6b0f1a] mb-4 fade-scale-bounce fade-scale-bounce-delay tracking-wide"
+            class="text-md md:text-3xl font-extrabold text-[#6b0f1a] tracking-wide"
           >
-            ـــRanaــStore
+            Rana Store
           </h1>
         </div>
 
@@ -196,104 +163,68 @@
         <nav class="hidden md:flex items-center gap-6 lg:gap-10 text-[#e5989b]">
           <a
             href="../index.html"
-            class="relative hover:text-[#e5989b]/60 transition-colors duration-300"
+            class="hover:text-[#e5989b]/60 transition-colors duration-300"
+            >الرئيسية</a
           >
-            الرئيسية
-            <span
-              class="absolute left-0 bottom-0 w-full h-[2px] bg-[#8b1d2c] opacity-0 hover:opacity-100 transition-opacity duration-300"
-            ></span>
-          </a>
           <a
             href="#"
-            class="relative hover:text-[#e5989b]/60 transition-colors duration-300"
+            class="hover:text-[#e5989b]/60 transition-colors duration-300"
+            >العروض</a
           >
-            العروض
-            <span
-              class="absolute left-0 bottom-0 w-full h-[2px] bg-[#8b1d2c] opacity-0 hover:opacity-100 transition-opacity duration-300"
-            ></span>
-          </a>
-
           <a
             href="../Catalog-Page/perfumes.html"
-            class="relative hover:text-[#e5989b]/60 transition-colors duration-300"
+            class="hover:text-[#e5989b]/60 transition-colors duration-300"
+            >قسم العطور</a
           >
-            قسم العطور
-            <span
-              class="absolute left-0 bottom-0 w-full h-[2px] bg-[#8b1d2c] opacity-0 hover:opacity-100 transition-opacity duration-300"
-            ></span>
-          </a>
           <a
             href="../Catalog-Page/makeup.html"
-            class="relative hover:text-[#e5989b]/60 transition-colors duration-300"
+            class="hover:text-[#e5989b]/60 transition-colors duration-300"
+            >قسم المكياج</a
           >
-            قسم المكياج
-            <span
-              class="absolute left-0 bottom-0 w-full h-[2px] bg-[#8b1d2c] opacity-0 hover:opacity-100 transition-opacity duration-300"
-            ></span>
-          </a>
           <a
-            href="../Catalog-Page/"
-            class="relative hover:text-[#e5989b]/60 transition-colors duration-300"
+            href="../Catalog-Page/clothes.html"
+            class="hover:text-[#e5989b]/60 transition-colors duration-300"
+            >قسم الملابس</a
           >
-            قسم الملابس
-            <span
-              class="absolute left-0 bottom-0 w-full h-[2px] bg-[#8b1d2c] opacity-0 hover:opacity-100 transition-opacity duration-300"
-            ></span>
-          </a>
           <a
             href="../Catalog-Page/skincare.html"
-            class="relative hover:text-[#e5989b]/60 transition-colors duration-300"
+            class="hover:text-[#e5989b]/60 transition-colors duration-300"
+            >قسم العناية بالبشرة</a
           >
-            قسم العناية بالبشرة
-            <span
-              class="absolute left-0 bottom-0 w-full h-[2px] bg-[#8b1d2c] opacity-0 hover:opacity-100 transition-opacity duration-300"
-            ></span>
-          </a>
           <a
             href="../Catalog-Page/magat.html"
-            class="relative hover:text-[#e5989b]/60 transition-colors duration-300"
+            class="hover:text-[#e5989b]/60 transition-colors duration-300"
+            >قسم مجات</a
           >
-            قسم مجات
-            <span
-              class="absolute left-0 bottom-0 w-full h-[2px] bg-[#8b1d2c] opacity-0 hover:opacity-100 transition-opacity duration-300"
-            ></span>
-          </a>
           <a
-            href="#"
-            class="relative hover:text-[#e5989b]/60 transition-colors duration-300"
+            href="#about-us"
+            class="hover:text-[#e5989b]/60 transition-colors duration-300"
+            >من نحن</a
           >
-            من نحن
-            <span
-              class="absolute left-0 bottom-0 w-full h-[2px] bg-[#8b1d2c] opacity-0 hover:opacity-100 transition-opacity duration-300"
-            ></span>
-          </a>
           <a
-            href="https://www.instagram.com/rana.store97?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            href="https://www.instagram.com/rana.store97"
             target="_blank"
-            class="relative hover:text-[#e5989b]/60 transition-colors duration-300"
+            class="hover:text-[#e5989b]/60 transition-colors duration-300"
+            >تواصل معنا</a
           >
-            تواصل معنا
-            <span
-              class="absolute left-0 bottom-0 w-full h-[2px] bg-[#8b1d2c] opacity-0 hover:opacity-100 transition-opacity duration-300"
-            ></span>
-          </a>
         </nav>
 
         <!-- Mobile Button -->
-        <button id="menu-btn" class="md:hidden z-50">
-          <i id="menu-icon" class="fa-solid fa-bars text-2xl"></i>
+        <button id="menu-btn" class="md:hidden z-50 p-2">
+          <i class="fa-solid fa-bars text-2xl"></i>
         </button>
       </div>
     </header>
 
-    <!-- ================= MOBILE SIDE MENU ================= -->
+    <!-- MOBILE MENU -->
     <div id="mobile-menu" class="md:hidden">
       <div id="close-menu-btn">
         <i class="fa-solid fa-xmark"></i>
       </div>
-
-      <a href="https://wa.me/972566911223" target="_blank">تواصل معنا</a>
-      <a href="#">من نحن</a>
+      <a href="https://www.instagram.com/rana.store97" target="_blank"
+        >تواصل معنا</a
+      >
+      <a href="#about-us">من نحن</a>
       <a href="../Catalog-Page/perfumes.html">قسم العطور</a>
       <a href="../Catalog-Page/makeup.html">قسم المكياج</a>
       <a href="../Catalog-Page/clothes.html">قسم الملابس </a>
@@ -301,46 +232,37 @@
       <a href="../Catalog-Page/bag.html">قسم الحقائب</a>
       <a href="../Catalog-Page/magat.html">قسم مجات </a>
       <a href="#">العروض</a>
-      <a href="#">الرئيسية</a>
+      <a href="../index.html">الرئيسية</a>
     </div>
 
-    <!-- ================= HERO ================= -->
-
+    <!-- HERO SECTION -->
     <section
-      class="hero relative h-screen w-full bg-cover bg-center bg-no-repeat flex items-center justify-center"
+      class="hero relative h-screen w-full bg-cover bg-center flex items-center justify-center"
       style="background-image: url('../assets/hero-section2.jpg')"
     >
       <div class="overlay absolute inset-0 bg-black/40"></div>
-
-       <div
-    class="absolute right-0 top-1/2 -translate-y-1/2 z-10 max-w-xl px-10 text-right text-white"
-  >
-    <!-- العنوان -->
-    <h2
-      class="text-3xl sm:text-5xl md:text-4xl font-bold leading-tight"
-      style="font-family: 'Amiri', serif"
-    >
-      اكتشفي جمالكِ الحقيقي
-      <span
-        class="block mt-5 text-[#6b0f1a]  text-4xl sm:text-6xl md:text-5xl"
+      <div
+        class="absolute right-0 top-1/2 -translate-y-1/2 z-10 max-w-xl px-10 text-right text-white"
       >
-        مع رنا ستور
-      </span>
-    </h2>
-
-    <!-- التصنيفات -->
-
-
-    <!-- الوصف -->
-    <p
-      class="mt-10 text-base md:text-lg leading-relaxed text-white/85"
-      style="font-family: 'Cairo', sans-serif"
-    >
-      تشكيلة فاخرة مختارة بعناية لكل امرأة تبحث عن التميز والثقة  
-      <br />
-      من قلب غزة، بكل حب وحرفية 💗
-    </p>
-  
+        <h2
+          class="text-3xl sm:text-5xl md:text-4xl font-bold leading-tight"
+          style="font-family: 'Amiri', serif"
+        >
+          اكتشفي جمالكِ الحقيقي
+          <span
+            class="block mt-5 text-[#6b0f1a] text-4xl sm:text-6xl md:text-5xl"
+            >مع رنا ستور</span
+          >
+        </h2>
+        <p
+          class="mt-10 text-base md:text-lg leading-relaxed text-white/85"
+          style="font-family: 'Cairo', sans-serif"
+        >
+          تشكيلة فاخرة مختارة بعناية لكل امرأة تبحث عن التميز والثقة
+          <br />
+          من قلب غزة، بكل حب وحرفية 💗
+        </p>
+      </div>
     </section>
 
     <!-- ================= 6 FEATURED CARDS UNDER HERO ================= -->
@@ -718,7 +640,10 @@
           class="absolute inset-0 bg-gradient-to-b from-[#6b0f1a]/90 to-[#8b1d2c]/95"
         ></div>
 
-        <div class="relative max-w-7xl mx-auto px-4 md:px-8 py-12">
+        <div
+          class="relative max-w-7xl mx-auto px-4 md:px-8 py-12"
+          id="about us"
+        >
           <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-[#fff0f5]">
             <div class="flex flex-col items-start p-4 rounded-lg">
               <!-- عنوان المتجر -->
@@ -801,9 +726,7 @@
                       />
                     </svg>
                   </div>
-                  <a href="#about" class="hover:text-pink-400 transition"
-                    >من نحن</a
-                  >
+                  <a href="" class="hover:text-pink-400 transition">من نحن</a>
                 </li>
 
                 <!-- سياسة الخصوصية -->
@@ -820,7 +743,7 @@
                       />
                     </svg>
                   </div>
-                  <a href="#privacy" class="hover:text-pink-400 transition"
+                  <a href="" class="hover:text-pink-400 transition"
                     >سياسة الخصوصية</a
                   >
                 </li>
@@ -939,5 +862,18 @@
 
     <!-- ================= SCRIPTS ================= -->
     <script src="js/main.js"></script>
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const closeBtn = document.getElementById("close-menu-btn");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.add("open");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+      });
+    </script>
   </body>
 </html>
