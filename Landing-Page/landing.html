@@ -140,7 +140,7 @@
     </style>
   </head>
 
-  <body class="bg-white">
+  <body class="bg-white scroll-smooth">
     <!-- NAVBAR -->
     <header id="header" class="fixed w-full top-0 shadow-md">
       <div
@@ -237,10 +237,10 @@
 
     <!-- HERO SECTION -->
     <section
-      class="hero relative h-screen w-full bg-cover bg-center flex items-center justify-center"
+      class="hero h-screen w-full bg-cover bg-center flex items-center justify-center"
       style="background-image: url('../assets/hero-section2.jpg')"
     >
-      <div class="overlay absolute inset-0 bg-black/40"></div>
+      <div class="overlay absolute inset-0 bg-black/30"></div>
       <div
         class="absolute right-0 top-1/2 -translate-y-1/2 z-10 max-w-xl px-10 text-right text-white"
       >
@@ -262,16 +262,42 @@
           <br />
           من قلب غزة، بكل حب وحرفية 💗
         </p>
+        <div class="flex justify-start mt-5">
+          <a href="#products" class="inline-block">
+            <button
+              class="relative inline-block px-8 py-3 text-lg md:text-xl font-semibold rounded-full bg-[#f6c1cc]/90 text-[#6b0f1a] hover:bg-[#6b0f1a] hover:text-white shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 fade-scale-bounce fade-scale-bounce-delay-3 btn-hover"
+            >
+              تسوق الآن
+            </button>
+          </a>
+        </div>
       </div>
     </section>
 
     <!-- ================= 6 FEATURED CARDS UNDER HERO ================= -->
-    <div class="sm:-mt-20 md:-mt-32 relative z-20">
+    <!-- ================= الأقسام المميزة ================= -->
+    <section
+      class="py-16 md:py-24 bg-gradient-to-b from-white to-[#f9f5f2]"
+      id="products"
+    >
       <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <!-- العنوان في الوسط -->
+        <div class="text-center mb-12 md:mb-16">
+          <h2
+            class="text-4xl md:text-6xl font-extralight tracking-widest text-[#6b0f1a]"
+          >
+            اكتشفي <span class="font-bold text-[#8b1d2c]">أقسامنا</span> المميزة
+          </h2>
+          <p class="mt-4 text-lg text-[#6b0f1a]/80">
+            تشكيلة مختارة بعناية تناسب ذوقكِ وأناقتكِ اليومية
+          </p>
+        </div>
+
+        <!-- الـ 6 كاردات -->
         <div
-          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6"
+          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8"
         >
-          <!-- كارد 1 -->
+          <!-- كارد 1 - المكياج -->
           <a href="../Catalog-Page/makeup.html" class="group block">
             <div
               class="bg-[#f6c1cc]/80 backdrop-blur-sm border-4 border-[#6b0f1a]/20 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:border-[#6b0f1a]/50"
@@ -290,7 +316,7 @@
             </div>
           </a>
 
-          <!-- كارد 2 -->
+          <!-- كارد 2 - العطور -->
           <a href="../Catalog-Page/perfumes.html" class="group block">
             <div
               class="bg-[#f6c1cc]/80 backdrop-blur-sm border-4 border-[#6b0f1a]/20 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:border-[#6b0f1a]/50"
@@ -309,7 +335,7 @@
             </div>
           </a>
 
-          <!-- كارد 3 -->
+          <!-- كارد 3 - الملابس -->
           <a href="../Catalog-Page/clothes.html" class="group block">
             <div
               class="bg-[#f6c1cc]/80 backdrop-blur-sm border-4 border-[#6b0f1a]/20 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:border-[#6b0f1a]/50"
@@ -328,7 +354,7 @@
             </div>
           </a>
 
-          <!-- كارد 4 -->
+          <!-- كارد 4 - المجات -->
           <a href="../Catalog-Page/magat.html" class="group block">
             <div
               class="bg-[#f6c1cc]/80 backdrop-blur-sm border-4 border-[#6b0f1a]/20 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:border-[#6b0f1a]/50"
@@ -347,7 +373,7 @@
             </div>
           </a>
 
-          <!-- كارد 5 -->
+          <!-- كارد 5 - الحقائب -->
           <a href="../Catalog-Page/bag.html" class="group block">
             <div
               class="bg-[#f6c1cc]/80 backdrop-blur-sm border-4 border-[#6b0f1a]/20 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:border-[#6b0f1a]/50"
@@ -366,7 +392,7 @@
             </div>
           </a>
 
-          <!-- كارد 6 -->
+          <!-- كارد 6 - العناية -->
           <a href="../Catalog-Page/skincare.html" class="group block">
             <div
               class="bg-[#f6c1cc]/80 backdrop-blur-sm border-4 border-[#6b0f1a]/20 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:border-[#6b0f1a]/50"
@@ -386,250 +412,11 @@
           </a>
         </div>
       </div>
-    </div>
-
-    <!-- ================= FEATURED MAKEUP ================= -->
-    <section class="py-20 bg-gray-50 mt-[200px]" id="makeup">
-      <div class="max-w-7xl mx-auto px-6 md:px-12">
-        <div class="text-center mb-12">
-          <h2 class="text-4xl md:text-5xl font-light mb-4">
-            المكياج <span class="font-semibold text-[#e5989b]">المميز</span>
-          </h2>
-          <p
-            class="uppercase tracking-[8px] text-xl opacity-70 text-[#b78292] mt-5"
-          >
-            افضل مكياج الموسم
-          </p>
-        </div>
-        <div
-          id="makeup-container"
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-        >
-          <div class="text-center text-gray-500 py-10 col-span-full">
-            Loading makeup products...
-          </div>
-        </div>
-        <div class="text-end mt-12">
-          <a
-            href="../Catalog-Page/makeup.html"
-            class="inline-block text-[#6b0f1a] bg-[#ffcdb2] rounded-xl px-6 py-4 text-md font-semibold hover:text-[#fff] hover:bg-black transition duration-300 uppercase tracking-wider"
-          >
-            تسوق جميع التشكيلة
-          </a>
-        </div>
-      </div>
     </section>
 
-    <!-- ================= FEATURED PERFUMES ================= -->
-    <section class="py-20 bg-white" id="perfumes">
-      <div class="max-w-7xl mx-auto px-6 md:px-12">
-        <div class="text-center mb-12">
-          <h2 class="text-4xl md:text-5xl font-light mb-4">
-            العطور <span class="font-semibold text-[#e5989b]">المميزة</span>
-          </h2>
-          <p
-            class="uppercase tracking-[8px] text-xl opacity-70 text-[#b78292] mt-5"
-          >
-            افضل عطور الموسم
-          </p>
-        </div>
-        <div
-          id="perfumes-container"
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-        >
-          <div class="text-center text-gray-500 py-10 col-span-full">
-            Loading perfumes...
-          </div>
-        </div>
-        <div class="text-end mt-12">
-          <a
-            href="../Catalog-Page/perfumes.html"
-            class="inline-block text-[#6b0f1a] bg-[#ffcdb2] rounded-xl px-6 py-4 text-md font-semibold hover:text-[#fff] hover:bg-black transition duration-300 uppercase tracking-wider"
-          >
-            تسوق جميع التشكيلة
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= FEATURED Skincare ================= -->
-    <section class="py-20 bg-white" id="skincare">
-      <div class="max-w-7xl mx-auto px-6 md:px-12">
-        <div class="text-center mb-12">
-          <h2 class="text-4xl md:text-5xl font-light mb-4">
-            العناية<span class="font-semibold text-[#e5989b]">
-              بالجسم والشعر
-            </span>
-          </h2>
-          <p
-            class="uppercase tracking-[8px] text-xl opacity-70 text-[#b78292] mt-5"
-          >
-            افضل تشيكلة للعناية بالجسم والشعر
-          </p>
-        </div>
-        <div
-          id="skincare-container"
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-        >
-          <div class="text-center text-gray-500 py-10 col-span-full">
-            Loading perfumes...
-          </div>
-        </div>
-        <div class="text-end mt-12">
-          <a
-            href="../Catalog-Page/skincare.html"
-            class="inline-block text-[#6b0f1a] bg-[#ffcdb2] rounded-xl px-6 py-4 text-md font-semibold hover:text-[#fff] hover:bg-black transition duration-300 uppercase tracking-wider"
-          >
-            تسوق جميع التشكيلة
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= FEATURED Bag ================= -->
-    <section class="py-20 bg-white" id="bag">
-      <div class="max-w-7xl mx-auto px-6 md:px-12">
-        <div class="text-center mb-12">
-          <h2 class="text-4xl md:text-5xl font-light mb-4">
-            الحقائب <span class="font-semibold text-[#e5989b]">المميزة</span>
-          </h2>
-          <p
-            class="uppercase tracking-[8px] text-xl opacity-70 text-[#b78292] mt-5"
-          >
-            افضل تشكيلة من الحقائب والطواقي
-          </p>
-        </div>
-        <div
-          id="bag-container"
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-        >
-          <div class="text-center text-gray-500 py-10 col-span-full">
-            Loading perfumes...
-          </div>
-        </div>
-        <div class="text-end mt-12">
-          <a
-            href="../Catalog-Page/bag.html"
-            class="inline-block text-[#6b0f1a] bg-[#ffcdb2] rounded-xl px-6 py-4 text-md font-semibold hover:text-[#fff] hover:bg-black transition duration-300 uppercase tracking-wider"
-          >
-            تسوق جميع التشكيلة
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= FEATURED Magat ================= -->
-    <section class="py-20 bg-white" id="magat">
-      <div class="max-w-7xl mx-auto px-6 md:px-12">
-        <div class="text-center mb-12">
-          <h2 class="text-4xl md:text-5xl font-light mb-4">
-            المجات <span class="font-semibold text-[#e5989b]">المميزة</span>
-          </h2>
-          <p
-            class="uppercase tracking-[8px] text-xl opacity-70 text-[#b78292] mt-5"
-          >
-            افضل تشيكلة من المجات
-          </p>
-        </div>
-        <div
-          id="magat-container"
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-        >
-          <div class="text-center text-gray-500 py-10 col-span-full">
-            Loading perfumes...
-          </div>
-        </div>
-        <div class="text-end mt-12">
-          <a
-            href="../Catalog-Page/magat.html"
-            class="inline-block text-[#6b0f1a] bg-[#ffcdb2] rounded-xl px-6 py-4 text-md font-semibold hover:text-[#fff] hover:bg-black transition duration-300 uppercase tracking-wider"
-          >
-            تسوق جميع التشكيلة
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= FEATURED Bag ================= -->
-    <section class="py-20 bg-white" id="clothes">
-      <div class="max-w-7xl mx-auto px-6 md:px-12">
-        <div class="text-center mb-12">
-          <h2 class="text-4xl md:text-5xl font-light mb-4">
-            تشكيلة من الملابس
-            <span class="font-semibold text-[#e5989b]">المميزة</span>
-          </h2>
-          <p
-            class="uppercase tracking-[8px] text-xl opacity-70 text-[#b78292] mt-5"
-          >
-            افضل تشكيلة من الملابس
-          </p>
-        </div>
-        <div
-          id="clothes-container"
-          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-        >
-          <div class="text-center text-gray-500 py-10 col-span-full">
-            Loading perfumes...
-          </div>
-        </div>
-        <div class="text-end mt-12">
-          <a
-            href="../Catalog-Page/clothes.html"
-            class="inline-block text-[#6b0f1a] bg-[#ffcdb2] rounded-xl px-6 py-4 text-md font-semibold hover:text-[#fff] hover:bg-black transition duration-300 uppercase tracking-wider"
-          >
-            تسوق جميع التشكيلة
-          </a>
-        </div>
-      </div>
-    </section>
     <!-- ================= FOOTER ================= -->
 
     <footer class="relative overflow-hidden">
-      <div class="bg-[#fff0f5] py-12">
-        <div
-          class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between"
-        >
-          <div class="text-left mb-6 md:mb-0">
-            <p
-              class="text-md uppercase tracking-wider text-[#8b1d2c]/80 font-medium"
-            >
-              جاهزة لتجربة الجمال الذي يليق بكِ؟
-            </p>
-            <p class="text-lg text-[#8b1d2c]/60 mt-1">→</p>
-          </div>
-
-          <div class="text-center">
-            <h2 class="text-3xl md:text-5xl font-bold text-[#8b1d2c] mb-4">
-              تواصلي معنا
-            </h2>
-            <div class="w-24 h-1 bg-pink-400 mx-auto rounded-full"></div>
-          </div>
-
-          <div class="mt-6 md:mt-0">
-            <a
-              href="https://www.instagram.com/rana.store97"
-              target="_blank"
-              class="inline-block bg-pink-400 w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:scale-110 hover:shadow-pink-400/70 transition-all duration-500"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="3"
-                class="w-8 h-8 text-[#8b1d2c]"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
       <div class="relative bg-[#6b0f1a]">
         <img
           src="../assets/footer-bg.jpg"

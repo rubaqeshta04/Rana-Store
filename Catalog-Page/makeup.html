@@ -45,163 +45,35 @@
     </style>
   </head>
 
-  <body class="">
-    <!-- Navbar -->
-    <header id="header" class="bg-white shadow-md fixed top-0 w-full z-50">
-      <div
-        class="max-w-7xl mx-auto px-6 md:px-12 py-3 flex justify-between items-center"
-      >
-        <!-- لوجو -->
-        <div class="flex items-start justify-start gap-2">
-          <img
-            src="../assets/logo-rana.png"
-            alt=""
-            class="md:w-[40px] rounded-full w-[30px]"
-          />
-          <h1
-            class="text-md md:text-3xl font-extrabold text-[#6b0f1a] mb-4 fade-scale-bounce fade-scale-bounce-delay tracking-wide"
-          >
-            Rana Store
-          </h1>
-        </div>
+  <body class="bg-[#f9f5f2] text-[#2b2b2b] antialiased leading-relaxed">
+    <div class="fixed top-6 right-6 z-50">
+      <a href="../Landing-Page/landing.html">
+        <button
+          class="px-6 py-2.5 text-sm md:text-[20px] font-medium rounded-full bg-white/90 text-[#6b0f1a] shadow-lg backdrop-blur hover:bg-[#6b0f1a] hover:text-white transition-all duration-300 active:scale-95"
+        >
+          ← رجوع للصفحة الرئيسية
+        </button>
+      </a>
+    </div>
 
-        <!-- Desktop Menu -->
-        <nav
-          id="nav-menu"
-          class="hidden md:flex items-center gap-4 lg:gap-8 text-base"
-        >
-          <a
-            href="../Landing-Page/landing.html"
-            class="text-[#e5989b] hover:text-[#8b1d2c] transition"
-            >الرئيسية</a
-          >
-          <a href="#" class="text-[#e5989b] hover:text-[#8b1d2c] transition"
-            >العروض</a
-          >
-          <a
-            href="perfumes.html"
-            class="text-[#e5989b] hover:text-[#8b1d2c] transition"
-            >قسم العطور</a
-          >
-          <a
-            href="makeup.html"
-            class="text-[#e5989b] hover:text-[#8b1d2c] transition"
-            >قسم المكياج</a
-          >
-          <a
-            href="clothes.html"
-            class="text-[#e5989b] hover:text-[#8b1d2c] transition"
-            >قسم الملابس</a
-          >
-          <a
-            href="skincare.html"
-            class="text-[#e5989b] hover:text-[#8b1d2c] transition"
-            >قسم العناية بالجسم والشعر
-          </a>
-          <a
-            href="magat.html"
-            class="text-[#e5989b] hover:text-[#8b1d2c] transition"
-            >قسم مجات</a
-          >
-          <a
-            href="#about-us"
-            class="text-[#e5989b] hover:text-[#8b1d2c] transition"
-            >من نحن</a
-          >
-          <a
-            href="https://www.instagram.com/rana.store97/"
-            target="_blank"
-            class="text-[#e5989b] hover:text-[#8b1d2c] transition"
-            >تواصل معنا</a
-          >
-        </nav>
-
-        <!-- Mobile Menu Button -->
-        <div
-          id="menu-btn"
-          class="md:hidden text-2xl cursor-pointer text-[#6b0f1a]"
-        >
-          ☰
-        </div>
-      </div>
-
-      <!-- Mobile Dropdown Menu - تحسين المنظر على الجوال -->
-      <nav
-        id="mobile-menu"
-        class="hidden md:hidden flex-col bg-white w-full shadow-xl absolute top-full left-0"
-      >
-        <a
-          href="../Landing-Page/landing.html"
-          class="block px-8 py-5 border-b border-gray-100 hover:bg-[#f9f5f2] transition text-lg"
-          >الرئيسية</a
-        >
-        <a
-          href="#"
-          class="block px-8 py-5 border-b border-gray-100 hover:bg-[#f9f5f2] transition text-lg"
-          >العروض</a
-        >
-        <a
-          href="perfumes.html"
-          class="block px-8 py-5 border-b border-gray-100 hover:bg-[#f9f5f2] transition text-lg"
-          >قسم العطور</a
-        >
-        <a
-          href="makeup.html"
-          class="block px-8 py-5 border-b border-gray-100 hover:bg-[#f9f5f2] transition text-lg"
-          >قسم المكياج</a
-        >
-        <a
-          href="clothes.html"
-          class="block px-8 py-5 border-b border-gray-100 hover:bg-[#f9f5f2] transition text-lg"
-          >قسم الملابس</a
-        >
-        <a
-          href="skincare.html"
-          class="block px-8 py-5 border-b border-gray-100 hover:bg-[#f9f5f2] transition text-lg"
-          >قسم العناية بالشعر والجسم</a
-        >
-        <a
-          href=""
-          class="block px-8 py-5 border-b border-gray-100 hover:bg-[#f9f5f2] transition text-lg"
-          >قسم مجات</a
-        >
-        <a
-          href="#about-us"
-          class="block px-8 py-5 border-b border-gray-100 hover:bg-[#f9f5f2] transition text-lg"
-          >من نحن</a
-        >
-        <a
-          href="https://www.instagram.com/rana.store97/"
-          target="_blank"
-          class="block px-8 py-5 hover:bg-[#f9f5f2] transition text-lg"
-          >تواصل معنا</a
-        >
-      </nav>
-    </header>
-
-    <!-- عنوان الصفحة -->
-    <section
-      class="text-center py-32 bg-gradient-to-b from-[#f9f5f2] to-white mt-20"
-    >
+    <!-- عنوان القسم -->
+    <section class="text-center py-32 bg-gradient-to-b from-[#f9f5f2] to-white">
       <h2 class="text-5xl md:text-7xl font-extralight tracking-widest mb-8">
-        <span class="text-[#8b1d2c]">منتجاتنا</span>
-        <span class="text-[#8b1d2c]"> الفاخرة</span>
+        <span class="text-[#8b1d2c]">منتجاتنا الفاخرة</span>
       </h2>
-      <p class="text-xl font-medium text-[#000000]">
-        اختاري ما يناسب ذوقكِ وتواصلي معنا للطلب مباشرة عبر انستجرام
+      <p class="text-xl font-medium text-black">
+        اختاري ما يناسبكِ وتواصلي معنا مباشرة عبر إنستغرام
       </p>
     </section>
 
-    <!-- عرض المنتجات -->
-    <section class="max-w-7xl mx-auto px-6 py-16">
+    <!-- المنتجات -->
+    <section id="products" class="max-w-7xl mx-auto px-6 py-16">
       <div
         id="products-grid"
         class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8"
-      >
-        <!-- المنتجات هتتحمل هنا -->
-      </div>
+      ></div>
 
-      <!-- زر "عرض المزيد" -->
+      <!-- زر عرض المزيد -->
       <div class="text-center mt-16">
         <button
           id="load-more"
@@ -213,51 +85,6 @@
     </section>
 
     <footer class="relative overflow-hidden">
-      <div class="bg-[#fff0f5] py-12">
-        <div
-          class="max-w-7xl mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between"
-        >
-          <div class="text-left mb-6 md:mb-0">
-            <p
-              class="text-md uppercase tracking-wider text-[#8b1d2c]/80 font-medium"
-            >
-              جاهزة لتجربة الجمال الذي يليق بكِ؟
-            </p>
-            <p class="text-lg text-[#8b1d2c]/60 mt-1">→</p>
-          </div>
-
-          <div class="text-center">
-            <h2 class="text-3xl md:text-5xl font-bold text-[#8b1d2c] mb-4">
-              تواصلي معنا
-            </h2>
-            <div class="w-24 h-1 bg-pink-400 mx-auto rounded-full"></div>
-          </div>
-
-          <div class="mt-6 md:mt-0">
-            <a
-              href="https://www.instagram.com/rana.store97"
-              target="_blank"
-              class="inline-block bg-pink-400 w-16 h-16 rounded-full flex items-center justify-center shadow-lg hover:scale-110 hover:shadow-pink-400/70 transition-all duration-500"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="3"
-                class="w-8 h-8 text-[#8b1d2c]"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-
       <div class="relative bg-[#6b0f1a]">
         <img
           src="../assets/footer-bg.jpg"
@@ -488,82 +315,53 @@
     </footer>
 
     <script>
-      // إخفاء/إظهار الهيدر عند السكرول
-      let lastScrollY = window.scrollY;
-      const header = document.getElementById("header");
-
-      window.addEventListener("scroll", () => {
-        const currentScrollY = window.scrollY;
-
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-          header.classList.add("hide");
-        } else {
-          header.classList.remove("hide");
-        }
-
-        lastScrollY = currentScrollY;
-      });
-
-      // الموبايل مينيو
-      const menuBtn = document.getElementById("menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
-      });
-
-      document.querySelectorAll("#mobile-menu a").forEach((link) => {
-        link.addEventListener("click", () => {
-          mobileMenu.classList.add("hidden");
-        });
-      });
-
-      // تحميل المنتجات مع pagination
       let page = 1;
       const productsPerPage = 10;
 
       function loadProducts() {
         fetch("./data/makeup.json")
-          .then((response) => {
-            if (!response.ok) throw new Error("مشكلة في تحميل المنتجات");
-            return response.json();
+          .then((res) => {
+            if (!res.ok) throw new Error("خطأ في تحميل البيانات");
+            return res.json();
           })
           .then((allProducts) => {
             const grid = document.getElementById("products-grid");
             const start = (page - 1) * productsPerPage;
             const end = start + productsPerPage;
-            const products = allProducts.slice(start, end);
 
-            products.forEach((product) => {
-              const card = document.createElement("div");
-              card.className =
-                "bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition duration-300";
-
-              // رسالة عامة بسيطة (بدون اسم أو سعر أو وصف لتجنب undefined)
+            allProducts.slice(start, end).forEach((product) => {
               const messageText = `مرحبا رنا ستور 💗\nمهتمة بهذه الحقيبة، أرجو التفاصيل والسعر\nالصورة: ${product.image}`;
               const encodedMessage = encodeURIComponent(messageText);
               const instagramLink = `https://ig.me/m/rana.store97?text=${encodedMessage}`;
 
+              const card = document.createElement("div");
+              card.className =
+                "bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition flex flex-col";
+
               card.innerHTML = `
-            <div class="relative overflow-hidden group rounded-3xl cursor-pointer">
-              <img 
-                src="${product.image}" 
-                alt="حقيبة" 
-                class="w-full h-56 md:h-64 object-cover transition duration-500 group-hover:scale-110"
-              >
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 flex items-end justify-center pb-6">
-                <p class="text-white text-sm md:text-base font-light">تواصلي عبر إنستغرام</p>
-              </div>
-              <!-- زر التواصل يظهر عند الـ hover فقط -->
-              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500">
-                <a href="${instagramLink}" 
-                   target="_blank"
-                   class="bg-[#000000] text-[#e5989b] px-8 py-4 rounded-full font-medium shadow-2xl text-lg">
+            <!-- صورة المنتج -->
+            <div class="relative group ">
+              <img src="${product.image}" alt="منتج" class="w-full h-56 md:h-64 object-cover transition duration-500 group-hover:scale-105">
+              
+              <!-- Hover optional للديسكتوب -->
+              <div class="absolute inset-0 hidden md:flex items-center justify-center
+                          bg-black/70 opacity-0 group-hover:opacity-100 transition duration-500">
+                <span class="bg-black text-[#e5989b] px-8 py-4 rounded-full font-medium shadow-2xl text-md hidden md:flex">
                   تواصلي عبر إنستغرام 💬
-                </a>
+                </span>
               </div>
             </div>
+
+            <!-- زر التواصل أسفل الكرت -->
+            <div class="p-4 text-center ">
+              <a href="${instagramLink}" target="_blank"
+                 class="block bg-[#8b1d2c] text-white font-medium p-2 rounded-full shadow-md
+                        hover:bg-[#f6c1cc] hover:text-[#8b1d2c] transition-all duration-300 md:hidden flex">
+                اضغطي للتواصل على إنستغرام💬
+              </a>
+            </div>
           `;
+
               grid.appendChild(card);
             });
 
@@ -574,9 +372,7 @@
 
             page++;
           })
-          .catch((error) => {
-            console.error("خطأ في تحميل المنتجات:", error);
-          });
+          .catch((err) => console.error(err));
       }
 
       // تحميل الصفحة الأولى
