@@ -316,28 +316,37 @@
       </div>
     </footer>
 
-    <!-- قبل نهاية body -->
     <script>
       const { createClient } = supabase;
+
+      // إعداد Supabase
       const client = createClient(
-        "https://ugydxstdlgoscasfgsjp.supabase.co",
-        "sb_publishable_6ck_EPZftVoWFpPm7F_eAg_eXr9Yl_3" // حطي الكي الكامل هنا
+        "https://ugydxstdlgoscasfgsjp.supabase.co", // URL مشروعك
+        "sb_publishable_6ck_EPZftVoWFpPm7F_eAg_eXr9Yl_3", // Publishable Key فقط
       );
 
       let page = 1;
       const productsPerPage = 10;
+      let currentCategory = "عناية"; // الفئة الافتراضية
 
-      async function loadProducts() {
+      // الوظيفة لجلب وعرض المنتجات
+      async function loadProducts(category = currentCategory) {
+        currentCategory = category;
+
+        // إعادة ضبط الصفحة إذا تغيرت الفئة
+        if (page === 1) {
+          document.getElementById("products-grid").innerHTML = "";
+          document.getElementById("load-more").style.display = "block";
+        }
+
         const start = (page - 1) * productsPerPage;
         const end = start + productsPerPage - 1;
 
         const { data: products, error } = await client
           .from("Products")
           .select("*")
+          .eq("category", category)
           .range(start, end);
-
-        console.log("البيانات المجلبة:", products);
-        console.log("الخطأ (إذا فيه):", error);
 
         if (error) {
           console.error("خطأ في جلب البيانات:", error);
@@ -362,9 +371,7 @@
             "bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition flex flex-col";
           card.innerHTML = `
         <div class="relative group">
-          <img src="${p.image || "https://via.placeholder.com/300"}" alt="${
-            p.name
-          }" class="w-full h-56 md:h-64 object-cover transition duration-500 group-hover:scale-105">
+          <img src="${p.image || "https://via.placeholder.com/300"}" alt="${p.name}" class="w-full h-56 md:h-64 object-cover transition duration-500 group-hover:scale-105">
         </div>
         <div class="p-4 flex flex-col flex-1">
           <h3 class="font-bold text-lg mb-2">${p.name}</h3>
@@ -380,6 +387,7 @@
           grid.appendChild(card);
         });
 
+        // إذا كانت كمية المنتجات أقل من الحد الأقصى، أخفي زر عرض المزيد
         if (products.length < productsPerPage) {
           document.getElementById("load-more").style.display = "none";
         }
@@ -387,13 +395,32 @@
         page++;
       }
 
-      // تحميل أول صفحة
-      loadProducts();
-
       // زر عرض المزيد
-      document
-        .getElementById("load-more")
-        .addEventListener("click", loadProducts);
+      document.getElementById("load-more").addEventListener("click", () => {
+        loadProducts();
+      });
+
+      // الوظيفة لإنشاء أزرار الفئات (يمكنك تعديلها حسب الفئات الموجودة)
+      const categories = ["عناية", "شعر", "مكياج"];
+      const categoryContainer = document.createElement("div");
+      categoryContainer.className = "flex justify-center gap-4 mb-8";
+      categories.forEach((cat) => {
+        const btn = document.createElement("button");
+        btn.innerText = cat;
+        btn.className =
+          "px-6 py-2 rounded-full bg-[#8b1d2c] text-white hover:bg-[#f6c1cc] hover:text-[#8b1d2c] transition";
+        btn.addEventListener("click", () => {
+          page = 1; // إعادة ضبط الصفحة عند تغيير الفئة
+          loadProducts(cat);
+        });
+        categoryContainer.appendChild(btn);
+      });
+
+      // أضف أزرار الفئات قبل شبكة المنتجات
+      document.getElementById("products").prepend(categoryContainer);
+
+      // تحميل الصفحة الأولى تلقائيًا
+      loadProducts();
     </script>
   </body>
 </html>
