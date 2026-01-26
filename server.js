@@ -11,8 +11,8 @@ app.use(express.json({ limit: "50mb" })); // لدعم الصور الكبيرة 
 //          الاتصال بـ Supabase (استخدم service_role key فقط هنا)
 // ────────────────────────────────────────────────
 const supabase = createClient(
-  "https://ugydxstdlgoscasfgsjp.supabase.co",
-  "sb_secret_IQYrEP4LvRlkL_4SrLIW1A_0oiuhGDu", 
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
 // ────────────────────────────────────────────────
