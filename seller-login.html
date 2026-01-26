@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>دخول البائع</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Cairo", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen relative">
+    <div
+      class="absolute inset-0 bg-cover bg-center"
+      style="background-image: url(&quot;public/assets/login.jpg&quot;)"
+    ></div>
+
+    <div class="absolute inset-0 bg-black/60"></div>
+
+    <div class="relative min-h-screen flex items-center justify-center p-6">
+      <div
+        class="bg-white/90 backdrop-blur-xl p-10 rounded-3xl shadow-2xl w-full max-w-md"
+      >
+        <h1 class="text-3xl font-bold text-[#8b1d2c] mb-2 text-center">
+          دخول البائع
+        </h1>
+        <p class="text-gray-600 mb-8 text-center">لوحة التحكم الخاصة بالبائع</p>
+
+        <form id="sellerForm" class="space-y-5">
+          <input
+            id="email"
+            type="email"
+            required
+            placeholder="البريد الإلكتروني"
+            class="w-full border p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8b1d2c]"
+          />
+
+          <input
+            id="password"
+            type="password"
+            required
+            placeholder="كلمة المرور"
+            class="w-full border p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#8b1d2c]"
+          />
+
+          <button
+            type="submit"
+            class="w-full bg-[#8b1d2c] text-white py-4 rounded-xl font-bold text-lg hover:bg-[#6b0f1a] transition shadow-lg"
+          >
+            دخول لوحة الإدارة
+          </button>
+        </form>
+
+        <p class="text-sm text-gray-500 text-center mt-6">
+          دخول مخصص للبائعين فقط
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const form = document.getElementById("sellerForm");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        if (!email || !password) {
+          alert("يرجى ملء الإيميل وكلمة المرور");
+          return;
+        }
+
+        try {
+          const res = await fetch("http://localhost:3000/api/seller/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
+          });
+
+          const result = await res.json();
+
+          if (!res.ok) {
+            alert(result.error || "بيانات الدخول غير صحيحة");
+            return;
+          }
+
+          localStorage.setItem("seller", JSON.stringify(result.user));
+
+          window.location.href = "admin.html";
+        } catch (err) {
+          console.error("خطأ في الاتصال:", err);
+          alert("تعذر الاتصال بالخادم، تأكدي أن السيرفر شغال");
+        }
+      });
+    </script>
+  </body>
+</html>
