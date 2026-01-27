@@ -66,6 +66,9 @@
     </div>
 
     <script>
+      // رابط الـ Worker الخاص بالـ Back-end
+      const API_URL = "https://rana-api.rana-api.workers.dev";
+
       const form = document.getElementById("sellerForm");
 
       form.addEventListener("submit", async (e) => {
@@ -80,7 +83,7 @@
         }
 
         try {
-          const res = await fetch("http://localhost:3000/api/seller/login", {
+          const res = await fetch(`${API_URL}/seller/login`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

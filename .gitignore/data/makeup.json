@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "image": "../assets/makeup/makeup1.jpeg"
+  },
+  {
+    "id": 2,
+    "image": "../assets/makeup/makeup2.jpeg"
+  },
+  {
+    "id": 3,
+    "image": "../assets/makeup/makeup3.jpeg"
+  },
+  {
+    "id": 4,
+    "image": "../assets/makeup/makeup4.jpeg"
+  },
+  {
+    "id": 5,
+    "image": "../assets/makeup/makeup5.jpeg"
+  }
+]
