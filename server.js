@@ -66,7 +66,7 @@ app.post("/api/seller/login", async (req, res) => {
 app.get("/api/products", async (req, res) => {
   try {
     const { category } = req.query; // استقبال الفئة من الرابط
-    
+
     let query = supabase
       .from("Products")
       .select("*")
@@ -224,7 +224,15 @@ app.put("/api/products/:id", async (req, res) => {
 // ────────────────────────────────────────────────
 //          تشغيل السيرفر
 // ────────────────────────────────────────────────
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`السيرفر يعمل على http://localhost:${PORT}`);
-});
+// ────────────────────────────────────────────────
+//          تشغيل السيرفر
+// ────────────────────────────────────────────────
+const PORT = process.env.PORT || 3000;
+
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => {
+    console.log(`السيرفر يعمل على http://localhost:${PORT}`);
+  });
+}
+
+export default app;
