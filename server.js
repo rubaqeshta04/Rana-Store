@@ -61,14 +61,23 @@ app.post("/api/seller/login", async (req, res) => {
 });
 
 // ────────────────────────────────────────────────
-//          جلب جميع المنتجات (مفتوح للجميع حالياً)
+//          جلب جميع المنتجات (مع دعم الفلتر حسب الفئة)
 // ────────────────────────────────────────────────
 app.get("/api/products", async (req, res) => {
   try {
-    const { data, error } = await supabase
+    const { category } = req.query; // استقبال الفئة من الرابط
+    
+    let query = supabase
       .from("Products")
       .select("*")
       .order("id", { ascending: false });
+
+    // إذا تم تحديد فئة، نقوم بالتصفية بناءً عليها
+    if (category) {
+      query = query.eq("category", category);
+    }
+
+    const { data, error } = await query;
 
     if (error) throw error;
 
