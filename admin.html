@@ -7,6 +7,7 @@
   <title>لوحة إدارة رنا ستور</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <style>
     body {
       font-family: "Cairo", sans-serif;
@@ -79,13 +80,30 @@
     <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
   </div>
 
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <script>
+    function showToast(message, isError = false) {
+      Toastify({
+        text: message,
+        duration: 3000,
+        gravity: "top",
+        position: "center",
+        style: {
+          background: isError ? "linear-gradient(to right, #ff5f6d, #ffc371)" : "linear-gradient(to right, #00b09b, #96c93d)",
+          fontFamily: "Cairo",
+          borderRadius: "10px"
+        },
+      }).showToast();
+    }
+
     const currentSeller = JSON.parse(localStorage.getItem("seller"));
 
     if (!currentSeller || currentSeller.role !== "seller") {
-      alert("غير مصرّح لك بالدخول إلى لوحة الإدارة");
-      localStorage.removeItem("seller");
-      window.location.href = "seller-login.html";
+      showToast("غير مصرّح لك بالدخول إلى لوحة الإدارة", true);
+      setTimeout(() => {
+        localStorage.removeItem("seller");
+        window.location.href = "seller-login.html";
+      }, 1500);
     }
 
     console.log("مرحباً يا " + currentSeller.name);
@@ -182,14 +200,14 @@
       const image = document.getElementById("image").value.trim();
       const category = document.getElementById("category").value;
 
-      if (!name || !price || !image) return alert("يرجى ملء الحقول المطلوبة");
+      if (!name || !price || !image) return showToast("يرجى ملء الحقول المطلوبة", true);
 
       const seller = JSON.parse(localStorage.getItem("seller"));
       const token = seller ? seller.email : null;
       if (!token)
         return (
-          alert("يرجى تسجيل الدخول مجدداً"),
-          (window.location.href = "seller-login.html")
+          showToast("يرجى تسجيل الدخول مجدداً", true),
+          setTimeout(() => (window.location.href = "seller-login.html"), 1500)
         );
 
       const editId = document.getElementById("editId")?.value;
@@ -216,7 +234,7 @@
         const data = await res.json();
 
         if (res.ok) {
-          alert(successMessage);
+          showToast(successMessage);
           form.reset();
           formTitle.textContent = "إضافة منتج جديد";
           submitBtn.textContent = "إضافة المنتج الآن";
@@ -224,11 +242,11 @@
           if (hiddenId) hiddenId.remove();
           loadProducts();
         } else {
-          alert(data.error || "حدث خطأ");
+          showToast(data.error || "حدث خطأ", true);
         }
       } catch (err) {
         console.error(err);
-        alert("حدث خطأ، حاول مرة أخرى");
+        showToast("حدث خطأ، حاول مرة أخرى", true);
       }
     });
 
@@ -239,8 +257,8 @@
       const token = seller ? seller.email : null;
       if (!token)
         return (
-          alert("يرجى تسجيل الدخول مجدداً"),
-          (window.location.href = "seller-login.html")
+          showToast("يرجى تسجيل الدخول مجدداً", true),
+          setTimeout(() => (window.location.href = "seller-login.html"), 1500)
         );
 
       try {
@@ -255,14 +273,14 @@
 
         const data = await res.json();
         if (res.ok) {
-          alert(data.message || "تم الحذف بنجاح");
+          showToast(data.message || "تم الحذف بنجاح");
           loadProducts();
         } else {
-          alert(data.error || "حدث خطأ");
+          showToast(data.error || "حدث خطأ", true);
         }
       } catch (err) {
         console.error(err);
-        alert("حدث خطأ، حاول مرة أخرى");
+        showToast("حدث خطأ، حاول مرة أخرى", true);
       }
     };
 

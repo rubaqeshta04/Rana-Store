@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
   <style>
     body {
@@ -47,7 +48,22 @@
     </div>
   </div>
 
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <script>
+    function showToast(message, isError = false) {
+      Toastify({
+        text: message,
+        duration: 3000,
+        gravity: "top",
+        position: "center",
+        style: {
+          background: isError ? "linear-gradient(to right, #ff5f6d, #ffc371)" : "linear-gradient(to right, #00b09b, #96c93d)",
+          fontFamily: "Cairo",
+          borderRadius: "10px"
+        },
+      }).showToast();
+    }
+
     // رابط الـ Backend (سيرفر Vercel)
     const API_URL = "/api";
 
@@ -60,7 +76,7 @@
       const password = document.getElementById("password").value.trim();
 
       if (!email || !password) {
-        alert("يرجى ملء الإيميل وكلمة المرور");
+        showToast("يرجى ملء الإيميل وكلمة المرور", true);
         return;
       }
 
@@ -76,16 +92,20 @@
         const result = await res.json();
 
         if (!res.ok) {
-          alert(result.error || "بيانات الدخول غير صحيحة");
+          showToast(result.error || "بيانات الدخول غير صحيحة", true);
           return;
         }
 
         localStorage.setItem("seller", JSON.stringify(result.user));
 
-        window.location.href = "admin.html";
+        showToast("تم تسجيل الدخول بنجاح");
+        setTimeout(() => {
+          window.location.href = "admin.html";
+        }, 1000);
+
       } catch (err) {
         console.error("خطأ في الاتصال:", err);
-        alert("تعذر الاتصال بالخادم، تأكدي أن السيرفر شغال");
+        showToast("تعذر الاتصال بالخادم، تأكدي أن السيرفر شغال", true);
       }
     });
   </script>
