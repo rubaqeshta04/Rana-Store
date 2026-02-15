@@ -1,672 +1,732 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Viasun Cosmetics</title>
-    <link rel="icon" href="assets/favicon.jpg" type="image/png" />
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Fonts -->
-    <link
-      href="https://fonts.google.com/specimen/Cairo?referrer=grok.com"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <style>
-      body {
-        font-family: Amiri;
-        margin: 0;
-        padding: 0;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Viasun Cosmetics</title>
+  <link rel="icon" href="assets/favicon.jpg" type="image/png" />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Fonts -->
+  <link href="https://fonts.google.com/specimen/Cairo?referrer=grok.com" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-      h1,
-      h2,
-      h3 {
-        font-family: "Playfair Display", serif;
-      }
+  <style>
+    /* Global Theme overrides if needed, most are in global.css */
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-pink);
+    }
 
-      header#header {
-        transition: transform 0.4s ease, background 0.3s ease;
-        z-index: 50;
-        background: white;
-      }
+    /* Header & Navigation */
+    header#header {
+      transition:
+        transform 0.4s ease,
+        background 0.3s ease;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
 
-      header#header.hide {
-        transform: translateY(-100%);
-      }
+    header#header.hide {
+      transform: translateY(-100%);
+    }
 
-      header#header h1 {
-        font-size: 2rem;
-        font-weight: 600;
-      }
-      /* Mobile menu */
+    header#header h1 {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--primary-pink);
+      letter-spacing: 1px;
+    }
 
-      #mobile-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 60%;
-        max-width: 280px;
-        height: 100vh;
-        background: #111;
-        color: #fff;
-        box-shadow: -6px 0 15px rgba(0, 0, 0, 0.4);
-        transition: right 0.4s ease;
-        z-index: 50;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding-top: 60px;
-        border-radius: 15px 0 0 15px;
-      }
+    /* Desktop Navigation Links */
+    .nav-link {
+      font-family: var(--font-alt);
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--text-gray);
+      transition: color 0.3s ease;
+      position: relative;
+    }
 
-      #mobile-menu.open {
-        right: 0;
-      }
+    .nav-link:hover {
+      color: var(--primary-pink);
+    }
 
-      #close-menu-btn {
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        width: 35px;
-        height: 35px;
-        background: rgba(255, 255, 255, 0.15);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        transition: background 0.3s ease;
-      }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      right: 0;
+      background-color: var(--primary-pink);
+      transition: width 0.3s ease;
+    }
 
-      #close-menu-btn:hover {
-        background: rgba(255, 255, 255, 0.3);
-      }
+    .nav-link:hover::after {
+      width: 100%;
+      left: 0;
+      right: auto;
+    }
 
-      #close-menu-btn i {
-        color: white;
-        font-size: 1.3rem;
-      }
+    /* Mobile menu (Drawer) - Only visible on mobile */
+    #mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 85%;
+      max-width: 300px;
+      height: 100vh;
+      background: white;
+      color: var(--primary-gray);
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 80px;
+      overflow-y: auto;
+    }
 
-      #mobile-menu a {
-        color: white;
-        font-size: 1.4rem;
-        margin: 0.9rem 0;
-        text-transform: uppercase;
-        font-weight: 600;
-        letter-spacing: 1px;
-        transition: color 0.4s ease, transform 0.4s ease;
-        position: relative;
-      }
+    #mobile-menu.open {
+      right: 0;
+    }
 
-      #mobile-menu a:hover {
-        color: #ff69b4;
-        transform: translateX(-15px);
-      }
+    .mobile-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 40;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
 
-      .product-card {
-        background: white;
-        border-radius: 1rem;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-      }
+    .mobile-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
-      .product-card:hover {
-        transform: scale(1.05);
-      }
+    /* Product Card Styles - User Request: Pink BG, Gray Border */
+    .product-card {
+      background: #fdf2f8;
+      /* Pink-50 */
+      border: 1px solid #9ca3af;
+      /* Gray-400 */
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
 
-      .product-card img {
-        width: 100%;
-        height: 20rem;
-        object-fit: cover;
-        transition: transform 1s ease;
-      }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      border-color: var(--secondary-gray);
+      /* Gray-500 */
+    }
 
-      .product-card:hover img {
-        transform: scale(1.1);
-      }
-    </style>
-  </head>
+    .product-card img {
+      width: 100%;
+      height: 22rem;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
 
-  <body class="bg-white scroll-smooth">
-    <!-- NAVBAR -->
-    <header id="header" class="fixed w-full top-0 shadow-md">
-      <div
-        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-5 lg:py-6 flex items-center justify-between"
-      >
-        <div class="flex items-center justify-start gap-2">
-          <img
-            src="../assets/logo-rana.png"
-            alt=""
-            class="md:w-[50px] rounded-full w-[30px]"
-          />
-          <h1
-            class="text-md md:text-3xl font-extrabold text-[#6b0f1a] tracking-wide"
-          >
-            Rana Store
-          </h1>
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body class="bg-[#fff0f5] scroll-smooth">
+  <!-- NAVBAR -->
+  <header id="header" class="fixed w-full top-0">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2" id="logo">
+        <h1 class="text-xl md:text-2xl font-bold tracking-wider"
+          style="font-family: &quot;Playfair Display&quot;, serif">
+          <span class="text-[var(--primary-pink)]">Rana</span>
+          <span class="text-gray-500">Store</span>
+        </h1>
+      </a>
+
+      <!-- Desktop Menu (VISIBLE NOW) -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="../buyer-login.html" class="nav-link">الرئيسية</a>
+        <a href="#" class="nav-link">العروض</a>
+        <div class="relative group">
+          <!-- الرابط الرئيسي -->
+          <a href="../Catalog-Page/clothes.html" class="nav-link flex items-center gap-1">
+            الملابس
+            <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
+          </a>
+
+          <!-- القائمة المنسدلة -->
+          <div
+            class="absolute right-0 mt-3 w-56 bg-white rounded-2xl shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-3 group-hover:translate-y-0 transition-all duration-300 z-50">
+            <div class="py-3 text-right" dir="rtl">
+              <a href="../Catalog-Page/clothes.html"
+                class="block px-5 py-3 hover:bg-pink-50 hover:text-[#f5b5c5] transition font-semibold">
+                جميع الملابس
+              </a>
+
+              <a href="../Catalog-Page/clothes-outfit.html"
+                class="block px-5 py-3 hover:bg-pink-50 hover:text-[#f5b5c5] transition">
+                أطقم
+              </a>
+
+              <a href="../Catalog-Page/clothes-lingerie.html"
+                class="block px-5 py-3 hover:bg-pink-50 hover:text-[#f5b5c5] transition">
+                لانجري
+              </a>
+
+              <a href="../Catalog-Page/clothes-pajamas.html"
+                class="block px-5 py-3 hover:bg-pink-50 hover:text-[#f5b5c5] transition">
+                بيجامات
+              </a>
+
+              <a href="../Catalog-Page/clothes-kids.html"
+                class="block px-5 py-3 hover:bg-pink-50 hover:text-[#f5b5c5] transition">
+                ملابس أطفال
+              </a>
+
+              <a href="../Catalog-Page/clothes-skirts.html"
+                class="block px-5 py-3 hover:bg-pink-50 hover:text-[#f5b5c5] transition">
+                تنانير
+              </a>
+            </div>
+          </div>
         </div>
+        <a href="../Catalog-Page/perfumes.html" class="nav-link">العطور</a>
+        <a href="../Catalog-Page/makeup.html" class="nav-link">المكياج</a>
+        <a href="../Catalog-Page/bag.html" class="nav-link">الحقائب</a>
+        <a href="../Catalog-Page/skincare.html" class="nav-link">العناية</a>
+        <a href="../Catalog-Page/magat.html" class="nav-link">المجات</a>
+        <a href="#anaka" class="nav-link">اناقتك علينا</a>
 
-        <!-- Desktop Menu -->
-        <nav class="hidden md:flex items-center gap-6 lg:gap-10 text-[#e5989b]">
-          <a
-            href="../index.html"
-            class="hover:text-[#e5989b]/60 transition-colors duration-300"
-            >الرئيسية</a
-          >
-          <a
-            href="#"
-            class="hover:text-[#e5989b]/60 transition-colors duration-300"
-            >العروض</a
-          >
-          <a
-            href="../Catalog-Page/perfumes.html"
-            class="hover:text-[#e5989b]/60 transition-colors duration-300"
-            >قسم العطور</a
-          >
-          <a
-            href="../Catalog-Page/makeup.html"
-            class="hover:text-[#e5989b]/60 transition-colors duration-300"
-            >قسم المكياج</a
-          >
-          <a
-            href="../Catalog-Page/clothes.html"
-            class="hover:text-[#e5989b]/60 transition-colors duration-300"
-            >قسم الملابس</a
-          >
-          <a
-            href="../Catalog-Page/skincare.html"
-            class="hover:text-[#e5989b]/60 transition-colors duration-300"
-            >قسم العناية بالبشرة</a
-          >
-          <a
-            href="../Catalog-Page/magat.html"
-            class="hover:text-[#e5989b]/60 transition-colors duration-300"
-            >قسم مجات</a
-          >
-           <a
-            href="../Catalog-Page/magat.html"
-            class="hover:text-[#e5989b]/60 transition-colors duration-300"
-            > اناقتك علينا</a
-          >
-          <a
-            href="#about-us"
-            class="hover:text-[#e5989b]/60 transition-colors duration-300"
-            >من نحن</a
-          >
-          <a
-            href="https://www.instagram.com/rana.store97"
-            target="_blank"
-            class="hover:text-[#e5989b]/60 transition-colors duration-300"
-            >تواصل معنا</a
-          >
-        </nav>
+        <a href="#about-us" class="nav-link">من نحن</a>
+      </nav>
 
-        <!-- Mobile Button -->
-        <button id="menu-btn" class="md:hidden z-50 p-2">
-          <i class="fa-solid fa-bars text-2xl"></i>
-        </button>
-      </div>
-    </header>
+      <!-- Mobile Button (Only Mobile) -->
+      <button id="menu-btn" class="md:hidden p-2 text-[#f5b5c5] hover:text-pink-700 transition-colors">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </button>
+    </div>
+  </header>
 
-    <!-- MOBILE MENU -->
-    <div id="mobile-menu" class="md:hidden">
-      <div id="close-menu-btn">
-        <i class="fa-solid fa-xmark"></i>
-      </div>
-      <a href="https://www.instagram.com/rana.store97" target="_blank"
-        >تواصل معنا</a
-      >
-      <a href="#about-us">من نحن</a>
-      <a href="../Catalog-Page/perfumes.html">قسم العطور</a>
-      <a href="../Catalog-Page/makeup.html">قسم المكياج</a>
-      <a href="../Catalog-Page/clothes.html">قسم الملابس </a>
-      <a href="../Catalog-Page/skincare.html">قسم العناية بالشعر والجسم</a>
-      <a href="../Catalog-Page/bag.html">قسم الحقائب</a>
-      <a href="../Catalog-Page/magat.html">قسم مجات </a>
-      <a href="#">العروض</a>
-      <a href="../index.html">الرئيسية</a>
+  <!-- Overlay -->
+  <div id="mobile-overlay" class="mobile-overlay"></div>
+
+  <!-- MOBILE MENU (Simple Links) -->
+  <div id="mobile-menu">
+    <div id="close-menu-btn"
+      class="absolute top-5 right-5 w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center text-[#f5b5c5] cursor-pointer hover:bg-[#f5b5c5] hover:text-white transition-all">
+      <i class="fa-solid fa-xmark text-xl"></i>
     </div>
 
-    <!-- HERO SECTION -->
-    <section
-      class="hero h-screen w-full bg-cover bg-center flex items-center justify-center"
-      style="background-image: url('../assets/hero-section2.jpg')"
-    >
-      <div class="overlay absolute inset-0 bg-black/30"></div>
-      <div
-        class="absolute right-0 top-1/2 -translate-y-1/2 z-10 max-w-xl px-10 text-right text-white"
-      >
-        <h2
-          class="text-3xl sm:text-5xl md:text-4xl font-bold leading-tight"
-          style="font-family: 'Amiri', serif"
-        >
-          اكتشفي جمالكِ الحقيقي
-          <span
-            class="block mt-5 text-[#6b0f1a] text-4xl sm:text-6xl md:text-5xl"
-            >مع رنا ستور</span
-          >
+    <div class="w-full flex flex-col items-center gap-4 mt-8">
+      <a href="../buyer-login.html" class="menu-link text-lg font-bold text-gray-700 hover:text-[#f5b5c5]">الرئيسية</a>
+      <a href="#" class="menu-link text-lg font-bold text-gray-700 hover:text-[#f5b5c5]">العروض</a>
+      <div class="w-full flex flex-col items-center">
+        <button id="mobile-clothes-toggle"
+          class="text-lg font-bold text-gray-700 hover:text-[#f5b5c5] flex items-center gap-2 py-2">
+          قسم الملابس
+          <i class="fa-solid fa-chevron-down text-sm transition-transform duration-300"></i>
+        </button>
+        <div id="mobile-clothes-submenu"
+          class="flex flex-col items-center gap-3 mt-2 bg-pink-50 w-full overflow-hidden transition-all duration-300 rounded-2xl"
+          style="max-height: 0px;">
+          <div class="py-4 flex flex-col items-center gap-3 w-full">
+            <a href="../Catalog-Page/clothes.html" class="menu-link text-base font-bold text-[#f5b5c5]">جميع الملابس</a>
+            <a href="../Catalog-Page/clothes-outfit.html"
+              class="menu-link text-base font-semibold text-gray-600 hover:text-[#f5b5c5]">أطقم</a>
+            <a href="../Catalog-Page/clothes-lingerie.html"
+              class="menu-link text-base font-semibold text-gray-600 hover:text-[#f5b5c5]">لانجري</a>
+            <a href="../Catalog-Page/clothes-pajamas.html"
+              class="menu-link text-base font-semibold text-gray-600 hover:text-[#f5b5c5]">بيجامات</a>
+            <a href="../Catalog-Page/clothes-kids.html"
+              class="menu-link text-base font-semibold text-gray-600 hover:text-[#f5b5c5]">ملابس أطفال</a>
+            <a href="../Catalog-Page/clothes-skirts.html"
+              class="menu-link text-base font-semibold text-gray-600 hover:text-[#f5b5c5]">تنانير</a>
+          </div>
+        </div>
+      </div>
+      <a href="../Catalog-Page/perfumes.html" class="menu-link text-lg font-bold text-gray-700 hover:text-[#f5b5c5]">قسم
+        العطور</a>
+      <a href="../Catalog-Page/makeup.html" class="menu-link text-lg font-bold text-gray-700 hover:text-[#f5b5c5]">قسم
+        المكياج</a>
+      <a href="../Catalog-Page/skincare.html"
+        class="menu-link text-lg font-bold text-gray-700 hover:text-[#f5b5c5]">العناية
+        بالبشرة</a>
+      <a href="../Catalog-Page/bag.html" class="menu-link text-lg font-bold text-gray-700 hover:text-[#f5b5c5]">قسم
+        الحقائب</a>
+      <a href="../Catalog-Page/magat.html" class="menu-link text-lg font-bold text-gray-700 hover:text-[#f5b5c5]">قسم
+        مجات</a>
+      <a href="#about-us" class="menu-link text-lg font-bold text-gray-700 hover:text-[#f5b5c5]">من نحن</a>
+      <a href="https://www.instagram.com/rana.store97" target="_blank"
+        class="menu-link text-lg font-bold text-gray-700 hover:text-[#f5b5c5]">تواصل معنا</a>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero w-full h-[600px] md:h-[700px] relative overflow-hidden bg-gray-900">
+    <img src="../assets/hero-section3.jpg" alt="Glowing Beauty and Fashion"
+      class="absolute inset-0 w-full h-full object-cover" />
+    <div class="overlay absolute inset-0 bg-black/40"></div>
+    <div class="absolute right-0 bottom-12 md:bottom-16 z-10 max-w-xl px-6 md:px-12 text-right w-full">
+      <div class="bg-transparent p-0 transition-all duration-500">
+        <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mb-5"
+          style="font-family: 'Amiri', serif">
+          <span class="text-[#f5b5c5] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">اكتشفي جمالكِ الحقيقي</span>
+          <span class="block mt-3 text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)]">مع رنا ستور</span>
         </h2>
-        <p
-          class="mt-10 text-base md:text-lg leading-relaxed text-white/85"
-          style="font-family: 'Cairo', sans-serif"
-        >
+        <p class="text-base md:text-xl font-medium leading-relaxed text-white mb-8 drop-shadow-md"
+          style="font-family: 'Cairo', sans-serif">
           تشكيلة فاخرة مختارة بعناية لكل امرأة تبحث عن التميز والثقة
           <br />
-          من قلب غزة، بكل حب وحرفية 💗
+          <span class="text-[#f5b5c5] font-bold drop-shadow-sm">من قلب غزة، بكل حب وحرفية 💗</span>
         </p>
-        <div class="flex justify-start mt-5">
+        <div class="flex justify-start">
           <a href="#products" class="inline-block">
             <button
-              class="relative inline-block px-8 py-3 text-lg md:text-xl font-semibold rounded-full bg-[#f6c1cc]/90 text-[#6b0f1a] hover:bg-[#6b0f1a] hover:text-white shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 fade-scale-bounce fade-scale-bounce-delay-3 btn-hover"
-            >
+              class="relative inline-block px-8 py-3 text-lg md:text-xl font-bold rounded-full bg-[#f5b5c5] text-[#707070] hover:bg-[#f8d0da] hover:text-[#5a5a5a] shadow-lg hover:shadow-[#f5b5c5]/30 active:scale-95 transition-all duration-300 btn-hover">
               تسوق الآن
             </button>
           </a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ================= 6 FEATURED CARDS UNDER HERO ================= -->
-    <!-- ================= الأقسام المميزة ================= -->
-    <section
-      class="py-16 md:py-24 bg-gradient-to-b from-white to-[#f9f5f2]"
-      id="products"
-    >
-      <div class="max-w-7xl mx-auto px-6 md:px-12">
-        <!-- العنوان في الوسط -->
-        <div class="text-center mb-12 md:mb-16">
-          <h2
-            class="text-4xl md:text-6xl font-extralight tracking-widest text-[#6b0f1a]"
-          >
-            اكتشفي <span class="font-bold text-[#8b1d2c]">أقسامنا</span> المميزة
-          </h2>
-          <p class="mt-4 text-lg text-[#6b0f1a]/80">
-            تشكيلة مختارة بعناية تناسب ذوقكِ وأناقتكِ اليومية
-          </p>
-        </div>
+  <!-- ================= 6 FEATURED CARDS UNDER HERO ================= -->
+  <!-- ================= الأقسام المميزة ================= -->
 
-        <!-- الـ 6 كاردات -->
-        <div
-          class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8"
-        >
-          <!-- كارد 1 - المكياج -->
-          <a href="../Catalog-Page/makeup.html" class="group block">
-            <div
-              class="bg-[#f6c1cc]/80 backdrop-blur-sm border-4 border-[#6b0f1a]/20 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:border-[#6b0f1a]/50"
-            >
-              <img
-                src="../assets/makeup/makeup3.jpeg"
-                alt="مكياج"
-                class="w-full h-48 md:h-64 object-cover group-hover:scale-110 transition duration-700"
-              />
-              <div class="p-4 text-center">
-                <h3 class="text-lg md:text-xl font-bold text-[#6b0f1a]">
-                  المكياج
-                </h3>
-                <p class="text-sm text-[#6b0f1a]/80 mt-1">تشكيلة مميزة</p>
-              </div>
-            </div>
-          </a>
-
-          <!-- كارد 2 - العطور -->
-          <a href="../Catalog-Page/perfumes.html" class="group block">
-            <div
-              class="bg-[#f6c1cc]/80 backdrop-blur-sm border-4 border-[#6b0f1a]/20 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:border-[#6b0f1a]/50"
-            >
-              <img
-                src="../assets/perfumes/16.jpeg"
-                alt="عطور"
-                class="w-full h-48 md:h-64 object-cover group-hover:scale-110 transition duration-700"
-              />
-              <div class="p-4 text-center">
-                <h3 class="text-lg md:text-xl font-bold text-[#6b0f1a]">
-                  العطور
-                </h3>
-                <p class="text-sm text-[#6b0f1a]/80 mt-1">روائح فاخرة</p>
-              </div>
-            </div>
-          </a>
-
-          <!-- كارد 3 - الملابس -->
-          <a href="../Catalog-Page/clothes.html" class="group block">
-            <div
-              class="bg-[#f6c1cc]/80 backdrop-blur-sm border-4 border-[#6b0f1a]/20 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:border-[#6b0f1a]/50"
-            >
-              <img
-                src="../assets/clothes/3.jpeg"
-                alt="ملابس"
-                class="w-full h-48 md:h-64 object-cover group-hover:scale-110 transition duration-700"
-              />
-              <div class="p-4 text-center">
-                <h3 class="text-lg md:text-xl font-bold text-[#6b0f1a]">
-                  الملابس
-                </h3>
-                <p class="text-sm text-[#6b0f1a]/80 mt-1">أناقة يومية</p>
-              </div>
-            </div>
-          </a>
-
-          <!-- كارد 4 - المجات -->
-          <a href="../Catalog-Page/magat.html" class="group block">
-            <div
-              class="bg-[#f6c1cc]/80 backdrop-blur-sm border-4 border-[#6b0f1a]/20 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:border-[#6b0f1a]/50"
-            >
-              <img
-                src="../assets/Magat/1.jpeg"
-                alt="مجات"
-                class="w-full h-48 md:h-64 object-cover group-hover:scale-110 transition duration-700"
-              />
-              <div class="p-4 text-center">
-                <h3 class="text-lg md:text-xl font-bold text-[#6b0f1a]">
-                  المجات
-                </h3>
-                <p class="text-sm text-[#6b0f1a]/80 mt-1">أكواب أنيقة</p>
-              </div>
-            </div>
-          </a>
-
-          <!-- كارد 5 - الحقائب -->
-          <a href="../Catalog-Page/bag.html" class="group block">
-            <div
-              class="bg-[#f6c1cc]/80 backdrop-blur-sm border-4 border-[#6b0f1a]/20 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:border-[#6b0f1a]/50"
-            >
-              <img
-                src="../assets/bag/bag10.jpeg"
-                alt="حقائب"
-                class="w-full h-48 md:h-64 object-cover group-hover:scale-110 transition duration-700"
-              />
-              <div class="p-4 text-center">
-                <h3 class="text-lg md:text-xl font-bold text-[#6b0f1a]">
-                  الحقائب
-                </h3>
-                <p class="text-sm text-[#6b0f1a]/80 mt-1">أناقة وعملية</p>
-              </div>
-            </div>
-          </a>
-
-          <!-- كارد 6 - العناية -->
-          <a href="../Catalog-Page/skincare.html" class="group block">
-            <div
-              class="bg-[#f6c1cc]/80 backdrop-blur-sm border-4 border-[#6b0f1a]/20 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 hover:border-[#6b0f1a]/50"
-            >
-              <img
-                src="../assets/skincare/skincare10.jpeg"
-                alt="عناية بالبشرة"
-                class="w-full h-48 md:h-64 object-cover group-hover:scale-110 transition duration-700"
-              />
-              <div class="p-4 text-center">
-                <h3 class="text-lg md:text-xl font-bold text-[#6b0f1a]">
-                  العناية
-                </h3>
-                <p class="text-sm text-[#6b0f1a]/80 mt-1">بشرة ناعمة</p>
-              </div>
-            </div>
-          </a>
-        </div>
+  <section class="py-16 md:py-24 bg-gradient-to-b from-white to-[#f3f4f6]" id="products">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <!-- العنوان في الوسط -->
+      <div class="text-center mb-12 md:mb-16">
+        <h2 class="text-4xl md:text-6xl font-extralight tracking-widest text-[#707070]">
+          اكتشفي <span class="font-bold text-[#f5b5c5]">أقسامنا</span> المميزة
+        </h2>
+        <p class="mt-7 text-xl text-[#707070]">
+          تشكيلة مختارة بعناية تناسب ذوقكِ وأناقتكِ اليومية
+        </p>
       </div>
-    </section>
 
-    <!-- ================= FOOTER ================= -->
-
-    <footer class="relative overflow-hidden">
-      <div class="relative bg-[#6b0f1a]">
-        <img
-          src="../assets/footer-bg.jpg"
-          alt="Beauty Background"
-          class="absolute inset-0 w-full h-full object-cover opacity-30"
-        />
-        <div
-          class="absolute inset-0 bg-gradient-to-b from-[#6b0f1a]/90 to-[#8b1d2c]/95"
-        ></div>
-
-        <div
-          class="relative max-w-7xl mx-auto px-4 md:px-8 py-12"
-          id="about us"
-        >
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-[#fff0f5]">
-            <div class="flex flex-col items-start p-4 rounded-lg">
-              <!-- عنوان المتجر -->
-              <div class="flex items-center gap-3 mb-4">
-                <div class="bg-pink-400/20 p-3 rounded-full">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    class="w-7 h-7 text-pink-400"
-                  >
-                    <path
-                      d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-9 4l5 4-5 4V8zm-4 0h2v8H7V8z"
-                    />
-                  </svg>
-                </div>
-                <p class="text-xl font-bold">رنا ستور ®</p>
-              </div>
-
-              <!-- من نحن -->
-              <div class="flex items-center gap-2 mb-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  class="w-5 h-5 text-pink-400"
-                >
-                  <path
-                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                  />
-                </svg>
-                <h2 class="text-lg font-semibold text-pink-400">من نحن</h2>
-              </div>
-
-              <!-- وصف المتجر -->
-              <p class="leading-relaxed text-[#fff0f5]/90 text-sm mb-2">
-                مرحباً بك في <span class="font-bold">رنا ستور ®</span>، متجركِ
-                الأونلاين المفضل لكل ما يتعلق بالجمال والأناقة. اكتشفي مجموعتنا
-                المختارة بعناية من العطور، الملابس، المكياج، ومنتجات العناية
-                بالبشرة. جميع منتجاتنا مقدمة بفخر من
-                <span class="font-semibold">فلسطين – غزة</span> 💗.
-              </p>
-
-              <!-- دعوة للتصفح -->
-              <p class="text-[#fff0f5]/80 text-xs">
-                استمتعي بتجربة تسوق سهلة وممتعة، واستفيدي من عروضنا المميزة
-                والشحن السريع لكل مكان.
-              </p>
-            </div>
-
-            <div class="flex flex-col items-start">
-              <div class="flex items-center gap-3 mb-6">
-                <div class="bg-pink-400/20 p-3 rounded-full">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    class="w-7 h-7 text-pink-400"
-                  >
-                    <path
-                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
-                    />
-                  </svg>
-                </div>
-                <p class="text-lg font-semibold">معلومات</p>
-              </div>
-
-              <ul class="space-y-4 text-sm w-full">
-                <!-- من نحن -->
-                <li class="flex items-center gap-3">
-                  <div class="bg-pink-400/10 p-2 rounded-lg">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      class="w-5 h-5 text-pink-400"
-                    >
-                      <path
-                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                      />
-                    </svg>
-                  </div>
-                  <a href="" class="hover:text-pink-400 transition">من نحن</a>
-                </li>
-
-                <!-- سياسة الخصوصية -->
-                <li class="flex items-center gap-3">
-                  <div class="bg-pink-400/10 p-2 rounded-lg">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      class="w-5 h-5 text-pink-400"
-                    >
-                      <path
-                        d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"
-                      />
-                    </svg>
-                  </div>
-                  <a href="" class="hover:text-pink-400 transition"
-                    >سياسة الخصوصية</a
-                  >
-                </li>
-
-                <!-- الاستبدال والاسترجاع -->
-                <li class="flex items-center gap-3">
-                  <div class="bg-pink-400/10 p-2 rounded-lg">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      class="w-5 h-5 text-pink-400"
-                    >
-                      <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z" />
-                    </svg>
-                  </div>
-                  <a href="#returns" class="hover:text-pink-400 transition"
-                    >الاستبدال والاسترجاع</a
-                  >
-                </li>
-
-                <!-- تواصل مع مسؤولة المتجر -->
-                <li class="flex items-center gap-3 mt-5">
-                  <div class="bg-pink-400/20 p-2.5 rounded-lg">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      class="w-6 h-6 text-pink-400"
-                    >
-                      <path
-                        d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4v2c0 .55.45 1 1 1h.5c.25 0 .5-.1.7-.3l2.8-2.7h6.5c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8.5 10.5h-5v-1h5v1zm3-3h-8v-1h8v1zm0-3h-8v-1h8v1z"
-                      />
-                    </svg>
-                  </div>
-                  <a
-                    href="https://www.instagram.com/rana_alhams"
-                    target="_blank"
-                    class="hover:text-pink-400 transition text-pink-300 flex items-center gap-2"
-                  >
-                    <span
-                      >في حال واجهتِ أي استفسار، تواصلي مع مسؤولة المتجر
-                      مباشرة</span
-                    >
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="flex flex-col items-start">
-              <div class="flex items-center gap-3 mb-4">
-                <div class="bg-pink-400/20 p-3 rounded-full">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="currentColor"
-                    class="w-7 h-7 text-pink-400"
-                  >
-                    <path
-                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.87-.148-4.771-1.691-4.919-4.919C2.163 15.584 2.151 15.204 2.151 12c0-3.204.012-3.584.07-4.85.148-3.227 1.664-4.771 4.919-4.919 1.265-.058 1.644-.07 4.849-.07zm0 1.805c-3.158 0-3.532.012-4.771.071-2.3.11-3.528.885-3.952 2.26-.424 1.376-.34 2.639-.288 3.951.051 1.311.063 1.686.063 4.913 0 3.227-.012 3.602-.063 4.913-.052 1.312-.136 2.575.288 3.951.424 1.376 1.652 2.15 3.952 2.26 1.239.059 1.613.071 4.771.071 3.158 0 3.532-.012 4.771-.071 2.3-.11 3.528-.885 3.952-2.26.424-1.376.34-2.639.288-3.951-.051-1.311-.063-1.686-.063-4.913 0-3.227.012-3.602.063-4.913.052-1.312.136-2.575-.288-3.951-.424-1.376-1.652-2.15-3.952-2.26-1.239-.059-1.613-.071-4.771-.071zm0 3.495a4.537 4.537 0 100 9.074 4.537 4.537 0 000-9.074zm0 7.468a2.931 2.931 0 110-5.862 2.931 2.931 0 010 5.862zm5.873-7.663a1.06 1.06 0 11-2.12 0 1.06 1.06 0 012.12 0z"
-                    />
-                  </svg>
-                </div>
-                <p class="text-lg font-semibold">تابعينا</p>
-              </div>
-              <div class="grid grid-cols-3 gap-3 mb-5">
-                <a
-                  href="https://www.instagram.com/rana.store97/"
-                  target="_blank"
-                  class="overflow-hidden rounded-xl"
-                >
-                  <img
-                    src="../assets/perfumes/15.jpeg"
-                    class="w-full h-20 object-cover hover:scale-110 transition duration-500"
-                  />
-                </a>
-                <a
-                  href="https://www.instagram.com/rana.store97/"
-                  target="_blank"
-                  class="overflow-hidden rounded-xl"
-                >
-                  <img
-                    src="../assets/Magat/2.jpeg"
-                    class="w-full h-20 object-cover hover:scale-110 transition duration-500"
-                  />
-                </a>
-                <a
-                  href="https://www.instagram.com/rana.store97/"
-                  target="_blank"
-                  class="overflow-hidden rounded-xl"
-                >
-                  <img
-                    src="../assets/makeup/makeup5.jpeg"
-                    class="w-full h-20 object-cover hover:scale-110 transition duration-500"
-                  />
-                </a>
-              </div>
-              <a
-                href="https://www.instagram.com/rana.store97"
-                target="_blank"
-                class="flex items-center gap-2 text-sm hover:text-pink-400 transition"
-              >
-                @rana.store97
-              </a>
-            </div>
-          </div>
-
+      <!-- الـ 6 كاردات - 2 في كل صف على الموبايل و 3 على الديسك توب -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-10">
+        <!-- كارد 1 - المكياج -->
+        <a href="../Catalog-Page/makeup.html" class="group block">
           <div
-            class="border-t border-[#fff0f5]/30 mt-10 pt-6 text-center text-xs text-[#fff0f5]/70"
-          >
-            © 2025 Viasun Cosmetics — جميع الحقوق محفوظة
+            class="bg-gradient-to-br from-[#f5b5c5]/30 to-[#f5b5c5]/10 backdrop-blur-sm border-4 border-[#707070]/20 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:border-[#707070]/50">
+            <img src="../assets/makup.jpg" alt="مكياج"
+              class="w-full h-72 object-cover group-hover:scale-110 transition duration-700" />
+            <div class="p-6 text-center">
+              <h3 class="text-2xl font-bold text-[#f5b5c5] mb-2">المكياج</h3>
+              <p class="text-base text-[#707070] leading-relaxed">
+                احصلي على إطلالة ساحرة مع خيارات مكياج عالية الجودة تبرز
+                جمالكِ الطبيعي
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <!-- كارد 2 - العطور -->
+        <a href="../Catalog-Page/perfumes.html" class="group block">
+          <div
+            class="bg-gradient-to-br from-[#f5b5c5]/30 to-[#f5b5c5]/10 backdrop-blur-sm border-4 border-[#707070]/20 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:border-[#707070]/50">
+            <img src="../assets/perfume.jpg" alt="عطور"
+              class="w-full h-72 object-cover group-hover:scale-110 transition duration-700" />
+            <div class="p-6 text-center">
+              <h3 class="text-2xl font-bold text-[#f5b5c5] mb-2">العطور</h3>
+              <p class="text-base text-[#707070] leading-relaxed">
+                أنواع عطور فاخرة برائحة دافئة وحسّاسة تعكس شخصيتكِ المميزة
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <!-- كارد 3 - الملابس -->
+        <a href="../Catalog-Page/clothes.html" class="group block">
+          <div
+            class="bg-gradient-to-br from-[#f5b5c5]/30 to-[#f5b5c5]/10 backdrop-blur-sm border-4 border-[#707070]/20 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:border-[#707070]/50">
+            <img src="../assets/clothes.jpg" alt="ملابس"
+              class="w-full h-72 object-cover group-hover:scale-110 transition duration-700" />
+            <div class="p-6 text-center">
+              <h3 class="text-2xl font-bold text-[#f5b5c5] mb-2">الملابس</h3>
+              <p class="text-base text-[#707070] leading-relaxed">
+                قطع ملبسية عصرية وأنيقة تجمع بين الراحة والأناقة لإطلالتكِ
+                اليومية
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <!-- كارد 4 - المجات -->
+        <a href="../Catalog-Page/magat.html" class="group block">
+          <div
+            class="bg-gradient-to-br from-[#f5b5c5]/30 to-[#f5b5c5]/10 backdrop-blur-sm border-4 border-[#707070]/20 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:border-[#707070]/50">
+            <img src="../assets/mag.jpg" alt="مجات"
+              class="w-full h-72 object-cover group-hover:scale-110 transition duration-700" />
+            <div class="p-6 text-center">
+              <h3 class="text-2xl font-bold text-[#f5b5c5] mb-2">المجات</h3>
+              <p class="text-base text-[#707070] leading-relaxed">
+                مجات أنيقة وعملية تضيف لمسة جمال إلى روتينكِ اليومي وتكون هدية
+                مميزة
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <!-- كارد 5 - الحقائب -->
+        <a href="../Catalog-Page/bag.html" class="group block">
+          <div
+            class="bg-gradient-to-br from-[#f5b5c5]/30 to-[#f5b5c5]/10 backdrop-blur-sm border-4 border-[#707070]/20 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:border-[#707070]/50">
+            <img src="../assets/bag.jpg" alt="حقائب"
+              class="w-full h-72 object-cover group-hover:scale-110 transition duration-700" />
+            <div class="p-6 text-center">
+              <h3 class="text-2xl font-bold text-[#f5b5c5] mb-2">الحقائب</h3>
+              <p class="text-base text-[#707070] leading-relaxed">
+                حقائب فاخرة بتصاميم عصرية تجمع بين الأناقة والعملية في كل
+                ارتداء
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <!-- كارد 6 - العناية -->
+        <a href="../Catalog-Page/skincare.html" class="group block">
+          <div
+            class="bg-gradient-to-br from-[#f5b5c5]/30 to-[#f5b5c5]/10 backdrop-blur-sm border-4 border-[#707070]/20 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:border-[#707070]/50">
+            <img src="../assets/skincare.jpg" alt="عناية بالبشرة"
+              class="w-full h-72 object-cover group-hover:scale-110 transition duration-700" />
+            <div class="p-6 text-center">
+              <h3 class="text-2xl font-bold text-[#f5b5c5] mb-2">العناية</h3>
+              <p class="text-base text-[#707070] leading-relaxed">
+                منتجات عناية فعّالة تعتني ببشرتكِ بحنان وتمنحها النضارة
+                والإشراق
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="py-16" id="anaka">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <!-- الصندوق الخارجي مع بوردر واضح -->
+      <div
+        class="flex flex-col md:flex-row items-center gap-10 border-2 border-[#f5b5c5]/30 rounded-3xl p-8 bg-white/80 shadow-2xl backdrop-blur-sm">
+        <!-- الصورة على اليسار -->
+        <div class="md:w-1/2">
+          <div class="relative group">
+            <div
+              class="absolute -inset-1 bg-gradient-to-r from-[#f5b5c5] to-[#f8d0da] rounded-2xl blur opacity-30 group-hover:opacity-80 transition duration-1000 group-hover:duration-200">
+            </div>
+            <img src="../assets/modail2.jpg" alt="Your Elegance"
+              class="relative rounded-2xl shadow-xl hover:scale-105 transition duration-500 border-4 border-white" />
+          </div>
+        </div>
+
+        <!-- النص على اليمين -->
+        <div class="md:w-1/2 text-right">
+          <h2 class="text-3xl md:text-4xl font-bold text-[#f5b5c5] mb-2" style="font-family: &quot;Amiri&quot;, serif">
+            أناقتكِ علينا
+          </h2>
+          <p class="text-lg text-[#707070] leading-relaxed mb-8 font-light">
+            لأنكِ تستحقين الأفضل، اخترنا لكِ مجموعة حصرية تبرز جمالكِ وتمنحكِ
+            الثقة في كل خطوة. تألقي بلمسات عصرية وألوان تناسب ذوقكِ الرفيع.
+          </p>
+
+          <!-- النقاط بنظام عمودين -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <div
+              class="flex items-start gap-3 hover:bg-[#f5b5c5]/10 transition duration-300 cursor-pointer p-2 rounded-lg">
+              <span class="text-[#f5b5c5] mt-1 text-xl">✔</span>
+              <span class="text-[#707070] font-semibold text-lg hover:text-[#f5b5c5] transition duration-300">
+                منتجات أصلية 100%
+              </span>
+            </div>
+            <div class="flex items-start gap-3 hover:bg-pink-50 transition duration-300 cursor-pointer p-2 rounded-lg">
+              <span class="#f5b5c5 mt-1 text-xl">✔</span>
+              <span class="text-gray-800 font-semibold text-lg hover:text-[#f5b5c5] transition duration-300">
+                توصيل سريع إلى باب منزلكِ
+              </span>
+            </div>
+            <div class="flex items-start gap-3 hover:bg-pink-50 transition duration-300 cursor-pointer p-2 rounded-lg">
+              <span class="#f5b5c5 mt-1 text-xl">✔</span>
+              <span class="text-gray-800 font-semibold text-lg hover:text-[#f5b5c5] transition duration-300">
+                مجموعة متنوعة تناسب جميع الأذواق
+              </span>
+            </div>
+            <div class="flex items-start gap-3 hover:bg-pink-50 transition duration-300 cursor-pointer p-2 rounded-lg">
+              <span class="#f5b5c5 mt-1 text-xl">✔</span>
+              <span class="text-gray-800 font-semibold text-lg hover:text-[#f5b5c5] transition duration-300">
+                لمسات عصرية وألوان راقية لكل مناسبة
+              </span>
+            </div>
+          </div>
+
+          <a href="../Catalog-Page/clothes.html"
+            class="relative inline-block px-8 py-3 text-lg md:text-xl font-semibold rounded-full bg-[#707070] text-[#f5b5c5] hover:bg-[#5a5a5a] hover:text-[#f8d0da] shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 fade-scale-bounce fade-scale-bounce-delay-3 btn-hover">
+            اكتشفي المجموعة
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="about-us" class="py-20 bg-gradient-to-b from-white to-pink-50">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <!-- العنوان -->
+      <div class="text-center mb-16">
+        <h2 class="text-5xl font-bold text-[#f5b5c5] mb-4" style="font-family: &quot;Amiri&quot;, serif">
+          من نحن
+        </h2>
+        <p class="text-[#707070] mt-7 text-xl">
+          رحلتكِ نحو الأناقة تبدأ من هنا، في Rana Store
+        </p>
+      </div>
+
+      <!-- المحتوى -->
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <!-- الصور -->
+        <div class="grid grid-cols-2 gap-4">
+          <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800"
+            alt="Attractive Fashion Model"
+            class="rounded-2xl shadow-2xl hover:scale-105 transition duration-500 object-cover h-64 w-full" />
+
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800" alt="Style and Beauty"
+            class="rounded-2xl shadow-2xl hover:scale-105 transition duration-500 mt-12 object-cover h-64 w-full" />
+        </div>
+
+        <!-- النص -->
+        <div class="text-right">
+          <h3 class="text-3xl font-bold text-[#707070] mb-6" style="font-family: &quot;Amiri&quot;, serif">
+            جمالكِ هو شغفنا الدائم
+          </h3>
+
+          <p class="text-[#707070] text-lg leading-relaxed mb-6">
+            في <span class="text-[#f5b5c5] font-bold">Rana Store</span>، نؤمن
+            أن كل امرأة تستحق أن تشعر بالتميز. نحن هنا لنكون شريككِ في إبراز
+            جمالكِ، من خلال توفير أرقى أنواع العطور، وأحدث صيحات الموضة، وأفضل
+            مستحضرات التجميل العالمية.
+          </p>
+
+          <p class="text-[#707070] text-lg leading-relaxed mb-8 italic">
+            تجدوننا في قلب
+            <span class="font-bold text-[#f5b5c5]">غزة - خانيونس - منتجع الساند بيتش</span>، حيث تجتمع الفخامة مع الجودة
+            لنقدم لكم تجربة تسوق لا تُنسى.
+          </p>
+
+          <div class="mb-8">
+            <a href="information.html#about" class="text-[#f5b5c5] font-bold hover:underline">
+              اقرئي المزيد عن قصتنا...
+            </a>
+          </div>
+
+          <!-- النقاط التعزيزية -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="flex items-center gap-4 group">
+              <div
+                class="w-12 h-12 bg-[#f5b5c5]/20 rounded-full flex items-center justify-center text-[#f5b5c5] group-hover:bg-[#f5b5c5] group-hover:text-white transition-all duration-300">
+                <i class="fa fa-gem text-xl"></i>
+              </div>
+              <span class="text-[#707070] font-bold">منتجات أصلية وكفالة</span>
+            </div>
+
+            <div class="flex items-center gap-4 group">
+              <div
+                class="w-12 h-12 bg-[#f5b5c5]/20 rounded-full flex items-center justify-center text-[#f5b5c5] group-hover:bg-[#f5b5c5] group-hover:text-white transition-all duration-300">
+                <i class="fa fa-truck text-xl"></i>
+              </div>
+              <span class="text-[#707070] font-bold">توصيل آمن وسريع</span>
+            </div>
+
+            <div class="flex items-center gap-4 group">
+              <div
+                class="w-12 h-12 bg-[#f5b5c5]/20 rounded-full flex items-center justify-center text-[#f5b5c5] group-hover:bg-[#f5b5c5] group-hover:text-white transition-all duration-300">
+                <i class="fa fa-heart text-xl"></i>
+              </div>
+              <span class="text-[#707070] font-bold">اختيارات الموضة الأحدث</span>
+            </div>
+
+            <div class="flex items-center gap-4 group">
+              <div
+                class="w-12 h-12 bg-[#f5b5c5]/20 rounded-full flex items-center justify-center text-[#f5b5c5] group-hover:bg-[#f5b5c5] group-hover:text-white transition-all duration-300">
+                <i class="fa fa-star text-xl"></i>
+              </div>
+              <span class="text-[#707070] font-bold">ثقة ورضا تام لزبائننا</span>
+            </div>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <!-- ================= SCRIPTS ================= -->
-    <script src="js/main.js"></script>
-    <script>
-      const menuBtn = document.getElementById("menu-btn");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const closeBtn = document.getElementById("close-menu-btn");
+  <!-- ================= FOOTER ================= -->
+  <footer class="relative overflow-hidden mt-20 text-gray-300 bg-[#707070]">
+    <!-- Background Overlay -->
+    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/95 to-gray-800/95 z-0"></div>
 
-      menuBtn.addEventListener("click", () => {
-        mobileMenu.classList.add("open");
-      });
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <!-- Brand / About -->
+        <div class="col-span-1 md:col-span-1">
+          <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="cursor-pointer">
+            <h3 class="text-3xl font-bold text-[#f5b5c5] mb-6" style="font-family: &quot;Playfair Display&quot;, serif">
+              Rana <span class="text-gray-400">Store</span>
+            </h3>
+          </a>
+          <p class="leading-relaxed mb-6 text-sm text-gray-400">
+            وجهتك الأولى للأناقة والجمال. نقدم لكِ أفضل المنتجات العالمية من
+            قلب غزة، لنمنحكِ التميز الذي تستحقينه.
+          </p>
+          <div class="flex gap-4">
+            <a href="https://www.instagram.com/rana.store97" target="_blank"
+              class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-[#f5b5c5] hover:bg-[#f5b5c5] hover:text-white transition-all duration-300 shadow-lg border border-gray-700">
+              <i class="fa-brands fa-instagram text-lg"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-[#f5b5c5] hover:bg-[#f5b5c5] hover:text-white transition-all duration-300 shadow-lg border border-gray-700">
+              <i class="fa-brands fa-facebook-f text-lg"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-[#f5b5c5] hover:bg-[#f5b5c5] hover:text-white transition-all duration-300 shadow-lg border border-gray-700">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+            </a>
+          </div>
+        </div>
 
-      closeBtn.addEventListener("click", () => {
-        mobileMenu.classList.remove("open");
-      });
-    </script>
-  </body>
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2">
+            روابط سريعة
+          </h4>
+          <ul class="space-y-3 text-sm">
+            <li>
+              <a href="../index.html" class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
+                  class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
+                الرئيسية</a>
+            </li>
+            <li>
+              <a href="#about-us" class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
+                  class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
+                من نحن</a>
+            </li>
+            <li>
+              <a href="../Catalog-Page/clothes.html"
+                class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
+                  class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
+                الأزياء</a>
+            </li>
+            <li>
+              <a href="../Catalog-Page/makeup.html"
+                class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
+                  class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
+                الجمال</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Customer Service -->
+        <div>
+          <a href="information.html">
+            <h4 class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2">
+              خدمة العملاء
+            </h4>
+          </a>
+          <ul class="space-y-3 text-sm">
+            <li>
+              <a href="information.html#about" class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
+                  class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
+                عن المتجر</a>
+            </li>
+            <li>
+              <a href="information.html#returns"
+                class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
+                  class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
+                الاستبدال والاسترجاع</a>
+            </li>
+            <li>
+              <a href="information.html#how-to-order"
+                class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
+                  class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
+                طريقة الطلب</a>
+            </li>
+            <li>
+              <a href="information.html#shipping"
+                class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
+                  class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
+                التوصيل والشحن</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h4 class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2">
+            تواصل معنا
+          </h4>
+          <ul class="space-y-4 text-sm">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-location-dot text-[#f5b5c5] mt-1"></i>
+              <span class="text-gray-400">فلسطين،خانيونس , منتجع الساند بيتش
+              </span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-phone text-[#f5b5c5] mt-1"></i>
+              <span class="text-gray-400">+970 59 123 4567</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-envelope text-[#f5b5c5] mt-1"></i>
+              <span class="text-gray-400">info@ranastore.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+        <p class="text-sm text-gray-500">
+          © 2025 <span class="text-[#f5b5c5]">Rana Store</span>. جميع الحقوق
+          محفوظة. صُمم بكل حب 💗
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script src="js/main.js"></script>
+  <script>
+    // Collapsible Logic for Mobile Clothes Menu
+    const clothesToggle = document.getElementById("mobile-clothes-toggle");
+    const clothesSubmenu = document.getElementById("mobile-clothes-submenu");
+    const clothesIcon = clothesToggle.querySelector("i");
+
+    clothesToggle.addEventListener("click", () => {
+      // Check if it's currently closed (either 0px or not yet set inline)
+      const isClosed = !clothesSubmenu.style.maxHeight || clothesSubmenu.style.maxHeight === "0px";
+
+      if (isClosed) {
+        clothesSubmenu.style.maxHeight = clothesSubmenu.scrollHeight + "px";
+        clothesIcon.style.transform = "rotate(180deg)";
+      } else {
+        clothesSubmenu.style.maxHeight = "0px";
+        clothesIcon.style.transform = "rotate(0deg)";
+      }
+    });
+  </script>
+</body>
+
 </html>

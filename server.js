@@ -2,6 +2,10 @@ import express from "express";
 import cors from "cors";
 import { createClient } from "@supabase/supabase-js";
 import bcrypt from "bcryptjs";
+import * as dotenv from "dotenv";
+
+// تحميل متغيرات البيئة من ملف .env.local
+dotenv.config({ path: "../.env.local" });
 
 const app = express();
 app.use(cors());

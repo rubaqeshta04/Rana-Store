@@ -1,0 +1,122 @@
+/* Global CSS Variables - Single Source of Truth for Rana Store Theme */
+:root {
+    /* Primary Colors */
+    --primary-pink: #f5b5c5;
+    /* The standard pink */
+    --accent-pink: #f5b5c5;
+    /* The highlight/gradient pink */
+    --hover-pink: #f8d0da;
+    --bg-pink: #fff0f5;
+    --soft-pink: #fce7f3;
+
+    /* Neutral Colors (Gray) */
+    --primary-gray: #707070;
+    /* The dark gray */
+    --secondary-gray: #707070;
+    /* The medium gray used in buttons/text */
+    --hover-gray: #5a5a5a;
+    --text-gray: #707070;
+    --light-gray: #f3f4f6;
+    --border-gray: #707070;
+
+    /* Fonts */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Amiri', serif;
+    --font-alt: 'Cairo', sans-serif;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-pink);
+    color: var(--primary-gray);
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    line-height: relaxed;
+}
+
+/* Typography Utilities */
+.font-heading {
+    font-family: var(--font-heading);
+}
+
+.font-body {
+    font-family: var(--font-body);
+}
+
+.font-alt {
+    font-family: var(--font-alt);
+}
+
+/* Color Utilities */
+.text-pink {
+    color: var(--primary-pink);
+}
+
+.bg-pink {
+    background-color: var(--primary-pink);
+}
+
+.border-pink {
+    border-color: var(--primary-pink);
+}
+
+.text-gray {
+    color: var(--primary-gray);
+}
+
+.bg-gray {
+    background-color: var(--primary-gray);
+}
+
+.border-gray {
+    border-color: var(--border-gray);
+}
+
+/* Component Styles */
+.nav-link {
+    font-family: var(--font-alt);
+    font-weight: 600;
+    color: var(--text-gray);
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary-pink);
+}
+
+.btn-primary {
+    background-color: var(--primary-pink);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-pink);
+    color: var(--primary-gray);
+}
+
+.btn-secondary {
+    background-color: var(--primary-gray);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--hover-pink);
+    color: var(--primary-gray);
+}
+
+.product-card {
+    background: var(--soft-pink);
+    border: 1px solid var(--border-gray);
+    border-radius: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    border-color: var(--primary-gray);
+    transform: translateY(-5px);
+}

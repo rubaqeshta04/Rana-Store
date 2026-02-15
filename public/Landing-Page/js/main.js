@@ -18,28 +18,35 @@ window.addEventListener("scroll", () => {
 });
 
 const menuBtn = document.getElementById("menu-btn");
-const menuIcon = document.getElementById("menu-icon");
 const mobileMenu = document.getElementById("mobile-menu");
 const closeMenuBtn = document.getElementById("close-menu-btn");
+const overlay = document.getElementById("mobile-overlay");
 
 // فتح القائمة
-menuBtn.addEventListener("click", () => {
-  mobileMenu.classList.add("open"); // تظهر القائمة
-  menuBtn.style.display = "none"; // تختفي أيقونة menu
-});
+if (menuBtn) {
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.add("open");
+    if (overlay) overlay.classList.add("active");
+  });
+}
 
-// غلق القائمة عند الضغط على X
-closeMenuBtn.addEventListener("click", () => {
-  mobileMenu.classList.remove("open"); // تختفي القائمة
-  menuBtn.style.display = "block"; // تظهر أيقونة menu مرة أخرى
-});
+// غلق القائمة
+function closeMenu() {
+  if (mobileMenu) mobileMenu.classList.remove("open");
+  if (overlay) overlay.classList.remove("active");
+}
+
+if (closeMenuBtn) {
+  closeMenuBtn.addEventListener("click", closeMenu);
+}
+
+if (overlay) {
+  overlay.addEventListener("click", closeMenu);
+}
 
 // غلق القائمة عند الضغط على أي رابط
-document.querySelectorAll("#mobile-menu a").forEach((link) => {
-  link.addEventListener("click", () => {
-    mobileMenu.classList.remove("open"); // تختفي القائمة
-    menuBtn.style.display = "block"; // تظهر أيقونة menu مرة أخرى
-  });
+document.querySelectorAll("#mobile-menu .menu-link").forEach((link) => {
+  link.addEventListener("click", closeMenu);
 });
 
 function loadProducts(jsonFile, containerId, maxItems = 4) {
