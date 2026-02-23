@@ -1,31 +1,31 @@
-/* Global CSS Variables - Single Source of Truth for Rana Store Theme */
+
 :root {
-    /* Primary Colors */
+
     --primary-pink: #f5b5c5;
-    /* The standard pink */
+
     --accent-pink: #f5b5c5;
-    /* The highlight/gradient pink */
+
     --hover-pink: #f8d0da;
     --bg-pink: #fff0f5;
     --soft-pink: #fce7f3;
 
-    /* Neutral Colors (Gray) */
+
     --primary-gray: #707070;
-    /* The dark gray */
+
     --secondary-gray: #707070;
-    /* The medium gray used in buttons/text */
+
     --hover-gray: #5a5a5a;
     --text-gray: #707070;
     --light-gray: #f3f4f6;
     --border-gray: #707070;
 
-    /* Fonts */
+
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Amiri', serif;
     --font-alt: 'Cairo', sans-serif;
 }
 
-/* Base Styles */
+
 body {
     font-family: var(--font-body);
     background-color: var(--bg-pink);
@@ -36,7 +36,7 @@ body {
     line-height: relaxed;
 }
 
-/* Typography Utilities */
+
 .font-heading {
     font-family: var(--font-heading);
 }
@@ -49,7 +49,7 @@ body {
     font-family: var(--font-alt);
 }
 
-/* Color Utilities */
+
 .text-pink {
     color: var(--primary-pink);
 }
@@ -74,7 +74,7 @@ body {
     border-color: var(--border-gray);
 }
 
-/* Component Styles */
+
 .nav-link {
     font-family: var(--font-alt);
     font-weight: 600;

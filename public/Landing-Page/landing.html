@@ -6,25 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Viasun Cosmetics</title>
   <link rel="icon" href="assets/favicon.jpg" type="image/png" />
-  <!-- Tailwind CDN -->
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Fonts -->
+
   <link href="https://fonts.google.com/specimen/Cairo?referrer=grok.com" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap"
     rel="stylesheet" />
-  <!-- Font Awesome -->
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="../assets/css/global.css" />
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
-    /* Global Theme overrides if needed, most are in global.css */
     body {
       font-family: var(--font-body);
       background-color: var(--bg-pink);
     }
 
-    /* Header & Navigation */
+
     header#header {
       transition:
         transform 0.4s ease,
@@ -47,7 +46,7 @@
       letter-spacing: 1px;
     }
 
-    /* Desktop Navigation Links */
+
     .nav-link {
       font-family: var(--font-alt);
       font-weight: 600;
@@ -78,7 +77,7 @@
       right: auto;
     }
 
-    /* Mobile menu (Drawer) - Only visible on mobile */
+
     #mobile-menu {
       position: fixed;
       top: 0;
@@ -117,7 +116,7 @@
       pointer-events: auto;
     }
 
-    /* Product Card Styles - User Request: Pink BG, Gray Border */
+
     .product-card {
       background: #fdf2f8;
       /* Pink-50 */
@@ -150,30 +149,30 @@
 </head>
 
 <body class="bg-[#fff0f5] scroll-smooth">
-  <!-- NAVBAR -->
+
   <header id="header" class="fixed w-full top-0">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 h-20 flex items-center justify-between">
-      <!-- Logo -->
+
       <a href="#" class="flex items-center gap-2" id="logo">
-        <h1 class="text-xl md:text-2xl font-bold tracking-wider"
+        <h1 class="text-lg md:text-xl font-bold tracking-wider"
           style="font-family: &quot;Playfair Display&quot;, serif">
           <span class="text-[var(--primary-pink)]">Rana</span>
           <span class="text-gray-500">Store</span>
         </h1>
       </a>
 
-      <!-- Desktop Menu (VISIBLE NOW) -->
+
       <nav class="hidden md:flex items-center gap-8">
         <a href="../buyer-login.html" class="nav-link">الرئيسية</a>
         <a href="#" class="nav-link">العروض</a>
         <div class="relative group">
-          <!-- الرابط الرئيسي -->
+
           <a href="../Catalog-Page/clothes.html" class="nav-link flex items-center gap-1">
             الملابس
             <i class="fa-solid fa-chevron-down text-xs mt-1"></i>
           </a>
 
-          <!-- القائمة المنسدلة -->
+
           <div
             class="absolute right-0 mt-3 w-56 bg-white rounded-2xl shadow-xl border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible translate-y-3 group-hover:translate-y-0 transition-all duration-300 z-50">
             <div class="py-3 text-right" dir="rtl">
@@ -214,22 +213,23 @@
         <a href="../Catalog-Page/bag.html" class="nav-link">حقائب واكسسوار</a>
         <a href="../Catalog-Page/skincare.html" class="nav-link">العناية</a>
         <a href="../Catalog-Page/magat.html" class="nav-link">المجات</a>
+        <a href="../Catalog-Page/dal-heditak.html" class="nav-link text-[#be185d]">دلع هديتك</a>
         <a href="#anaka" class="nav-link">اناقتك علينا</a>
 
         <a href="#about-us" class="nav-link">من نحن</a>
       </nav>
 
-      <!-- Mobile Button (Only Mobile) -->
+
       <button id="menu-btn" class="md:hidden p-2 text-[#f5b5c5] hover:text-pink-700 transition-colors">
         <i class="fa-solid fa-bars text-2xl"></i>
       </button>
     </div>
   </header>
 
-  <!-- Overlay -->
+
   <div id="mobile-overlay" class="mobile-overlay"></div>
 
-  <!-- MOBILE MENU (Simple Links) -->
+
   <div id="mobile-menu">
     <div id="close-menu-btn"
       class="absolute top-5 right-5 w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center text-[#f5b5c5] cursor-pointer hover:bg-[#f5b5c5] hover:text-white transition-all">
@@ -274,15 +274,17 @@
         حقائب واكسسوار</a>
       <a href="../Catalog-Page/magat.html" class="menu-link text-lg font-bold text-gray-700 hover:text-[#f5b5c5]">قسم
         مجات</a>
+      <a href="../Catalog-Page/dal-heditak.html"
+        class="menu-link text-lg font-bold text-[#be185d] hover:text-[#f5b5c5]">دلع هديتك</a>
       <a href="#about-us" class="menu-link text-lg font-bold text-gray-700 hover:text-[#f5b5c5]">من نحن</a>
       <a href="https://www.instagram.com/rana.store97" target="_blank"
         class="menu-link text-lg font-bold text-gray-700 hover:text-[#f5b5c5]">تواصل معنا</a>
     </div>
   </div>
 
-  <!-- HERO SECTION -->
+
   <section class="hero w-full h-[600px] md:h-[700px] relative overflow-hidden bg-gray-900">
-    <img src="../assets/hero-section3.jpg" alt="Glowing Beauty and Fashion"
+    <img src="../assets/hero-section3.png" alt="Glowing Beauty and Fashion"
       class="absolute inset-0 w-full h-full object-cover" />
     <div class="overlay absolute inset-0 bg-black/40"></div>
     <div class="absolute right-0 bottom-12 md:bottom-16 z-10 max-w-xl px-6 md:px-12 text-right w-full">
@@ -310,12 +312,10 @@
     </div>
   </section>
 
-  <!-- ================= 6 FEATURED CARDS UNDER HERO ================= -->
-  <!-- ================= الأقسام المميزة ================= -->
 
   <section class="py-16 md:py-24 bg-gradient-to-b from-white to-[#f3f4f6]" id="products">
     <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <!-- العنوان في الوسط -->
+
       <div class="text-center mb-12 md:mb-16">
         <h2 class="text-4xl md:text-6xl font-extralight tracking-widest text-[#707070]">
           اكتشفي <span class="font-bold text-[#f5b5c5]">أقسامنا</span> المميزة
@@ -325,9 +325,9 @@
         </p>
       </div>
 
-      <!-- الـ 6 كاردات - 2 في كل صف على الموبايل و 3 على الديسك توب -->
+
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-10">
-        <!-- كارد 1 - المكياج -->
+
         <a href="../Catalog-Page/makeup.html" class="group block">
           <div
             class="bg-gradient-to-br from-[#f5b5c5]/30 to-[#f5b5c5]/10 backdrop-blur-sm border-4 border-[#707070]/20 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:border-[#707070]/50">
@@ -343,7 +343,7 @@
           </div>
         </a>
 
-        <!-- كارد 2 - العطور -->
+
         <a href="../Catalog-Page/perfumes.html" class="group block">
           <div
             class="bg-gradient-to-br from-[#f5b5c5]/30 to-[#f5b5c5]/10 backdrop-blur-sm border-4 border-[#707070]/20 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:border-[#707070]/50">
@@ -358,7 +358,7 @@
           </div>
         </a>
 
-        <!-- كارد 3 - الملابس -->
+
         <a href="../Catalog-Page/clothes.html" class="group block">
           <div
             class="bg-gradient-to-br from-[#f5b5c5]/30 to-[#f5b5c5]/10 backdrop-blur-sm border-4 border-[#707070]/20 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:border-[#707070]/50">
@@ -374,7 +374,7 @@
           </div>
         </a>
 
-        <!-- كارد 4 - المجات -->
+
         <a href="../Catalog-Page/magat.html" class="group block">
           <div
             class="bg-gradient-to-br from-[#f5b5c5]/30 to-[#f5b5c5]/10 backdrop-blur-sm border-4 border-[#707070]/20 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:border-[#707070]/50">
@@ -390,7 +390,7 @@
           </div>
         </a>
 
-        <!-- كارد 5 - الحقائب -->
+
         <a href="../Catalog-Page/bag.html" class="group block">
           <div
             class="bg-gradient-to-br from-[#f5b5c5]/30 to-[#f5b5c5]/10 backdrop-blur-sm border-4 border-[#707070]/20 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:border-[#707070]/50">
@@ -406,7 +406,7 @@
           </div>
         </a>
 
-        <!-- كارد 6 - العناية -->
+
         <a href="../Catalog-Page/skincare.html" class="group block">
           <div
             class="bg-gradient-to-br from-[#f5b5c5]/30 to-[#f5b5c5]/10 backdrop-blur-sm border-4 border-[#707070]/20 rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-4 hover:border-[#707070]/50">
@@ -426,10 +426,10 @@
   </section>
   <section class="py-16" id="anaka">
     <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <!-- الصندوق الخارجي مع بوردر واضح -->
+
       <div
         class="flex flex-col md:flex-row items-center gap-10 border-2 border-[#f5b5c5]/30 rounded-3xl p-8 bg-white/80 shadow-2xl backdrop-blur-sm">
-        <!-- الصورة على اليسار -->
+
         <div class="md:w-1/2">
           <div class="relative group">
             <div
@@ -440,7 +440,7 @@
           </div>
         </div>
 
-        <!-- النص على اليمين -->
+
         <div class="md:w-1/2 text-right">
           <h2 class="text-3xl md:text-4xl font-bold text-[#f5b5c5] mb-2" style="font-family: &quot;Amiri&quot;, serif">
             أناقتكِ علينا
@@ -450,7 +450,7 @@
             الثقة في كل خطوة. تألقي بلمسات عصرية وألوان تناسب ذوقكِ الرفيع.
           </p>
 
-          <!-- النقاط بنظام عمودين -->
+
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             <div
               class="flex items-start gap-3 hover:bg-[#f5b5c5]/10 transition duration-300 cursor-pointer p-2 rounded-lg">
@@ -489,7 +489,7 @@
   </section>
   <section id="about-us" class="py-20 bg-gradient-to-b from-white to-pink-50">
     <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <!-- العنوان -->
+
       <div class="text-center mb-16">
         <h2 class="text-5xl font-bold text-[#f5b5c5] mb-4" style="font-family: &quot;Amiri&quot;, serif">
           من نحن
@@ -499,9 +499,9 @@
         </p>
       </div>
 
-      <!-- المحتوى -->
+
       <div class="grid md:grid-cols-2 gap-12 items-center">
-        <!-- الصور -->
+
         <div class="grid grid-cols-2 gap-4">
           <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=800"
             alt="Attractive Fashion Model"
@@ -511,7 +511,7 @@
             class="rounded-2xl shadow-2xl hover:scale-105 transition duration-500 mt-12 object-cover h-64 w-full" />
         </div>
 
-        <!-- النص -->
+
         <div class="text-right">
           <h3 class="text-3xl font-bold text-[#707070] mb-6" style="font-family: &quot;Amiri&quot;, serif">
             جمالكِ هو شغفنا الدائم
@@ -536,7 +536,7 @@
             </a>
           </div>
 
-          <!-- النقاط التعزيزية -->
+
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div class="flex items-center gap-4 group">
               <div
@@ -575,17 +575,17 @@
     </div>
   </section>
 
-  <!-- ================= FOOTER ================= -->
+
   <footer class="relative overflow-hidden mt-20 text-gray-300 bg-[#707070]">
-    <!-- Background Overlay -->
+
     <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/95 to-gray-800/95 z-0"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-6 py-16">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-        <!-- Brand / About -->
+
         <div class="col-span-1 md:col-span-1">
           <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" class="cursor-pointer">
-            <h3 class="text-3xl font-bold text-[#f5b5c5] mb-6" style="font-family: &quot;Playfair Display&quot;, serif">
+            <h3 class="text-xl font-bold text-[#f5b5c5] mb-6" style="font-family: &quot;Playfair Display&quot;, serif">
               Rana <span class="text-gray-400">Store</span>
             </h3>
           </a>
@@ -609,7 +609,7 @@
           </div>
         </div>
 
-        <!-- Quick Links -->
+
         <div>
           <h4 class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2">
             روابط سريعة
@@ -640,7 +640,7 @@
           </ul>
         </div>
 
-        <!-- Customer Service -->
+
         <div>
           <a href="information.html">
             <h4 class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2">
@@ -674,7 +674,7 @@
           </ul>
         </div>
 
-        <!-- Contact Info -->
+
         <div>
           <h4 class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2">
             تواصل معنا
@@ -706,10 +706,10 @@
     </div>
   </footer>
 
-  <!-- ================= SCRIPTS ================= -->
+
   <script src="js/main.js"></script>
   <script>
-    // Collapsible Logic for Mobile Clothes Menu
+
     const clothesToggle = document.getElementById("mobile-clothes-toggle");
     const clothesSubmenu = document.getElementById("mobile-clothes-submenu");
     const clothesIcon = clothesToggle.querySelector("i");

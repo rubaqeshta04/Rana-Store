@@ -52,7 +52,7 @@
         </a>
     </div>
 
-    <!-- عنوان القسم -->
+
     <section class="text-center py-32 bg-gradient-to-b from-[#f3f4f6] to-white">
         <h2 class="text-3xl md:text-7xl font-extralight tracking-widest mb-8">
             <span class="text-[#f5b5c5]">قسم البيجامات</span>
@@ -62,11 +62,11 @@
         </p>
     </section>
 
-    <!-- المنتجات -->
+
     <section id="products" class="max-w-7xl mx-auto px-6 py-16">
         <div id="products-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8"></div>
 
-        <!-- زر عرض المزيد -->
+
         <div class="text-center mt-16">
             <button id="load-more" style="display: none;"
                 class="relative inline-block px-6 py-2 text-base md:px-8 md:py-3 md:text-xl font-semibold rounded-full bg-[#707070] text-[#f5b5c5] hover:bg-[#5a5a5a] hover:text-[#f8d0da] shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 fade-scale-bounce fade-scale-bounce-delay-3 btn-hover">
@@ -76,15 +76,15 @@
     </section>
 
     <footer class="relative overflow-hidden mt-20 text-gray-300 bg-[#707070]">
-        <!-- Background Overlay -->
+
         <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/95 to-gray-800/95 z-0"></div>
 
         <div class="relative z-10 max-w-7xl mx-auto px-6 py-16">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-                <!-- Brand / About -->
+
                 <div class="col-span-1 md:col-span-1">
                     <a href="../Landing-Page/landing.html" class="cursor-pointer">
-                        <h3 class="text-3xl font-bold text-[#f5b5c5] mb-6"
+                        <h3 class="text-xl font-bold text-[#f5b5c5] mb-6"
                             style="font-family: &quot;Playfair Display&quot;, serif">
                             Rana <span class="text-gray-400">Store</span>
                         </h3>
@@ -109,7 +109,7 @@
                     </div>
                 </div>
 
-                <!-- Quick Links -->
+
                 <div>
                     <h4 class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2">
                         روابط سريعة
@@ -142,7 +142,7 @@
                     </ul>
                 </div>
 
-                <!-- Customer Service -->
+
                 <div>
                     <a href="../Landing-Page/information.html">
                         <h4 class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2">
@@ -177,7 +177,7 @@
                     </ul>
                 </div>
 
-                <!-- Contact Info -->
+
                 <div>
                     <h4 class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2">
                         تواصل معنا
@@ -250,7 +250,7 @@
 
                 products.forEach((p) => {
                     const message = encodeURIComponent(
-                        `مرحبا رنا ستور 💗\nمهتمة بهذا المنتج: ${p.name}\nالسعر: ${p.price}\n${p.description}\nالصورة: ${p.image}`
+                        `مرحبا رنا ستور 💗\nمهتمة بهذا المنتج: ${p.name}\nالسعر: ${p.price} ش\n${p.description}\nالصورة: ${p.image}`
                     );
                     const instagramLink = `https://ig.me/m/rana.store97?text=${message}`;
 
@@ -262,9 +262,9 @@
           <img src="${p.image || "https://via.placeholder.com/300"}" alt="${p.name}" class="w-full h-56 md:h-64 object-cover transition duration-500 group-hover:scale-105">
         </div>
         <div class="p-4 flex flex-col flex-1">
-          <h3 class="font-bold text-lg mb-2">${p.name}</h3>
-          <p class="text-[#6b7280] font-semibold mb-2">${p.price} $</p>
-          <p class="text-sm text-gray-700 flex-1 mb-4">${p.description || ''}</p>
+          <h3 class="font-bold text-lg mb-2 text-[#be185d]">${p.name}</h3>
+          <p class="text-green-600 font-semibold mb-2">${p.price} ش</p>
+          <p class="text-sm text-black flex-1 mb-4">${p.description || ''}</p>
         </div>
         <div class="p-4 text-center">
           <a href="${instagramLink}" target="_blank" class="relative inline-block px-8 py-3 text-lg font-semibold rounded-full bg-[#707070] text-[#f5b5c5] hover:bg-[#5a5a5a] hover:text-[#f8d0da] shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 fade-scale-bounce fade-scale-bounce-delay-3 btn-hover w-full">

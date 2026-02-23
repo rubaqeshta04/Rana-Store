@@ -43,7 +43,7 @@
       </button>
     </div>
 
-    <!-- نموذج الإضافة / التعديل -->
+
     <div class="bg-white p-8 rounded-2xl shadow-2xl mb-12 border border-pink-100">
       <h2 id="formTitle" class="text-2xl font-bold text-[#707070] mb-6 text-center">
         إضافة منتج جديد
@@ -51,7 +51,7 @@
       <form id="addProductForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <input id="name" required type="text" placeholder="اسم المنتج"
           class="border border-gray-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#707070] text-lg" />
-        <input id="price" required type="number" step="0.01" placeholder="السعر (بالدولار)"
+        <input id="price" required type="number" step="0.01" placeholder="السعر (بالشيكل)"
           class="border border-gray-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#707070] text-lg" />
         <textarea id="description" placeholder="الوصف" rows="3"
           class="border border-gray-300 p-4 rounded-xl md:col-span-2 focus:outline-none focus:ring-2 focus:ring-[#9ca3af] text-lg"></textarea>
@@ -78,7 +78,7 @@
       </form>
     </div>
 
-    <!-- قائمة المنتجات -->
+
     <h2 class="text-3xl font-bold text-[#707070] mb-8 text-center">
       المنتجات الحالية
     </h2>
@@ -120,11 +120,14 @@
 
     const API_URL = "/api";
 
+    let allProducts = [];
+
     async function loadProducts() {
       try {
         const res = await fetch(`${API_URL}/products`, { method: "GET" });
         if (!res.ok) throw new Error("فشل جلب المنتجات");
         const data = await res.json();
+        allProducts = data;
 
         grid.innerHTML = "";
 
@@ -134,21 +137,21 @@
           return;
         }
 
-        data.forEach((product) => {
+        data.forEach((product, index) => {
           const card = document.createElement("div");
           card.className =
             "bg-white rounded-2xl shadow-lg overflow-hidden border border-pink-100 hover:shadow-xl transition text-center";
           card.innerHTML = `
             <img src="${product.image || "https://via.placeholder.com/400x300?text=No+Image"}" alt="${product.name}" class="w-full h-56 object-cover">
             <div class="p-6">
-              <h3 class=\"product-name text-[#707070] mb-2\">${product.name}</h3>
-              <p class=\"product-price text-[#707070] mb-3\">${product.price} $</p>
+              <h3 class="product-name text-[#707070] mb-2">${product.name}</h3>
+               <p class="product-price text-[#707070] mb-3">${product.price} ش</p>
               <p class="product-desc text-gray-700 mb-4">${product.description || "بدون وصف"}</p>
               <div class="flex justify-center items-center gap-4">
                 <span class="text-sm text-gray-600 bg-pink-100 px-4 py-1 rounded-full">${product.category}</span>
               </div>
               <div class="mt-6 flex justify-center gap-4">
-                <button onclick="editProduct(${product.id}, \`${product.name}\`, ${product.price}, \`${product.description || ""}\`, \`${product.image}\`, \`${product.category}\`)" 
+                <button onclick="editProduct(${index})" 
                         class="bg-yellow-500 text-white px-6 py-2 rounded-full hover:bg-yellow-600 transition text-base font-medium">
                   تعديل
                 </button>
@@ -167,19 +170,15 @@
       }
     }
 
-    window.editProduct = function (
-      id,
-      name,
-      price,
-      description,
-      image,
-      category,
-    ) {
-      document.getElementById("name").value = name;
-      document.getElementById("price").value = price;
-      document.getElementById("description").value = description;
-      document.getElementById("image").value = image;
-      document.getElementById("category").value = category;
+    window.editProduct = function (index) {
+      const product = allProducts[index];
+      if (!product) return;
+
+      document.getElementById("name").value = product.name;
+      document.getElementById("price").value = product.price;
+      document.getElementById("description").value = product.description || "";
+      document.getElementById("image").value = product.image;
+      document.getElementById("category").value = product.category;
 
       formTitle.textContent = "تعديل المنتج";
       submitBtn.textContent = "حفظ التعديلات";
@@ -191,7 +190,7 @@
         hiddenId.id = "editId";
         form.appendChild(hiddenId);
       }
-      hiddenId.value = id;
+      hiddenId.value = product.id;
 
       form.scrollIntoView({ behavior: "smooth" });
     };

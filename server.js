@@ -4,24 +4,17 @@ import { createClient } from "@supabase/supabase-js";
 import bcrypt from "bcryptjs";
 import * as dotenv from "dotenv";
 
-// تحميل متغيرات البيئة من ملف .env.local
 dotenv.config({ path: "../.env.local" });
 
 const app = express();
 app.use(cors());
-app.use(express.json({ limit: "50mb" })); // لدعم الصور الكبيرة base64
+app.use(express.json({ limit: "50mb" }));
 
-// ────────────────────────────────────────────────
-//          الاتصال بـ Supabase (استخدم service_role key فقط هنا)
-// ────────────────────────────────────────────────
 const supabase = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-// ────────────────────────────────────────────────
-//          تسجيل دخول البائع (Login)
-// ────────────────────────────────────────────────
 app.post("/api/seller/login", async (req, res) => {
   const { email, password } = req.body;
 
@@ -64,19 +57,15 @@ app.post("/api/seller/login", async (req, res) => {
   }
 });
 
-// ────────────────────────────────────────────────
-//          جلب جميع المنتجات (مع دعم الفلتر حسب الفئة)
-// ────────────────────────────────────────────────
 app.get("/api/products", async (req, res) => {
   try {
-    const { category } = req.query; // استقبال الفئة من الرابط
+    const { category } = req.query;
 
     let query = supabase
       .from("Products")
       .select("*")
       .order("id", { ascending: false });
 
-    // إذا تم تحديد فئة، نقوم بالتصفية بناءً عليها
     if (category) {
       query = query.eq("category", category);
     }
@@ -92,9 +81,6 @@ app.get("/api/products", async (req, res) => {
   }
 });
 
-// ────────────────────────────────────────────────
-//          إضافة منتج جديد (محمي – يحتاج تسجيل دخول)
-// ────────────────────────────────────────────────
 app.post("/api/products", async (req, res) => {
   const authHeader = req.headers.authorization;
 
@@ -102,10 +88,10 @@ app.post("/api/products", async (req, res) => {
     return res.status(401).json({ error: "غير مصرّح – يرجى تسجيل الدخول" });
   }
 
-  const token = authHeader.split(" ")[1]; // Bearer email → email
+  const token = authHeader.split(" ")[1];
 
   try {
-    // تحقق من أن المستخدم بائع
+
     const { data: seller, error: authError } = await supabase
       .from("sellers")
       .select("id, email, role")
@@ -136,9 +122,6 @@ app.post("/api/products", async (req, res) => {
   }
 });
 
-// ────────────────────────────────────────────────
-//          حذف منتج (محمي بنفس الطريقة)
-// ────────────────────────────────────────────────
 app.delete("/api/products", async (req, res) => {
   const authHeader = req.headers.authorization;
 
@@ -176,9 +159,6 @@ app.delete("/api/products", async (req, res) => {
   }
 });
 
-// ────────────────────────────────────────────────
-//          تعديل منتج (PUT /api/products/:id)
-// ────────────────────────────────────────────────
 app.put("/api/products/:id", async (req, res) => {
   const authHeader = req.headers.authorization;
 
@@ -189,7 +169,7 @@ app.put("/api/products/:id", async (req, res) => {
   const token = authHeader.split(" ")[1];
 
   try {
-    // تحقق من أن المستخدم بائع
+
     const { data: seller, error: authError } = await supabase
       .from("sellers")
       .select("id, email, role")
@@ -225,12 +205,6 @@ app.put("/api/products/:id", async (req, res) => {
     res.status(500).json({ error: "حدث خطأ في الخادم" });
   }
 });
-// ────────────────────────────────────────────────
-//          تشغيل السيرفر
-// ────────────────────────────────────────────────
-// ────────────────────────────────────────────────
-//          تشغيل السيرفر
-// ────────────────────────────────────────────────
 const PORT = process.env.PORT || 3000;
 
 if (process.env.NODE_ENV !== "production") {
