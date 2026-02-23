@@ -1,273 +1,326 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>قسم التنانير - Rana Store</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="../assets/css/global.css" />
     <style>
-        body {
-            font-family: var(--font-body);
-            background-color: var(--bg-pink);
-        }
+      body {
+        font-family: var(--font-body);
+        background-color: var(--bg-pink);
+      }
 
-        h1,
-        h2,
-        h3 {
-            font-family: var(--font-heading);
-            font-weight: 300;
-        }
+      h1,
+      h2,
+      h3 {
+        font-family: var(--font-heading);
+        font-weight: 300;
+      }
 
-        header {
-            transition: transform 0.4s ease;
-        }
+      header {
+        transition: transform 0.4s ease;
+      }
 
-        header.hide {
-            transform: translateY(-100%);
-        }
+      header.hide {
+        transform: translateY(-100%);
+      }
 
-        #mobile-menu {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-        }
+      #mobile-menu {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+      }
 
-        #mobile-menu a {
-            font-size: 1.25rem;
-            padding: 1rem 2rem;
-        }
+      #mobile-menu a {
+        font-size: 1.25rem;
+        padding: 1rem 2rem;
+      }
     </style>
-</head>
+  </head>
 
-<body class="bg-[#f3f4f6] text-[#2b2b2b] antialiased leading-relaxed">
+  <body class="bg-[#f3f4f6] text-[#2b2b2b] antialiased leading-relaxed">
     <div class="fixed top-6 right-6 z-50">
-        <a href="../Landing-Page/landing.html">
-            <button
-                class="relative inline-block px-5 py-2 text-sm md:px-8 md:py-3 md:text-xl font-semibold rounded-full bg-[#707070] text-[#f5b5c5] hover:bg-[#5a5a5a] hover:text-[#f8d0da] shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 fade-scale-bounce fade-scale-bounce-delay-3 btn-hover">
-                ← رجوع
-            </button>
-        </a>
+      <a href="../Landing-Page/landing.html">
+        <button
+          class="relative inline-block px-5 py-2 text-sm md:px-8 md:py-3 md:text-xl font-semibold rounded-full bg-[#707070] text-[#f5b5c5] hover:bg-[#5a5a5a] hover:text-[#f8d0da] shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 fade-scale-bounce fade-scale-bounce-delay-3 btn-hover"
+        >
+          ← رجوع
+        </button>
+      </a>
     </div>
 
-
     <section class="text-center py-32 bg-gradient-to-b from-[#f3f4f6] to-white">
-        <h2 class="text-3xl md:text-7xl font-extralight tracking-widest mb-8">
-            <span class="text-[#f5b5c5]">قسم التنانير</span>
-        </h2>
-        <p class="text-xl md:text-3xl font-semibold text-[#707070]">
-            اختاري ما يناسبكِ وتواصلي معنا مباشرة عبر إنستغرام
-        </p>
+      <h2 class="text-3xl md:text-7xl font-extralight tracking-widest mb-8">
+        <span class="text-[#f5b5c5]">قسم التنانير</span>
+      </h2>
+      <p class="text-xl md:text-3xl font-semibold text-[#707070]">
+        اختاري ما يناسبكِ وتواصلي معنا مباشرة عبر إنستغرام
+      </p>
     </section>
 
-
-
-
     <section id="products" class="max-w-7xl mx-auto px-6 py-16">
-        <div id="products-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8"></div>
+      <div
+        id="products-grid"
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8"
+      ></div>
 
-
-        <div class="text-center mt-16">
-            <button id="load-more" style="display: none;"
-                class="relative inline-block px-6 py-2 text-base md:px-8 md:py-3 md:text-xl font-semibold rounded-full bg-[#707070] text-[#f5b5c5] hover:bg-[#5a5a5a] hover:text-[#f8d0da] shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 fade-scale-bounce fade-scale-bounce-delay-3 btn-hover">
-                عرض المزيد
-            </button>
-        </div>
+      <div class="text-center mt-16">
+        <button
+          id="load-more"
+          style="display: none"
+          class="relative inline-block px-6 py-2 text-base md:px-8 md:py-3 md:text-xl font-semibold rounded-full bg-[#707070] text-[#f5b5c5] hover:bg-[#5a5a5a] hover:text-[#f8d0da] shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 fade-scale-bounce fade-scale-bounce-delay-3 btn-hover"
+        >
+          عرض المزيد
+        </button>
+      </div>
     </section>
 
     <footer class="relative overflow-hidden mt-20 text-gray-300 bg-[#707070]">
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/95 to-gray-800/95 z-0"
+      ></div>
 
-        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/95 to-gray-800/95 z-0"></div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-6 py-16">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-
-                <div class="col-span-1 md:col-span-1">
-                    <a href="../Landing-Page/landing.html" class="cursor-pointer">
-                        <h3 class="text-xl font-bold text-[#f5b5c5] mb-6"
-                            style="font-family: &quot;Playfair Display&quot;, serif">
-                            Rana <span class="text-gray-400">Store</span>
-                        </h3>
-                    </a>
-                    <p class="leading-relaxed mb-6 text-sm text-gray-400">
-                        وجهتك الأولى للأناقة والجمال. نقدم لكِ أفضل المنتجات العالمية من
-                        قلب غزة، لنمنحكِ التميز الذي تستحقينه.
-                    </p>
-                    <div class="flex gap-4">
-                        <a href="https://www.instagram.com/rana.store97" target="_blank"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-[#f5b5c5] hover:bg-[#f5b5c5] hover:text-white transition-all duration-300 shadow-lg border border-gray-700">
-                            <i class="fa-brands fa-instagram text-lg"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-[#f5b5c5] hover:bg-[#f5b5c5] hover:text-white transition-all duration-300 shadow-lg border border-gray-700">
-                            <i class="fa-brands fa-facebook-f text-lg"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-[#f5b5c5] hover:bg-[#f5b5c5] hover:text-white transition-all duration-300 shadow-lg border border-gray-700">
-                            <i class="fa-brands fa-whatsapp text-lg"></i>
-                        </a>
-                    </div>
-                </div>
-
-
-                <div>
-                    <h4 class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2">
-                        روابط سريعة
-                    </h4>
-                    <ul class="space-y-3 text-sm">
-                        <li>
-                            <a href="../index.html"
-                                class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
-                                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
-                                الرئيسية</a>
-                        </li>
-                        <li>
-                            <a href="../Landing-Page/landing.html#about-us"
-                                class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
-                                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
-                                من نحن</a>
-                        </li>
-                        <li>
-                            <a href="../Catalog-Page/clothes.html"
-                                class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
-                                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
-                                الأزياء</a>
-                        </li>
-                        <li>
-                            <a href="../Catalog-Page/makeup.html"
-                                class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
-                                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
-                                الجمال</a>
-                        </li>
-                    </ul>
-                </div>
-
-
-                <div>
-                    <a href="../Landing-Page/information.html">
-                        <h4 class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2">
-                            خدمة العملاء
-                        </h4>
-                    </a>
-                    <ul class="space-y-3 text-sm">
-                        <li>
-                            <a href="../Landing-Page/information.html#about"
-                                class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
-                                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
-                                عن المتجر</a>
-                        </li>
-                        <li>
-                            <a href="../Landing-Page/information.html#returns"
-                                class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
-                                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
-                                الاستبدال والاسترجاع</a>
-                        </li>
-                        <li>
-                            <a href="../Landing-Page/information.html#how-to-order"
-                                class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
-                                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
-                                طريقة الطلب</a>
-                        </li>
-                        <li>
-                            <a href="../Landing-Page/information.html#shipping"
-                                class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
-                                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
-                                التوصيل والشحن</a>
-                        </li>
-                    </ul>
-                </div>
-
-
-                <div>
-                    <h4 class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2">
-                        تواصل معنا
-                    </h4>
-                    <ul class="space-y-4 text-sm">
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-location-dot text-[#f5b5c5] mt-1"></i>
-                            <span class="text-gray-400">فلسطين،خانيونس , منتجع الساند بيتش
-                            </span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-phone text-[#f5b5c5] mt-1"></i>
-                            <span class="text-gray-400">+970 59 123 4567</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-envelope text-[#f5b5c5] mt-1"></i>
-                            <span class="text-gray-400">info@ranastore.com</span>
-                        </li>
-                    </ul>
-                </div>
+      <div class="relative z-10 max-w-7xl mx-auto px-6 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div class="col-span-1 md:col-span-1">
+            <a href="../Landing-Page/landing.html" class="cursor-pointer">
+              <h3
+                class="text-xl font-bold text-[#f5b5c5] mb-6"
+                style="font-family: &quot;Playfair Display&quot;, serif"
+              >
+                Rana <span class="text-gray-400">Store</span>
+              </h3>
+            </a>
+            <p class="leading-relaxed mb-6 text-sm text-gray-400">
+              وجهتك الأولى للأناقة والجمال. نقدم لكِ أفضل المنتجات العالمية من
+              قلب غزة، لنمنحكِ التميز الذي تستحقينه.
+            </p>
+            <div class="flex gap-4">
+              <a
+                href="https://www.instagram.com/rana.store97"
+                target="_blank"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-[#f5b5c5] hover:bg-[#f5b5c5] hover:text-white transition-all duration-300 shadow-lg border border-gray-700"
+              >
+                <i class="fa-brands fa-instagram text-lg"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-[#f5b5c5] hover:bg-[#f5b5c5] hover:text-white transition-all duration-300 shadow-lg border border-gray-700"
+              >
+                <i class="fa-brands fa-facebook-f text-lg"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-[#f5b5c5] hover:bg-[#f5b5c5] hover:text-white transition-all duration-300 shadow-lg border border-gray-700"
+              >
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+              </a>
             </div>
+          </div>
 
-            <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-                <p class="text-sm text-gray-500">
-                    © 2025 <span class="text-[#f5b5c5]">Rana Store</span>. جميع الحقوق
-                    محفوظة. صُمم بكل حب 💗
-                </p>
-            </div>
+          <div>
+            <h4
+              class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2"
+            >
+              روابط سريعة
+            </h4>
+            <ul class="space-y-3 text-sm">
+              <li>
+                <a
+                  href="../index.html"
+                  class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"
+                  ><i
+                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"
+                  ></i>
+                  الرئيسية</a
+                >
+              </li>
+              <li>
+                <a
+                  href="../Landing-Page/landing.html#about-us"
+                  class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"
+                  ><i
+                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"
+                  ></i>
+                  من نحن</a
+                >
+              </li>
+              <li>
+                <a
+                  href="../Catalog-Page/clothes.html"
+                  class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"
+                  ><i
+                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"
+                  ></i>
+                  الأزياء</a
+                >
+              </li>
+              <li>
+                <a
+                  href="../Catalog-Page/makeup.html"
+                  class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"
+                  ><i
+                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"
+                  ></i>
+                  الجمال</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <a href="../Landing-Page/information.html">
+              <h4
+                class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2"
+              >
+                خدمة العملاء
+              </h4>
+            </a>
+            <ul class="space-y-3 text-sm">
+              <li>
+                <a
+                  href="../Landing-Page/information.html#about"
+                  class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"
+                  ><i
+                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"
+                  ></i>
+                  عن المتجر</a
+                >
+              </li>
+              <li>
+                <a
+                  href="../Landing-Page/information.html#returns"
+                  class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"
+                  ><i
+                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"
+                  ></i>
+                  الاستبدال والاسترجاع</a
+                >
+              </li>
+              <li>
+                <a
+                  href="../Landing-Page/information.html#how-to-order"
+                  class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"
+                  ><i
+                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"
+                  ></i>
+                  طريقة الطلب</a
+                >
+              </li>
+              <li>
+                <a
+                  href="../Landing-Page/information.html#shipping"
+                  class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"
+                  ><i
+                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"
+                  ></i>
+                  التوصيل والشحن</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4
+              class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2"
+            >
+              تواصل معنا
+            </h4>
+            <ul class="space-y-4 text-sm">
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-location-dot text-[#f5b5c5] mt-1"></i>
+                <span class="text-gray-400"
+                  >فلسطين،خانيونس , منتجع الساند بيتش
+                </span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-phone text-[#f5b5c5] mt-1"></i>
+                <span class="text-gray-400">+970 59 123 4567</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <i class="fa-solid fa-envelope text-[#f5b5c5] mt-1"></i>
+                <span class="text-gray-400">info@ranastore.com</span>
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+          <p class="text-sm text-gray-500">
+            © 2025 <span class="text-[#f5b5c5]">Rana Store</span>. جميع الحقوق
+            محفوظة. صُمم بكل حب 💗
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script>
-        let page = 1;
-        const productsPerPage = 10;
-        const currentCategory = "تنانير";
+      let page = 1;
+      const productsPerPage = 10;
+      const currentCategory = "تنانير";
 
-        async function loadProducts() {
+      async function loadProducts() {
+        if (page === 1) {
+          document.getElementById("products-grid").innerHTML = "";
+          document.getElementById("load-more").style.display = "none";
+        }
+
+        const start = (page - 1) * productsPerPage;
+        const end = start + productsPerPage - 1;
+
+        try {
+          const res = await fetch(`/api/products?category=${currentCategory}`);
+
+          if (!res.ok) throw new Error("فشل جلب البيانات من السيرفر");
+
+          const allProducts = await res.json();
+
+          const btn = document.getElementById("load-more");
+          if (allProducts.length > productsPerPage * page) {
+            if (btn) btn.style.display = "inline-block";
+          } else {
+            if (btn) btn.style.display = "none";
+          }
+
+          const products = allProducts.slice(start, end + 1);
+
+          if (!products || products.length === 0) {
             if (page === 1) {
-                document.getElementById("products-grid").innerHTML = "";
-                document.getElementById("load-more").style.display = "none";
+              document.getElementById("products-grid").innerHTML =
+                `<p class="col-span-full text-center text-gray-500 py-20 text-xl">لا توجد منتجات في هذا القسم حالياً.</p>`;
             }
+            document.getElementById("load-more").style.display = "none";
+            return;
+          }
 
-            const start = (page - 1) * productsPerPage;
-            const end = start + productsPerPage - 1;
+          const grid = document.getElementById("products-grid");
 
-            try {
-                const res = await fetch(`/api/products?category=${currentCategory}`);
+          products.forEach((p) => {
+            const message = encodeURIComponent(
+              `مرحبا رنا ستور 💗\nمهتمة بهذا المنتج: ${p.name}\nالسعر: ${p.price} ش\n${p.description}\nالصورة: ${p.image}`,
+            );
+            const instagramLink = `https://ig.me/m/rana.store97?text=${message}`;
 
-                if (!res.ok) throw new Error("فشل جلب البيانات من السيرفر");
-
-                const allProducts = await res.json();
-
-                const btn = document.getElementById("load-more");
-                if (allProducts.length > productsPerPage * page) {
-                    if (btn) btn.style.display = "inline-block";
-                } else {
-                    if (btn) btn.style.display = "none";
-                }
-
-                const products = allProducts.slice(start, end + 1);
-
-                if (!products || products.length === 0) {
-                    if (page === 1) {
-                        document.getElementById("products-grid").innerHTML = `<p class="col-span-full text-center text-gray-500 py-20 text-xl">لا توجد منتجات في هذا القسم حالياً.</p>`;
-                    }
-                    document.getElementById("load-more").style.display = "none";
-                    return;
-                }
-
-                const grid = document.getElementById("products-grid");
-
-                products.forEach((p) => {
-                    const message = encodeURIComponent(
-                        `مرحبا رنا ستور 💗\nمهتمة بهذا المنتج: ${p.name}\nالسعر: ${p.price} ش\n${p.description}\nالصورة: ${p.image}`
-                    );
-                    const instagramLink = `https://ig.me/m/rana.store97?text=${message}`;
-
-                    const card = document.createElement("div");
-                    card.className =
-                        "bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition flex flex-col";
-                    card.innerHTML = `
+            const card = document.createElement("div");
+            card.className =
+              "bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition flex flex-col";
+            card.innerHTML = `
         <div class="relative group">
           <img src="${p.image || "https://via.placeholder.com/300"}" alt="${p.name}" class="w-full h-56 md:h-64 object-cover transition duration-500 group-hover:scale-105">
         </div>
         <div class="p-4 flex flex-col flex-1">
           <h3 class="font-bold text-lg mb-2 text-[#be185d]">${p.name}</h3>
           <p class="text-green-600 font-semibold mb-2">${p.price} ش</p>
-          <p class="text-sm text-black flex-1 mb-4">${p.description || ''}</p>
+          <p class="text-sm text-black flex-1 mb-4">${p.description || ""}</p>
         </div>
         <div class="p-4 text-center">
           <a href="${instagramLink}" target="_blank" class="relative inline-block px-8 py-3 text-lg font-semibold rounded-full bg-[#707070] text-[#f5b5c5] hover:bg-[#5a5a5a] hover:text-[#f8d0da] shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 fade-scale-bounce fade-scale-bounce-delay-3 btn-hover w-full">
@@ -275,25 +328,24 @@
           </a>
         </div>
       `;
-                    grid.appendChild(card);
-                });
+            grid.appendChild(card);
+          });
 
-                if (products.length < productsPerPage) {
-                    document.getElementById("load-more").style.display = "none";
-                }
+          if (products.length < productsPerPage) {
+            document.getElementById("load-more").style.display = "none";
+          }
 
-                page++;
-            } catch (error) {
-                console.error("خطأ:", error);
-            }
+          page++;
+        } catch (error) {
+          console.error("خطأ:", error);
         }
+      }
 
-        document.getElementById("load-more").addEventListener("click", () => {
-            loadProducts();
-        });
-
+      document.getElementById("load-more").addEventListener("click", () => {
         loadProducts();
-    </script>
-</body>
+      });
 
+      loadProducts();
+    </script>
+  </body>
 </html>

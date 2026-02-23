@@ -1,147 +1,192 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>لوحة إدارة رنا ستور</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <style>
+      body {
+        font-family: "Cairo", sans-serif;
+        background-color: #fdf2f8;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>لوحة إدارة رنا ستور</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-  <style>
-    body {
-      font-family: "Cairo", sans-serif;
-      background-color: #fdf2f8;
-    }
+      .product-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
 
-    .product-name {
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
+      .product-price {
+        font-size: 1.8rem;
+        font-weight: 800;
+      }
 
-    .product-price {
-      font-size: 1.8rem;
-      font-weight: 800;
-    }
+      .product-desc {
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
 
-    .product-desc {
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-  </style>
-</head>
-
-<body class="min-h-screen p-6 md:p-12">
-  <div class="max-w-6xl mx-auto">
-    <div class="flex justify-between items-center mb-10">
-      <h1 class="text-4xl md:text-5xl font-bold text-[#707070] text-center flex-1">
-        لوحة الإدارة - إدارة المنتجات
-      </h1>
-      <button onclick="logout()"
-        class="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition text-lg font-medium">
-        تسجيل الخروج
-      </button>
-    </div>
-
-
-    <div class="bg-white p-8 rounded-2xl shadow-2xl mb-12 border border-pink-100">
-      <h2 id="formTitle" class="text-2xl font-bold text-[#707070] mb-6 text-center">
-        إضافة منتج جديد
-      </h2>
-      <form id="addProductForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <input id="name" required type="text" placeholder="اسم المنتج"
-          class="border border-gray-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#707070] text-lg" />
-        <input id="price" required type="number" step="0.01" placeholder="السعر (بالشيكل)"
-          class="border border-gray-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#707070] text-lg" />
-        <textarea id="description" placeholder="الوصف" rows="3"
-          class="border border-gray-300 p-4 rounded-xl md:col-span-2 focus:outline-none focus:ring-2 focus:ring-[#9ca3af] text-lg"></textarea>
-        <input id="image" required type="url" placeholder="رابط الصورة"
-          class="border border-gray-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#707070] text-lg" />
-        <select id="category"
-          class="border border-gray-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9ca3af] text-lg">
-          <option value="عناية">عناية</option>
-          <option value="مكياج">مكياج</option>
-          <option value="حقائب">حقائب</option>
-          <option value="مجات">مجات</option>
-          <option value="عطور">عطور</option>
-          <option value="ملابس">ملابس (عام)</option>
-          <option value="أطقم">أطقم</option>
-          <option value="لانجري">لانجري</option>
-          <option value="بيجامات">بيجامات</option>
-          <option value="ملابس أطفال">ملابس أطفال</option>
-          <option value="تنانير">تنانير</option>
-        </select>
-        <button type="submit"
-          class="relative inline-block md:col-span-2 px-8 py-4 text-xl font-bold rounded-full bg-[#707070] text-[#f5b5c5] hover:bg-[#5a5a5a] hover:text-[#f8d0da] shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 btn-hover">
-          إضافة المنتج الآن
+  <body class="min-h-screen p-6 md:p-12">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex justify-between items-center mb-10">
+        <h1
+          class="text-4xl md:text-5xl font-bold text-[#707070] text-center flex-1"
+        >
+          لوحة الإدارة - إدارة المنتجات
+        </h1>
+        <button
+          onclick="logout()"
+          class="bg-red-600 text-white px-6 py-3 rounded-full hover:bg-red-700 transition text-lg font-medium"
+        >
+          تسجيل الخروج
         </button>
-      </form>
+      </div>
+
+      <div
+        class="bg-white p-8 rounded-2xl shadow-2xl mb-12 border border-pink-100"
+      >
+        <h2
+          id="formTitle"
+          class="text-2xl font-bold text-[#707070] mb-6 text-center"
+        >
+          إضافة منتج جديد
+        </h2>
+        <form id="addProductForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <input
+            id="name"
+            required
+            type="text"
+            placeholder="اسم المنتج"
+            class="border border-gray-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#707070] text-lg"
+          />
+          <input
+            id="price"
+            required
+            type="number"
+            step="0.01"
+            placeholder="السعر (بالشيكل)"
+            class="border border-gray-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#707070] text-lg"
+          />
+          <textarea
+            id="description"
+            placeholder="الوصف"
+            rows="3"
+            class="border border-gray-300 p-4 rounded-xl md:col-span-2 focus:outline-none focus:ring-2 focus:ring-[#9ca3af] text-lg"
+          ></textarea>
+          <input
+            id="image"
+            required
+            type="url"
+            placeholder="رابط الصورة"
+            class="border border-gray-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#707070] text-lg"
+          />
+          <select
+            id="category"
+            class="border border-gray-300 p-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9ca3af] text-lg"
+          >
+            <option value="عناية">عناية</option>
+            <option value="مكياج">مكياج</option>
+            <option value="حقائب">حقائب</option>
+            <option value="مجات">مجات</option>
+            <option value="عطور">عطور</option>
+            <option value="ملابس">ملابس (عام)</option>
+            <option value="أطقم">أطقم</option>
+            <option value="لانجري">لانجري</option>
+            <option value="بيجامات">بيجامات</option>
+            <option value="ملابس أطفال">ملابس أطفال</option>
+            <option value="تنانير">تنانير</option>
+          </select>
+          <button
+            type="submit"
+            class="relative inline-block md:col-span-2 px-8 py-4 text-xl font-bold rounded-full bg-[#707070] text-[#f5b5c5] hover:bg-[#5a5a5a] hover:text-[#f8d0da] shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 btn-hover"
+          >
+            إضافة المنتج الآن
+          </button>
+        </form>
+      </div>
+
+      <h2 class="text-3xl font-bold text-[#707070] mb-8 text-center">
+        المنتجات الحالية
+      </h2>
+      <div
+        id="productsGrid"
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"
+      ></div>
     </div>
 
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+    <script>
+      function showToast(message, isError = false) {
+        Toastify({
+          text: message,
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          style: {
+            background: isError
+              ? "linear-gradient(to right, #ff5f6d, #ffc371)"
+              : "linear-gradient(to right, #00b09b, #96c93d)",
+            fontFamily: "Cairo",
+            borderRadius: "10px",
+          },
+        }).showToast();
+      }
 
-    <h2 class="text-3xl font-bold text-[#707070] mb-8 text-center">
-      المنتجات الحالية
-    </h2>
-    <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8"></div>
-  </div>
+      const currentSeller = JSON.parse(localStorage.getItem("seller"));
 
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-  <script>
-    function showToast(message, isError = false) {
-      Toastify({
-        text: message,
-        duration: 3000,
-        gravity: "top",
-        position: "center",
-        style: {
-          background: isError ? "linear-gradient(to right, #ff5f6d, #ffc371)" : "linear-gradient(to right, #00b09b, #96c93d)",
-          fontFamily: "Cairo",
-          borderRadius: "10px"
-        },
-      }).showToast();
-    }
+      if (!currentSeller || currentSeller.role !== "seller") {
+        showToast("غير مصرّح لك بالدخول إلى لوحة الإدارة", true);
+        setTimeout(() => {
+          localStorage.removeItem("seller");
+          window.location.href = "seller-login.html";
+        }, 1500);
+      }
 
-    const currentSeller = JSON.parse(localStorage.getItem("seller"));
+      console.log("مرحباً يا " + currentSeller.name);
 
-    if (!currentSeller || currentSeller.role !== "seller") {
-      showToast("غير مصرّح لك بالدخول إلى لوحة الإدارة", true);
-      setTimeout(() => {
-        localStorage.removeItem("seller");
-        window.location.href = "seller-login.html";
-      }, 1500);
-    }
+      const grid = document.getElementById("productsGrid");
+      const form = document.getElementById("addProductForm");
+      const formTitle = document.getElementById("formTitle");
+      const submitBtn = form.querySelector("button[type='submit']");
 
-    console.log("مرحباً يا " + currentSeller.name);
+      const API_URL = "/api";
 
-    const grid = document.getElementById("productsGrid");
-    const form = document.getElementById("addProductForm");
-    const formTitle = document.getElementById("formTitle");
-    const submitBtn = form.querySelector("button[type='submit']");
+      let allProducts = [];
 
-    const API_URL = "/api";
+      async function loadProducts() {
+        try {
+          const res = await fetch(`${API_URL}/products`, { method: "GET" });
+          if (!res.ok) throw new Error("فشل جلب المنتجات");
+          const data = await res.json();
+          allProducts = data;
 
-    let allProducts = [];
+          grid.innerHTML = "";
 
-    async function loadProducts() {
-      try {
-        const res = await fetch(`${API_URL}/products`, { method: "GET" });
-        if (!res.ok) throw new Error("فشل جلب المنتجات");
-        const data = await res.json();
-        allProducts = data;
+          if (!data || data.length === 0) {
+            grid.innerHTML =
+              '<p class="text-gray-500 col-span-full text-center text-xl">لا توجد منتجات حاليًا</p>';
+            return;
+          }
 
-        grid.innerHTML = "";
-
-        if (!data || data.length === 0) {
-          grid.innerHTML =
-            '<p class="text-gray-500 col-span-full text-center text-xl">لا توجد منتجات حاليًا</p>';
-          return;
-        }
-
-        data.forEach((product, index) => {
-          const card = document.createElement("div");
-          card.className =
-            "bg-white rounded-2xl shadow-lg overflow-hidden border border-pink-100 hover:shadow-xl transition text-center";
-          card.innerHTML = `
+          data.forEach((product, index) => {
+            const card = document.createElement("div");
+            card.className =
+              "bg-white rounded-2xl shadow-lg overflow-hidden border border-pink-100 hover:shadow-xl transition text-center";
+            card.innerHTML = `
             <img src="${product.image || "https://via.placeholder.com/400x300?text=No+Image"}" alt="${product.name}" class="w-full h-56 object-cover">
             <div class="p-6">
               <h3 class="product-name text-[#707070] mb-2">${product.name}</h3>
@@ -161,140 +206,141 @@
               </div>
             </div>
           `;
-          grid.appendChild(card);
-        });
-      } catch (err) {
-        console.error(err);
-        grid.innerHTML =
-          '<p class="text-red-600 col-span-full text-center text-xl">حدث خطأ في جلب المنتجات</p>';
-      }
-    }
-
-    window.editProduct = function (index) {
-      const product = allProducts[index];
-      if (!product) return;
-
-      document.getElementById("name").value = product.name;
-      document.getElementById("price").value = product.price;
-      document.getElementById("description").value = product.description || "";
-      document.getElementById("image").value = product.image;
-      document.getElementById("category").value = product.category;
-
-      formTitle.textContent = "تعديل المنتج";
-      submitBtn.textContent = "حفظ التعديلات";
-
-      let hiddenId = document.getElementById("editId");
-      if (!hiddenId) {
-        hiddenId = document.createElement("input");
-        hiddenId.type = "hidden";
-        hiddenId.id = "editId";
-        form.appendChild(hiddenId);
-      }
-      hiddenId.value = product.id;
-
-      form.scrollIntoView({ behavior: "smooth" });
-    };
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const name = document.getElementById("name").value.trim();
-      const price = parseFloat(document.getElementById("price").value);
-      const description = document.getElementById("description").value.trim();
-      const image = document.getElementById("image").value.trim();
-      const category = document.getElementById("category").value;
-
-      if (!name || !price || !image) return showToast("يرجى ملء الحقول المطلوبة", true);
-
-      const seller = JSON.parse(localStorage.getItem("seller"));
-      const token = seller ? seller.email : null;
-      if (!token)
-        return (
-          showToast("يرجى تسجيل الدخول مجدداً", true),
-          setTimeout(() => (window.location.href = "seller-login.html"), 1500)
-        );
-
-      const editId = document.getElementById("editId")?.value;
-
-      try {
-        let res, successMessage;
-        const url = editId
-          ? `${API_URL}/products/${editId}`
-          : `${API_URL}/products`;
-        const method = editId ? "PUT" : "POST";
-
-        res = await fetch(url, {
-          method,
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({ name, price, description, image, category }),
-        });
-
-        successMessage = editId
-          ? "تم تعديل المنتج بنجاح"
-          : "تمت الإضافة بنجاح";
-        const data = await res.json();
-
-        if (res.ok) {
-          showToast(successMessage);
-          form.reset();
-          formTitle.textContent = "إضافة منتج جديد";
-          submitBtn.textContent = "إضافة المنتج الآن";
-          const hiddenId = document.getElementById("editId");
-          if (hiddenId) hiddenId.remove();
-          loadProducts();
-        } else {
-          showToast(data.error || "حدث خطأ", true);
+            grid.appendChild(card);
+          });
+        } catch (err) {
+          console.error(err);
+          grid.innerHTML =
+            '<p class="text-red-600 col-span-full text-center text-xl">حدث خطأ في جلب المنتجات</p>';
         }
-      } catch (err) {
-        console.error(err);
-        showToast("حدث خطأ، حاول مرة أخرى", true);
       }
-    });
 
-    window.deleteProduct = async function (id) {
-      if (!confirm("هل أنت متأكد من حذف هذا المنتج؟")) return;
+      window.editProduct = function (index) {
+        const product = allProducts[index];
+        if (!product) return;
 
-      const seller = JSON.parse(localStorage.getItem("seller"));
-      const token = seller ? seller.email : null;
-      if (!token)
-        return (
-          showToast("يرجى تسجيل الدخول مجدداً", true),
-          setTimeout(() => (window.location.href = "seller-login.html"), 1500)
-        );
+        document.getElementById("name").value = product.name;
+        document.getElementById("price").value = product.price;
+        document.getElementById("description").value =
+          product.description || "";
+        document.getElementById("image").value = product.image;
+        document.getElementById("category").value = product.category;
 
-      try {
-        const res = await fetch(`${API_URL}/products`, {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({ id }),
-        });
+        formTitle.textContent = "تعديل المنتج";
+        submitBtn.textContent = "حفظ التعديلات";
 
-        const data = await res.json();
-        if (res.ok) {
-          showToast(data.message || "تم الحذف بنجاح");
-          loadProducts();
-        } else {
-          showToast(data.error || "حدث خطأ", true);
+        let hiddenId = document.getElementById("editId");
+        if (!hiddenId) {
+          hiddenId = document.createElement("input");
+          hiddenId.type = "hidden";
+          hiddenId.id = "editId";
+          form.appendChild(hiddenId);
         }
-      } catch (err) {
-        console.error(err);
-        showToast("حدث خطأ، حاول مرة أخرى", true);
+        hiddenId.value = product.id;
+
+        form.scrollIntoView({ behavior: "smooth" });
+      };
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const price = parseFloat(document.getElementById("price").value);
+        const description = document.getElementById("description").value.trim();
+        const image = document.getElementById("image").value.trim();
+        const category = document.getElementById("category").value;
+
+        if (!name || !price || !image)
+          return showToast("يرجى ملء الحقول المطلوبة", true);
+
+        const seller = JSON.parse(localStorage.getItem("seller"));
+        const token = seller ? seller.email : null;
+        if (!token)
+          return (
+            showToast("يرجى تسجيل الدخول مجدداً", true),
+            setTimeout(() => (window.location.href = "seller-login.html"), 1500)
+          );
+
+        const editId = document.getElementById("editId")?.value;
+
+        try {
+          let res, successMessage;
+          const url = editId
+            ? `${API_URL}/products/${editId}`
+            : `${API_URL}/products`;
+          const method = editId ? "PUT" : "POST";
+
+          res = await fetch(url, {
+            method,
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ name, price, description, image, category }),
+          });
+
+          successMessage = editId
+            ? "تم تعديل المنتج بنجاح"
+            : "تمت الإضافة بنجاح";
+          const data = await res.json();
+
+          if (res.ok) {
+            showToast(successMessage);
+            form.reset();
+            formTitle.textContent = "إضافة منتج جديد";
+            submitBtn.textContent = "إضافة المنتج الآن";
+            const hiddenId = document.getElementById("editId");
+            if (hiddenId) hiddenId.remove();
+            loadProducts();
+          } else {
+            showToast(data.error || "حدث خطأ", true);
+          }
+        } catch (err) {
+          console.error(err);
+          showToast("حدث خطأ، حاول مرة أخرى", true);
+        }
+      });
+
+      window.deleteProduct = async function (id) {
+        if (!confirm("هل أنت متأكد من حذف هذا المنتج؟")) return;
+
+        const seller = JSON.parse(localStorage.getItem("seller"));
+        const token = seller ? seller.email : null;
+        if (!token)
+          return (
+            showToast("يرجى تسجيل الدخول مجدداً", true),
+            setTimeout(() => (window.location.href = "seller-login.html"), 1500)
+          );
+
+        try {
+          const res = await fetch(`${API_URL}/products`, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ id }),
+          });
+
+          const data = await res.json();
+          if (res.ok) {
+            showToast(data.message || "تم الحذف بنجاح");
+            loadProducts();
+          } else {
+            showToast(data.error || "حدث خطأ", true);
+          }
+        } catch (err) {
+          console.error(err);
+          showToast("حدث خطأ، حاول مرة أخرى", true);
+        }
+      };
+
+      function logout() {
+        localStorage.removeItem("seller");
+        window.location.href = "seller-login.html";
       }
-    };
 
-    function logout() {
-      localStorage.removeItem("seller");
-      window.location.href = "seller-login.html";
-    }
-
-    loadProducts();
-  </script>
-</body>
-
+      loadProducts();
+    </script>
+  </body>
 </html>

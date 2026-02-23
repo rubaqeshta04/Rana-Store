@@ -1,127 +1,140 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>رنا ستور - مرحبًا بكِ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Playfair Display", serif;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>رنا ستور - مرحبًا بكِ</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: "Playfair Display", serif;
-    }
-
-
-    .fade-scale-bounce {
-      opacity: 0;
-      transform: translateY(20px) scale(0.95);
-      animation: fadeScaleBounce 1.8s forwards;
-      animation-timing-function: ease-out;
-    }
-
-    .fade-scale-bounce-delay {
-      animation-delay: 0.7s;
-    }
-
-    .fade-scale-bounce-delay-2 {
-      animation-delay: 1.4s;
-    }
-
-    .fade-scale-bounce-delay-3 {
-      animation-delay: 2.1s;
-    }
-
-    @keyframes fadeScaleBounce {
-      0% {
+      .fade-scale-bounce {
         opacity: 0;
         transform: translateY(20px) scale(0.95);
+        animation: fadeScaleBounce 1.8s forwards;
+        animation-timing-function: ease-out;
       }
 
-      60% {
+      .fade-scale-bounce-delay {
+        animation-delay: 0.7s;
+      }
+
+      .fade-scale-bounce-delay-2 {
+        animation-delay: 1.4s;
+      }
+
+      .fade-scale-bounce-delay-3 {
+        animation-delay: 2.1s;
+      }
+
+      @keyframes fadeScaleBounce {
+        0% {
+          opacity: 0;
+          transform: translateY(20px) scale(0.95);
+        }
+
+        60% {
+          opacity: 1;
+          transform: translateY(-5px) scale(1.05);
+        }
+
+        80% {
+          transform: translateY(0) scale(0.98);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .btn-hover::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: rgba(246, 193, 204, 0.3);
+        opacity: 0;
+        transform: scale(0.9);
+        transition: all 0.3s ease;
+        z-index: 0;
+      }
+
+      .btn-hover:hover::before {
         opacity: 1;
-        transform: translateY(-5px) scale(1.05);
-      }
-
-      80% {
-        transform: translateY(0) scale(0.98);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-
-    .btn-hover::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background: rgba(246, 193, 204, 0.3);
-      opacity: 0;
-      transform: scale(0.9);
-      transition: all 0.3s ease;
-      z-index: 0;
-    }
-
-    .btn-hover:hover::before {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .btn-hover span {
-      position: relative;
-      z-index: 10;
-    }
-
-    .bg-animate {
-      animation: backgroundZoom 20s ease-in-out infinite alternate;
-    }
-
-    @keyframes backgroundZoom {
-      0% {
         transform: scale(1);
       }
 
-      50% {
-        transform: scale(1.05);
+      .btn-hover span {
+        position: relative;
+        z-index: 10;
       }
 
-      100% {
-        transform: scale(1);
+      .bg-animate {
+        animation: backgroundZoom 20s ease-in-out infinite alternate;
       }
-    }
-  </style>
-</head>
 
-<body class="relative min-h-screen flex items-center justify-center bg-[#9ca3af]">
-  <div class="absolute inset-0 overflow-hidden">
-    <img src="assets/welcome.jpg" alt="خلفية" class="w-full h-full object-cover opacity-80 bg-animate" />
-    <div class="absolute inset-0 bg-[#fbcfe8]/50"></div>
-  </div>
+      @keyframes backgroundZoom {
+        0% {
+          transform: scale(1);
+        }
 
-  <div class="relative text-center p-6 md:p-12 rounded-xl">
-    <img src="assets/logo-rana.png" alt="Rana Store"
-      class="mx-auto w-20 md:w-28 mb-6 rounded-full shadow-lg fade-scale-bounce" />
+        50% {
+          transform: scale(1.05);
+        }
 
-    <h1
-      class="text-3xl md:text-6xl font-extrabold text-white mb-4 fade-scale-bounce fade-scale-bounce-delay tracking-wide">
-      Rana Store
-    </h1>
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
 
-    <p class="text-lg md:text-xl text-[#4b5563]/90 mb-8 fade-scale-bounce fade-scale-bounce-delay-2 font-[600]">
-      مرحبًا بكِ في عالم الجمال الخاص بكِ 🌸<br />
-      اكتشفي تشكيلة رنا ستور من العطور، المكياج، الملابس واختاري ما يناسب
-      بشرتك ويبرز أنوثتك
-    </p>
+  <body
+    class="relative min-h-screen flex items-center justify-center bg-[#9ca3af]"
+  >
+    <div class="absolute inset-0 overflow-hidden">
+      <img
+        src="assets/welcome.jpg"
+        alt="خلفية"
+        class="w-full h-full object-cover opacity-80 bg-animate"
+      />
+      <div class="absolute inset-0 bg-[#fbcfe8]/50"></div>
+    </div>
 
-    <a href="Landing-Page/landing.html"
-      class="relative inline-block px-6 py-2 text-base md:px-8 md:py-3 md:text-xl font-semibold rounded-full bg-[#707070] text-[#f5b5c5] hover:bg-[#5a5a5a] hover:text-[#f8d0da] shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 fade-scale-bounce fade-scale-bounce-delay-3 btn-hover">
-      <span>دخول المتجر</span>
-    </a>
-  </div>
-</body>
+    <div class="relative text-center p-6 md:p-12 rounded-xl">
+      <img
+        src="assets/logo-rana.png"
+        alt="Rana Store"
+        class="mx-auto w-20 md:w-28 mb-6 rounded-full shadow-lg fade-scale-bounce"
+      />
 
+      <h1
+        class="text-3xl md:text-6xl font-extrabold text-white mb-4 fade-scale-bounce fade-scale-bounce-delay tracking-wide"
+      >
+        Rana Store
+      </h1>
+
+      <p
+        class="text-lg md:text-xl text-[#4b5563]/90 mb-8 fade-scale-bounce fade-scale-bounce-delay-2 font-[600]"
+      >
+        مرحبًا بكِ في عالم الجمال الخاص بكِ 🌸<br />
+        اكتشفي تشكيلة رنا ستور من العطور، المكياج، الملابس واختاري ما يناسب
+        بشرتك ويبرز أنوثتك
+      </p>
+
+      <a
+        href="Landing-Page/landing.html"
+        class="relative inline-block px-6 py-2 text-base md:px-8 md:py-3 md:text-xl font-semibold rounded-full bg-[#707070] text-[#f5b5c5] hover:bg-[#5a5a5a] hover:text-[#f8d0da] shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 fade-scale-bounce fade-scale-bounce-delay-3 btn-hover"
+      >
+        <span>دخول المتجر</span>
+      </a>
+    </div>
+  </body>
 </html>
