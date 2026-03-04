@@ -1,471 +1,378 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>خدمة العملاء - Rana Store</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="../assets/css/global.css" />
-    <style>
-      body {
-        font-family: "Cairo", sans-serif;
-        background-color: var(--bg-pink);
-        color: #707070;
-      }
 
-      .serif {
-        font-family: "Amiri", serif;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>خدمة العملاء - Rana Store</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../assets/css/global.css" />
+  <style>
+    body {
+      font-family: "Cairo", sans-serif;
+      background-color: var(--bg-pink);
+      color: #707070;
+    }
 
-      .gradient-text {
-        background: linear-gradient(
-          90deg,
+    .serif {
+      font-family: "Amiri", serif;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg,
           var(--primary-pink),
-          var(--accent-pink)
-        );
-        -webkit-background-clip: text;
-        background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+          var(--accent-pink));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-      .section-card {
-        background: white;
-        border-radius: 1.5rem;
-        box-shadow:
-          0 10px 25px -5px rgba(0, 0, 0, 0.1),
-          0 8px 10px -6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-        border: 1px solid var(--soft-pink);
-      }
+    .section-card {
+      background: white;
+      border-radius: 1.5rem;
+      box-shadow:
+        0 10px 25px -5px rgba(0, 0, 0, 0.1),
+        0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      border: 1px solid var(--soft-pink);
+    }
 
-      .section-card:hover {
-        transform: translateY(-5px);
-      }
-    </style>
-  </head>
+    .section-card:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
 
-  <body class="antialiased">
-    <div class="fixed top-6 right-6 z-50">
-      <a href="../Landing-Page/landing.html">
-        <button
-          class="relative inline-block px-8 py-3 text-lg md:text-xl font-semibold rounded-full bg-[#707070] text-[#f5b5c5] hover:bg-[#5a5a5a] hover:text-[#f8d0da] shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 fade-scale-bounce fade-scale-bounce-delay-3 btn-hover"
-        >
-          ← رجوع للرئيسية
-        </button>
-      </a>
+<body class="antialiased">
+  <div class="fixed top-6 right-6 z-50">
+    <a href="../Landing-Page/landing.html">
+      <button
+        class="relative inline-block px-8 py-3 text-lg md:text-xl font-semibold rounded-full bg-[#707070] text-[#f5b5c5] hover:bg-[#5a5a5a] hover:text-[#f8d0da] shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 fade-scale-bounce fade-scale-bounce-delay-3 btn-hover">
+        ← رجوع للرئيسية
+      </button>
+    </a>
+  </div>
+
+  <header class="relative py-24 bg-white border-b border-pink-100 overflow-hidden">
+    <div class="absolute -top-24 -left-24 w-64 h-64 bg-pink-50 rounded-full opacity-50 blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-pink-50 rounded-full opacity-50 blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 serif italic text-[#f5b5c5]">
+        Customer Service
+      </h1>
+      <p class="text-xl text-[#707070] max-w-2xl mx-auto font-light">
+        نحن هنا لخدمتِك وجعل تجربة تسوقك في رنا ستور غاية في السهولة والجمال.
+      </p>
     </div>
+  </header>
 
-    <header
-      class="relative py-24 bg-white border-b border-pink-100 overflow-hidden"
-    >
-      <div
-        class="absolute -top-24 -left-24 w-64 h-64 bg-pink-50 rounded-full opacity-50 blur-3xl"
-      ></div>
-      <div
-        class="absolute -bottom-24 -right-24 w-64 h-64 bg-pink-50 rounded-full opacity-50 blur-3xl"
-      ></div>
-
-      <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
-        <h1
-          class="text-4xl md:text-6xl font-bold mb-6 serif italic text-[#f5b5c5]"
-        >
-          Customer Service
-        </h1>
-        <p class="text-xl text-[#707070] max-w-2xl mx-auto font-light">
-          نحن هنا لخدمتِك وجعل تجربة تسوقك في رنا ستور غاية في السهولة والجمال.
-        </p>
-      </div>
-    </header>
-
-    <main class="max-w-5xl mx-auto px-6 py-16 space-y-12">
-      <section id="about" class="section-card p-8 md:p-12">
-        <div class="flex flex-col md:flex-row gap-10 items-center">
-          <div class="md:w-1/3">
-            <div
-              class="w-full h-80 bg-pink-100 rounded-2xl flex items-center justify-center"
-            >
-              <i class="fa-solid fa-store text-7xl text-[#f5b5c5]"></i>
-            </div>
-          </div>
-          <div class="md:w-2/3">
-            <h2
-              class="text-3xl font-bold mb-6 flex items-center gap-3 serif text-[#707070]"
-            >
-              <span
-                class="w-10 h-10 bg-[#f5b5c5]/20 text-[#f5b5c5] rounded-full flex items-center justify-center text-lg"
-                ><i class="fa-solid fa-heart"></i
-              ></span>
-              عن رنا ستور
-            </h2>
-            <p class="text-lg leading-relaxed text-[#707070] mb-6">
-              رنا ستور ليس مجرد متجر إلكتروني، بل هو وجهتُكِ الأولى للأناقة
-              والجمال في قلب قطاع غزة. منذ انطلاقتنا، وهدفنا هو توفير أرقى أنواع
-              الملابس، المكياج، والعطور التي تلامس ذوق المرأة العصرية وتلبي
-              احتياجاتها اليومية والخاصة.
-            </p>
-            <p class="text-lg leading-relaxed text-[#707070]">
-              نحن نؤمن أن "أناقتك علينا"، ولذلك نحرص على انتقاء كل قطعة بعناية
-              فائقة لنضمن لكِ الجودة والتميز الذي تستحقينه.
-            </p>
+  <main class="max-w-5xl mx-auto px-6 py-16 space-y-12">
+    <section id="about" class="section-card p-8 md:p-12">
+      <div class="flex flex-col md:flex-row gap-10 items-center">
+        <div class="md:w-1/3">
+          <div class="w-full h-80 bg-pink-100 rounded-2xl flex items-center justify-center">
+            <i class="fa-solid fa-store text-7xl text-[#f5b5c5]"></i>
           </div>
         </div>
-      </section>
-
-      <section
-        id="how-to-order"
-        class="section-card p-8 md:p-12 border-r-4 border-[#f5b5c5]"
-      >
-        <h2
-          class="text-3xl font-bold mb-10 flex items-center gap-3 serif text-[#707070]"
-        >
-          <span
-            class="w-10 h-10 bg-[#f5b5c5]/20 text-[#f5b5c5] rounded-full flex items-center justify-center text-lg"
-            ><i class="fa-solid fa-cart-shopping"></i
-          ></span>
-          كيفية الطلب
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="text-center p-6 bg-gray-50 rounded-2xl">
-            <div
-              class="w-12 h-12 bg-[#f5b5c5] text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl"
-            >
-              1
-            </div>
-            <h3 class="font-bold mb-2">اختاري منتجك</h3>
-            <p class="text-gray-500 text-sm">
-              تصفحي الموقع واختاري ما ينال إعجابك من أقسامنا المختلفة.
-            </p>
-          </div>
-          <div class="text-center p-6 bg-gray-50 rounded-2xl">
-            <div
-              class="w-12 h-12 bg-[#f5b5c5] text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl"
-            >
-              2
-            </div>
-            <h3 class="font-bold mb-2">تواصلي معنا</h3>
-            <p class="text-gray-500 text-sm">
-              اضغطي على رابط الإنستغرام الموجود تحت كل منتج لإرسال طلبك مباشرة.
-            </p>
-          </div>
-          <div class="text-center p-6 bg-gray-50 rounded-2xl">
-            <div
-              class="w-12 h-12 bg-[#f5b5c5] text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl"
-            >
-              3
-            </div>
-            <h3 class="font-bold mb-2">أكدي الطلب</h3>
-            <p class="text-gray-500 text-sm">
-              سنقوم بالرد عليكِ لتأكيد توفر المنتج، المقاس، وتفاصيل التوصيل.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="shipping" class="section-card p-8 md:p-12">
-        <div class="flex flex-col md:flex-row-reverse gap-10 items-center">
-          <div class="md:w-1/3">
-            <div
-              class="w-full h-80 bg-gray-100 rounded-2xl flex items-center justify-center"
-            >
-              <i class="fa-solid fa-truck-fast text-7xl text-gray-400"></i>
-            </div>
-          </div>
-          <div class="md:w-2/3">
-            <h2
-              class="text-3xl font-bold mb-6 flex items-center gap-3 serif text-[#707070]"
-            >
-              <span
-                class="w-10 h-10 bg-[#f5b5c5]/20 text-[#f5b5c5] rounded-full flex items-center justify-center text-lg"
-                ><i class="fa-solid fa-location-dot"></i
-              ></span>
-              التوصيل والشحن
-            </h2>
-            <div class="space-y-4">
-              <div class="flex items-start gap-4">
-                <i class="fa-solid fa-circle-check text-[#f5b5c5] mt-1"></i>
-                <div>
-                  <h4 class="font-bold">تغطية شاملة لقطاع غزة</h4>
-                  <p class="text-gray-500">
-                    نوفر خدمة التوصيل لجميع مناطق قطاع غزة (غزة، الوسطى،
-                    خانيونس، ورفح).
-                  </p>
-                </div>
-              </div>
-              <div class="flex items-start gap-4">
-                <i class="fa-solid fa-circle-check text-[#f5b5c5] mt-1"></i>
-                <div>
-                  <h4 class="font-bold">وقت التوصيل</h4>
-                  <p class="text-gray-500">
-                    يتم التوصيل عادةً خلال 24-48 ساعة من تأكيد الطلب.
-                  </p>
-                </div>
-              </div>
-              <div class="flex items-start gap-4">
-                <i class="fa-solid fa-circle-check text-[#f5b5c5] mt-1"></i>
-                <div>
-                  <h4 class="font-bold">أسعار التوصيل</h4>
-                  <p class="text-gray-500">
-                    تبدأ رسوم التوصيل من 5 شيكل وتختلف حسب المنطقة السكنية.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="returns"
-        class="section-card p-8 md:p-12 bg-[#f5b5c5]/10 border border-[#f5b5c5]/30"
-      >
-        <h2
-          class="text-3xl font-bold mb-6 flex items-center gap-3 serif text-[#707070]"
-        >
-          <span
-            class="w-10 h-10 bg-white text-[#f5b5c5] rounded-full flex items-center justify-center text-lg"
-            ><i class="fa-solid fa-rotate-left"></i
-          ></span>
-          سياسة الاستبدال والاسترجاع
-        </h2>
-        <ul
-          class="list-disc list-inside space-y-3 text-lg text-gray-600 leading-relaxed px-4"
-        >
-          <li>يتم فحص الطلب عند الاستلام مع المندوب مباشرة.</li>
-          <li>
-            يُسمح بالاستبدال خلال 48 ساعة من تاريخ الاستلام بشرط بقاء المنتج
-            بحالته الأصلية.
-          </li>
-          <li>
-            لا يتم استرجاع أو استبدال منتجات التجميل والعناية الشخصية لأسباب
-            صحية.
-          </li>
-          <li>
-            في حال وجود عيب مصنعي، يتحمل المتجر كافة تكاليف التوصيل للاستبدال.
-          </li>
-        </ul>
-      </section>
-
-      <section id="faq" class="section-card p-8 md:p-12">
-        <h2 class="text-3xl font-bold mb-10 text-center serif text-[#707070]">
-          الأسئلة الشائعة
-        </h2>
-        <div class="space-y-6">
-          <div class="p-6 bg-gray-50 rounded-2xl">
-            <h3 class="font-bold text-lg mb-2 text-[#f5b5c5]">
-              هل المنتجات أصلية؟
-            </h3>
-            <p class="text-gray-600">
-              نعم، جميع منتجاتنا مستوردة ومن مصادر موثوقة لضمان أعلى جودة
-              لزبائننا.
-            </p>
-          </div>
-          <div class="p-6 bg-gray-50 rounded-2xl">
-            <h3 class="font-bold text-lg mb-2 text-[#f5b5c5]">
-              كيف يمكنني تتبع طلبي؟
-            </h3>
-            <p class="text-gray-600">
-              يمكنك التواصل معنا عبر رسائل الإنستغرام في أي وقت للاستفسار عن
-              حالة طلبك وموعد وصول المندوب.
-            </p>
-          </div>
-          <div class="p-6 bg-gray-50 rounded-2xl">
-            <h3 class="font-bold text-lg mb-2 text-[#f5b5c5]">
-              هل يوجد محل فعلي للمتجر؟
-            </h3>
-            <p class="text-[#707070]">
-              نحن متجر إلكتروني حالياً، وهذا يساعدنا في تقديم أسعار منافسة
-              وتشكيلة أكبر من المنتجات.
-            </p>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="relative overflow-hidden mt-20 text-gray-300 bg-[#707070]">
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/95 to-gray-800/95 z-0"
-      ></div>
-
-      <div class="relative z-10 max-w-7xl mx-auto px-6 py-16">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div class="col-span-1 md:col-span-1">
-            <a href="landing.html" class="cursor-pointer">
-              <h3
-                class="text-3xl font-bold text-[#f5b5c5] mb-6"
-                style="font-family: &quot;Playfair Display&quot;, serif"
-              >
-                Rana <span class="text-gray-400">Store</span>
-              </h3>
-            </a>
-            <p class="leading-relaxed mb-6 text-sm text-gray-400">
-              وجهتك الأولى للأناقة والجمال. نقدم لكِ أفضل المنتجات العالمية من
-              قلب غزة، لنمنحكِ التميز الذي تستحقينه.
-            </p>
-            <div class="flex gap-4">
-              <a
-                href="https://www.instagram.com/rana.store97"
-                target="_blank"
-                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-[#f5b5c5] hover:bg-[#f5b5c5] hover:text-white transition-all duration-300 shadow-lg border border-gray-700"
-              >
-                <i class="fa-brands fa-instagram text-lg"></i>
-              </a>
-              <a
-                href="#"
-                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-[#f5b5c5] hover:bg-[#f5b5c5] hover:text-white transition-all duration-300 shadow-lg border border-gray-700"
-              >
-                <i class="fa-brands fa-facebook-f text-lg"></i>
-              </a>
-              <a
-                href="#"
-                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-[#f5b5c5] hover:bg-[#f5b5c5] hover:text-white transition-all duration-300 shadow-lg border border-gray-700"
-              >
-                <i class="fa-brands fa-whatsapp text-lg"></i>
-              </a>
-            </div>
-          </div>
-
-          <div>
-            <h4
-              class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2"
-            >
-              روابط سريعة
-            </h4>
-            <ul class="space-y-3 text-sm">
-              <li>
-                <a
-                  href="../index.html"
-                  class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"
-                  ><i
-                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"
-                  ></i>
-                  الرئيسية</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#about-us"
-                  class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"
-                  ><i
-                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"
-                  ></i>
-                  من نحن</a
-                >
-              </li>
-              <li>
-                <a
-                  href="../Catalog-Page/clothes.html"
-                  class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"
-                  ><i
-                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"
-                  ></i>
-                  الأزياء</a
-                >
-              </li>
-              <li>
-                <a
-                  href="../Catalog-Page/makeup.html"
-                  class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"
-                  ><i
-                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"
-                  ></i>
-                  الجمال</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <a href="information.html">
-              <h4
-                class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2"
-              >
-                خدمة العملاء
-              </h4>
-            </a>
-            <ul class="space-y-3 text-sm">
-              <li>
-                <a
-                  href="information.html#about"
-                  class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"
-                  ><i
-                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"
-                  ></i>
-                  عن المتجر</a
-                >
-              </li>
-              <li>
-                <a
-                  href="information.html#returns"
-                  class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"
-                  ><i
-                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"
-                  ></i>
-                  الاستبدال والاسترجاع</a
-                >
-              </li>
-              <li>
-                <a
-                  href="information.html#how-to-order"
-                  class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"
-                  ><i
-                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"
-                  ></i>
-                  طريقة الطلب</a
-                >
-              </li>
-              <li>
-                <a
-                  href="information.html#shipping"
-                  class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"
-                  ><i
-                    class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"
-                  ></i>
-                  التوصيل والشحن</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h4
-              class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2"
-            >
-              تواصل معنا
-            </h4>
-            <ul class="space-y-4 text-sm">
-              <li class="flex items-start gap-3">
-                <i class="fa-solid fa-location-dot text-[#f5b5c5] mt-1"></i>
-                <span class="text-gray-400"
-                  >فلسطين،خانيونس , منتجع الساند بيتش
-                </span>
-              </li>
-              <li class="flex items-start gap-3">
-                <i class="fa-solid fa-phone text-[#f5b5c5] mt-1"></i>
-                <span class="text-gray-400">+970 59 123 4567</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <i class="fa-solid fa-envelope text-[#f5b5c5] mt-1"></i>
-                <span class="text-gray-400">info@ranastore.com</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-          <p class="text-sm text-gray-500">
-            © 2025 <span class="text-[#f5b5c5]">Rana Store</span>. جميع الحقوق
-            محفوظة. صُمم بكل حب 💗
+        <div class="md:w-2/3">
+          <h2 class="text-3xl font-bold mb-6 flex items-center gap-3 serif text-[#707070]">
+            <span
+              class="w-10 h-10 bg-[#f5b5c5]/20 text-[#f5b5c5] rounded-full flex items-center justify-center text-lg"><i
+                class="fa-solid fa-heart"></i></span>
+            عن رنا ستور
+          </h2>
+          <p class="text-lg leading-relaxed text-[#707070] mb-6">
+            رنا ستور ليس مجرد متجر إلكتروني، بل هو وجهتُكِ الأولى للأناقة
+            والجمال في قلب قطاع غزة. منذ انطلاقتنا، وهدفنا هو توفير أرقى أنواع
+            الملابس، المكياج، والعطور التي تلامس ذوق المرأة العصرية وتلبي
+            احتياجاتها اليومية والخاصة.
+          </p>
+          <p class="text-lg leading-relaxed text-[#707070]">
+            نحن نؤمن أن "أناقتك علينا"، ولذلك نحرص على انتقاء كل قطعة بعناية
+            فائقة لنضمن لكِ الجودة والتميز الذي تستحقينه.
           </p>
         </div>
       </div>
-    </footer>
-  </body>
+    </section>
+
+    <section id="how-to-order" class="section-card p-8 md:p-12 border-r-4 border-[#f5b5c5]">
+      <h2 class="text-3xl font-bold mb-10 flex items-center gap-3 serif text-[#707070]">
+        <span class="w-10 h-10 bg-[#f5b5c5]/20 text-[#f5b5c5] rounded-full flex items-center justify-center text-lg"><i
+            class="fa-solid fa-cart-shopping"></i></span>
+        كيفية الطلب
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center p-6 bg-gray-50 rounded-2xl">
+          <div
+            class="w-12 h-12 bg-[#f5b5c5] text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+            1
+          </div>
+          <h3 class="font-bold mb-2">اختاري منتجك</h3>
+          <p class="text-gray-500 text-sm">
+            تصفحي الموقع واختاري ما ينال إعجابك من أقسامنا المختلفة.
+          </p>
+        </div>
+        <div class="text-center p-6 bg-gray-50 rounded-2xl">
+          <div
+            class="w-12 h-12 bg-[#f5b5c5] text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+            2
+          </div>
+          <h3 class="font-bold mb-2">تواصلي معنا</h3>
+          <p class="text-gray-500 text-sm">
+            اضغطي على رابط الإنستغرام الموجود تحت كل منتج لإرسال طلبك مباشرة.
+          </p>
+        </div>
+        <div class="text-center p-6 bg-gray-50 rounded-2xl">
+          <div
+            class="w-12 h-12 bg-[#f5b5c5] text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+            3
+          </div>
+          <h3 class="font-bold mb-2">أكدي الطلب</h3>
+          <p class="text-gray-500 text-sm">
+            سنقوم بالرد عليكِ لتأكيد توفر المنتج، المقاس، وتفاصيل التوصيل.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="shipping" class="section-card p-8 md:p-12">
+      <div class="flex flex-col md:flex-row-reverse gap-10 items-center">
+        <div class="md:w-1/3">
+          <div class="w-full h-80 bg-gray-100 rounded-2xl flex items-center justify-center">
+            <i class="fa-solid fa-truck-fast text-7xl text-gray-400"></i>
+          </div>
+        </div>
+        <div class="md:w-2/3">
+          <h2 class="text-3xl font-bold mb-6 flex items-center gap-3 serif text-[#707070]">
+            <span
+              class="w-10 h-10 bg-[#f5b5c5]/20 text-[#f5b5c5] rounded-full flex items-center justify-center text-lg"><i
+                class="fa-solid fa-location-dot"></i></span>
+            التوصيل والشحن
+          </h2>
+          <div class="space-y-4">
+            <div class="flex items-start gap-4">
+              <i class="fa-solid fa-circle-check text-[#f5b5c5] mt-1"></i>
+              <div>
+                <h4 class="font-bold">تغطية شاملة لقطاع غزة</h4>
+                <p class="text-gray-500">
+                  نوفر خدمة التوصيل لجميع مناطق قطاع غزة (غزة، الوسطى،
+                  خانيونس، ورفح).
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <i class="fa-solid fa-circle-check text-[#f5b5c5] mt-1"></i>
+              <div>
+                <h4 class="font-bold">وقت التوصيل</h4>
+                <p class="text-gray-500">
+                  يتم التوصيل عادةً خلال 24-48 ساعة من تأكيد الطلب.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <i class="fa-solid fa-circle-check text-[#f5b5c5] mt-1"></i>
+              <div>
+                <h4 class="font-bold">أسعار التوصيل</h4>
+                <p class="text-gray-500">
+                  تبدأ رسوم التوصيل من 5 شيكل وتختلف حسب المنطقة السكنية.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="returns" class="section-card p-8 md:p-12 bg-[#f5b5c5]/10 border border-[#f5b5c5]/30">
+      <h2 class="text-3xl font-bold mb-6 flex items-center gap-3 serif text-[#707070]">
+        <span class="w-10 h-10 bg-white text-[#f5b5c5] rounded-full flex items-center justify-center text-lg"><i
+            class="fa-solid fa-rotate-left"></i></span>
+        سياسة الاستبدال والاسترجاع
+      </h2>
+      <ul class="list-disc list-inside space-y-3 text-lg text-gray-600 leading-relaxed px-4">
+        <li>يتم فحص الطلب عند الاستلام مع المندوب مباشرة.</li>
+        <li>
+          يُسمح بالاستبدال خلال 48 ساعة من تاريخ الاستلام بشرط بقاء المنتج
+          بحالته الأصلية.
+        </li>
+        <li>
+          لا يتم استرجاع أو استبدال منتجات التجميل والعناية الشخصية لأسباب
+          صحية.
+        </li>
+        <li>
+          في حال وجود عيب مصنعي، يتحمل المتجر كافة تكاليف التوصيل للاستبدال.
+        </li>
+      </ul>
+    </section>
+
+    <section id="faq" class="section-card p-8 md:p-12">
+      <h2 class="text-3xl font-bold mb-10 text-center serif text-[#707070]">
+        الأسئلة الشائعة
+      </h2>
+      <div class="space-y-6">
+        <div class="p-6 bg-gray-50 rounded-2xl">
+          <h3 class="font-bold text-lg mb-2 text-[#f5b5c5]">
+            هل المنتجات أصلية؟
+          </h3>
+          <p class="text-gray-600">
+            نعم، جميع منتجاتنا مستوردة ومن مصادر موثوقة لضمان أعلى جودة
+            لزبائننا.
+          </p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-2xl">
+          <h3 class="font-bold text-lg mb-2 text-[#f5b5c5]">
+            كيف يمكنني تتبع طلبي؟
+          </h3>
+          <p class="text-gray-600">
+            يمكنك التواصل معنا عبر رسائل الإنستغرام في أي وقت للاستفسار عن
+            حالة طلبك وموعد وصول المندوب.
+          </p>
+        </div>
+        <div class="p-6 bg-gray-50 rounded-2xl">
+          <h3 class="font-bold text-lg mb-2 text-[#f5b5c5]">
+            هل يوجد محل فعلي للمتجر؟
+          </h3>
+          <p class="text-[#707070]">
+            نعم، نحن موجودون في خانيونس، مدخل منتجع الساند بيتش.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="relative overflow-hidden mt-20 text-gray-300 bg-[#707070]">
+    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/95 to-gray-800/95 z-0"></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-16">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div class="col-span-1 md:col-span-1">
+          <a href="landing.html" class="cursor-pointer">
+            <h3 class="text-3xl font-bold text-[#f5b5c5] mb-6" style="font-family: &quot;Playfair Display&quot;, serif">
+              Rana <span class="text-gray-400">Store</span>
+            </h3>
+          </a>
+          <p class="leading-relaxed mb-6 text-sm text-gray-400">
+            وجهتك الأولى للأناقة والجمال. نقدم لكِ أفضل المنتجات العالمية من
+            قلب غزة، لنمنحكِ التميز الذي تستحقينه.
+          </p>
+          <div class="flex gap-4">
+            <a href="https://www.instagram.com/rana.store97" target="_blank"
+              class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-[#f5b5c5] hover:bg-[#f5b5c5] hover:text-white transition-all duration-300 shadow-lg border border-gray-700">
+              <i class="fa-brands fa-instagram text-lg"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-[#f5b5c5] hover:bg-[#f5b5c5] hover:text-white transition-all duration-300 shadow-lg border border-gray-700">
+              <i class="fa-brands fa-facebook-f text-lg"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-[#f5b5c5] hover:bg-[#f5b5c5] hover:text-white transition-all duration-300 shadow-lg border border-gray-700">
+              <i class="fa-brands fa-whatsapp text-lg"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2">
+            روابط سريعة
+          </h4>
+          <ul class="space-y-3 text-sm">
+            <li>
+              <a href="../index.html" class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
+                  class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
+                الرئيسية</a>
+            </li>
+            <li>
+              <a href="#about-us" class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
+                  class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
+                من نحن</a>
+            </li>
+            <li>
+              <a href="../Catalog-Page/clothes.html"
+                class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
+                  class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
+                الأزياء</a>
+            </li>
+            <li>
+              <a href="../Catalog-Page/makeup.html"
+                class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
+                  class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
+                الجمال</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <a href="information.html">
+            <h4 class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2">
+              خدمة العملاء
+            </h4>
+          </a>
+          <ul class="space-y-3 text-sm">
+            <li>
+              <a href="information.html#about" class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
+                  class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
+                عن المتجر</a>
+            </li>
+            <li>
+              <a href="information.html#returns"
+                class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
+                  class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
+                الاستبدال والاسترجاع</a>
+            </li>
+            <li>
+              <a href="information.html#how-to-order"
+                class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
+                  class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
+                طريقة الطلب</a>
+            </li>
+            <li>
+              <a href="information.html#shipping"
+                class="hover:text-[#f5b5c5] transition-colors flex items-center gap-2"><i
+                  class="fa-solid fa-chevron-left text-xs text-[#f5b5c5]"></i>
+                التوصيل والشحن</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xl font-semibold text-white mb-6 border-b-2 border-[#f5b5c5] inline-block pb-2">
+            تواصل معنا
+          </h4>
+          <ul class="space-y-4 text-sm">
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-location-dot text-[#f5b5c5] mt-1"></i>
+              <span class="text-gray-400">خانيونس، مدخل منتجع الساند بيتش
+              </span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-user-gear text-[#f5b5c5] mt-1"></i>
+              <span class="text-gray-400">مطورة الموقع: البشمهندسة ربا قشطة</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-phone text-[#f5b5c5] mt-1"></i>
+              <span class="text-gray-400">0592461896</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fa-solid fa-envelope text-[#f5b5c5] mt-1"></i>
+              <span class="text-gray-400">qeshtaruba@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+        <p class="text-sm text-gray-500">
+          © 2025 <span class="text-[#f5b5c5]">Rana Store</span>. جميع الحقوق
+          محفوظة. صُمم بكل حب 💗
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
+
 </html>
