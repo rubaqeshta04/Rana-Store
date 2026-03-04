@@ -259,9 +259,9 @@
           <img src="${p.image || "https://via.placeholder.com/300"}" alt="${p.name}" class="w-full h-56 md:h-64 object-cover transition duration-500 group-hover:scale-105">
         </div>
         <div class="p-4 flex flex-col flex-1">
-          <h3 class="font-bold text-lg mb-2 text-[#be185d] line-clamp-1 h-[1.75rem]" title="${p.name}">${p.name}</h3>
+          <h3 class="font-bold text-lg mb-2 text-[#be185d] line-clamp-1 h-[1.75rem] cursor-pointer" title="${p.name}" onclick="this.classList.toggle('line-clamp-1'); this.classList.toggle('h-[1.75rem]')">${p.name}</h3>
           <p class="text-green-600 font-semibold mb-2">${p.price} ش</p>
-          <p class="text-sm text-black flex-1 mb-4 line-clamp-2 h-[2.5rem]" title="${p.description || ""}">${p.description || ""}</p>
+          <p class="text-sm text-black flex-1 mb-4 line-clamp-2 h-[2.5rem] cursor-pointer" title="${p.description || ""}" onclick="this.classList.toggle('line-clamp-2'); this.classList.toggle('h-[2.5rem]')">${p.description || ""}</p>
         </div>
         <div class="p-4 text-center mt-auto">
           <a href="${instagramLink}" target="_blank" class="relative inline-block px-8 py-3 text-lg font-semibold rounded-full bg-[#707070] text-[#f5b5c5] hover:bg-[#5a5a5a] hover:text-[#f8d0da] shadow-md hover:shadow-lg active:scale-95 transition-all duration-300 fade-scale-bounce fade-scale-bounce-delay-3 btn-hover w-full">
