@@ -30,6 +30,7 @@ if (menuBtn) {
   });
 }
 
+
 // غلق القائمة
 function closeMenu() {
   if (mobileMenu) mobileMenu.classList.remove("open");
